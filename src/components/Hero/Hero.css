@@ -1,0 +1,1093 @@
+/* ==========================================================================
+   HERO SECTION STYLES - ARJUN DABHI PORTFOLIO
+   ========================================================================== */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  background-color: var(--bg-dark);
+  color: var(--color-offwhite);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 4rem;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   1. AMBIENT BACKGROUND & LIGHTING
+   ========================================================================== */
+
+.hero-ambient-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: opacity 0.5s ease;
+  will-change: transform, opacity;
+}
+
+.ambient-blob-purple {
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 750px;
+  max-height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(138, 66, 255, 0.12) 0%, rgba(5, 5, 10, 0) 70%);
+  filter: blur(80px);
+}
+
+.ambient-blob-magenta {
+  position: absolute;
+  top: 30%;
+  right: 25%;
+  width: 45vw;
+  height: 45vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 26, 155, 0.16) 0%, rgba(5, 5, 10, 0) 70%);
+  filter: blur(70px);
+}
+
+.ambient-blob-blue {
+  position: absolute;
+  top: 40%;
+  right: 5%;
+  width: 45vw;
+  height: 45vw;
+  max-width: 650px;
+  max-height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(22, 140, 255, 0.14) 0%, rgba(5, 5, 10, 0) 70%);
+  filter: blur(80px);
+}
+
+.ambient-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 40%, rgba(5, 5, 10, 0.85) 100%);
+}
+
+/* ==========================================================================
+   2. CENTER / RIGHT HERO MEDIA (Video + Seamless Background Blending)
+   ========================================================================== */
+
+.hero-media-wrapper {
+  position: absolute;
+  right: 4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56vw;
+  max-width: 860px;
+  height: 94vh;
+  max-height: 920px;
+  z-index: 2;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, opacity;
+  overflow: hidden;
+}
+
+/* Dynamic rim lighting glows behind the person */
+.media-glow-magenta {
+  position: absolute;
+  left: 12%;
+  top: 25%;
+  width: 320px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(255, 26, 155, 0.38) 0%, rgba(255, 26, 155, 0) 70%);
+  filter: blur(60px);
+  z-index: 1;
+}
+
+.media-glow-blue {
+  position: absolute;
+  right: 15%;
+  top: 30%;
+  width: 340px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(22, 140, 255, 0.35) 0%, rgba(22, 140, 255, 0) 70%);
+  filter: blur(65px);
+  z-index: 1;
+}
+
+/* Masked Container - completely feathering out all rectangular borders */
+.hero-media-mask-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-mask-image: radial-gradient(
+    ellipse 65% 72% at 54% 50%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(0, 0, 0, 0.85) 60%,
+    rgba(0, 0, 0, 0.3) 78%,
+    rgba(0, 0, 0, 0) 95%
+  );
+  mask-image: radial-gradient(
+    ellipse 65% 72% at 54% 50%,
+    rgba(0, 0, 0, 1) 35%,
+    rgba(0, 0, 0, 0.85) 60%,
+    rgba(0, 0, 0, 0.3) 78%,
+    rgba(0, 0, 0, 0) 95%
+  );
+}
+
+.hero-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+}
+
+.hero-fallback-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+}
+
+/* Atmospheric vignette gradients layered over the media edges */
+.media-vignette-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(to right, var(--bg-dark) 0%, rgba(5, 5, 10, 0.85) 25%, transparent 100%);
+  pointer-events: none;
+}
+
+.media-vignette-bottom {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 35%;
+  background: linear-gradient(to top, var(--bg-dark) 0%, rgba(5, 5, 10, 0.9) 30%, transparent 100%);
+  pointer-events: none;
+}
+
+.media-vignette-radial {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, transparent 55%, rgba(5, 5, 10, 0.85) 100%);
+  pointer-events: none;
+}
+
+.media-vignette-top {
+  display: none;
+}
+
+/* ==========================================================================
+   3. LEFT HERO MAIN CONTENT
+   ========================================================================== */
+
+.hero-content-wrapper {
+  position: relative;
+  z-index: 10;
+  max-width: 680px;
+  margin-top: 1.5rem;
+  box-sizing: border-box;
+}
+
+/* Small Intro Badge */
+.hero-intro-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.75rem;
+}
+
+.intro-text {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.28em;
+  color: var(--color-text-dim);
+  font-weight: 600;
+}
+
+.intro-dash {
+  color: var(--color-magenta);
+  letter-spacing: -0.1em;
+  opacity: 0.8;
+}
+
+/* Oversized Editorial Heading */
+.hero-heading-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.15rem;
+  will-change: transform, opacity;
+}
+
+.hero-title-arjun {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 8.2vw, 7.8rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  will-change: transform, opacity;
+}
+
+.hero-title-dabhi {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 8.2vw, 7.8rem);
+  font-weight: 800;
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0;
+  will-change: transform, opacity;
+}
+
+/* Subtitle / Role */
+.hero-subtitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 1.25vw, 1.02rem);
+  font-weight: 600;
+  letter-spacing: 0.36em;
+  color: #d1cdd9;
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  will-change: transform, opacity;
+}
+
+.subtitle-gap {
+  width: 1rem;
+}
+
+/* Editorial Description */
+.hero-description {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.12rem);
+  line-height: 1.65;
+  color: var(--color-muted);
+  max-width: 480px;
+  margin-bottom: 2.2rem;
+  will-change: transform, opacity;
+}
+
+/* Action CTAs */
+.hero-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3.2rem;
+  will-change: transform, opacity;
+}
+
+.hero-primary-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-white);
+  text-decoration: none;
+  background: rgba(10, 8, 20, 0.85);
+  box-shadow: 0 4px 25px rgba(255, 26, 155, 0.2), 0 0 35px rgba(22, 140, 255, 0.15);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.hero-primary-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  padding: 1.5px;
+  background: linear-gradient(135deg, var(--color-magenta) 0%, var(--color-purple) 50%, var(--color-blue) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.hero-primary-btn:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(255, 26, 155, 0.4), 0 0 45px rgba(22, 140, 255, 0.35);
+  background: rgba(22, 18, 38, 0.9);
+}
+
+.hero-primary-btn:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  transition: transform 0.25s ease;
+}
+
+/* Secondary CTA - Watch Showreel */
+.hero-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--color-offwhite);
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.play-icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--color-magenta);
+  box-shadow: 0 0 15px rgba(255, 26, 155, 0.25);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-secondary-btn:hover {
+  color: #ffffff;
+}
+
+.hero-secondary-btn:hover .play-icon-circle {
+  transform: scale(1.1);
+  background: rgba(255, 26, 155, 0.2);
+  border-color: var(--color-magenta);
+  color: #ffffff;
+  box-shadow: 0 0 25px rgba(255, 26, 155, 0.6);
+}
+
+/* ==========================================================================
+   4. STATS ROW
+   ========================================================================== */
+
+.hero-stats-container {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  will-change: transform, opacity;
+  box-sizing: border-box;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  color: var(--color-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 34px;
+  background: linear-gradient(to bottom, transparent, rgba(255, 255, 255, 0.18), transparent);
+}
+
+/* ==========================================================================
+   5. RIGHT SIDE EDITORIAL DETAILS
+   ========================================================================== */
+
+.hero-details-layer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 5;
+  padding: 0 3.5rem;
+  display: flex;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Upper Right Pillar: Glowing Line & Keywords */
+.details-pillar {
+  position: absolute;
+  top: 18%;
+  right: 6%;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+}
+
+.pillar-glow-line {
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-magenta), var(--color-blue));
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 26, 155, 0.7);
+}
+
+.pillar-keywords {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  color: var(--color-text-dim);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Extreme Right Vertical Giant Outline "PORTFOLIO" */
+.details-vertical-outline {
+  position: absolute;
+  right: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  font-family: var(--font-display);
+  font-size: clamp(6.5rem, 11vw, 11rem);
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+  opacity: 0.05;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+/* Lower Right Quote */
+.details-quote-block {
+  position: absolute;
+  right: 7%;
+  bottom: 19%;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.quote-accent-bar {
+  width: 3px;
+  height: 44px;
+  background: linear-gradient(to bottom, var(--color-magenta), var(--color-purple), var(--color-blue));
+  border-radius: 3px;
+  box-shadow: 0 0 10px rgba(138, 66, 255, 0.6);
+}
+
+.quote-text {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  color: var(--color-offwhite);
+  text-transform: uppercase;
+}
+
+/* Bottom Right Circular Location Badge */
+.details-location-badge {
+  position: absolute;
+  right: 5.5%;
+  bottom: 7%;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: rgba(10, 8, 18, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.55rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.badge-orbit-ring {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(22, 140, 255, 0.1);
+  border: 1px solid rgba(22, 140, 255, 0.3);
+  color: var(--color-cyan);
+}
+
+.badge-text-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.badge-title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  color: var(--color-white);
+}
+
+.badge-sub {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--color-muted);
+}
+
+/* ==========================================================================
+   6. BOTTOM BAR (Socials + Scroll Down Indicator)
+   ========================================================================== */
+
+.hero-bottom-bar {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 4rem;
+  right: 4rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  z-index: 20;
+  pointer-events: auto;
+  box-sizing: border-box;
+}
+
+.bottom-empty-spacer {
+  width: 140px;
+}
+
+/* Center-bottom Scroll Indicator */
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.mouse-icon {
+  width: 20px;
+  height: 32px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+}
+
+.mouse-wheel {
+  width: 3px;
+  height: 6px;
+  background: var(--color-magenta);
+  border-radius: 2px;
+  box-shadow: 0 0 8px var(--color-magenta);
+  animation: mouseScroll 1.8s infinite cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@keyframes mouseScroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
+
+.scroll-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  color: var(--color-muted);
+  font-weight: 600;
+}
+
+.scroll-line {
+  width: 1px;
+  height: 18px;
+  background: linear-gradient(to bottom, var(--color-purple), transparent);
+  animation: scrollPulse 1.8s infinite ease-in-out;
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(0.7);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+/* ==========================================================================
+   7. SHOWREEL MODAL
+   ========================================================================== */
+
+.showreel-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3, 3, 7, 0.88);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.showreel-modal-card {
+  width: 100%;
+  max-width: 960px;
+  background: #090812;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(138, 66, 255, 0.2);
+  animation: modalScaleUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+  from {
+    transform: scale(0.92);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.modal-title {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  color: var(--color-white);
+  font-weight: 600;
+}
+
+.modal-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.modal-mute-btn,
+.modal-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--color-text-dim);
+  transition: all 0.2s ease;
+}
+
+.modal-mute-btn:hover,
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.modal-video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000000;
+}
+
+.modal-video-player {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS (1440px, 1280px, 1024px, 768px, 390px-400px)
+   ========================================================================== */
+
+@media (max-width: 1440px) {
+  .hero-section {
+    padding: 0 3rem;
+  }
+  .hero-media-wrapper {
+    width: 54vw;
+    right: 3%;
+  }
+  .details-pillar {
+    right: 4%;
+  }
+  .details-quote-block {
+    right: 4%;
+  }
+  .hero-bottom-bar {
+    left: 3rem;
+    right: 3rem;
+  }
+}
+
+@media (max-width: 1280px) {
+  .hero-section {
+    padding: 0 2.5rem;
+  }
+  .hero-media-wrapper {
+    width: 52vw;
+  }
+  .details-vertical-outline {
+    font-size: 7.5rem;
+  }
+  .hero-stats-container {
+    gap: 1.5rem;
+  }
+  .stat-number {
+    font-size: 1.75rem;
+  }
+  .hero-bottom-bar {
+    left: 2.5rem;
+    right: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    padding: 0 2rem;
+  }
+  .hero-media-wrapper {
+    width: 65vw;
+    opacity: 0.65;
+    right: 0;
+  }
+  .hero-details-layer {
+    display: none;
+  }
+  .hero-bottom-bar {
+    left: 2rem;
+    right: 2rem;
+    bottom: 1.5rem;
+  }
+  .bottom-empty-spacer {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   MOBILE & TABLET REFINEMENT (<= 768px, including 400x642, 390x844, 430x932)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100svh;
+    height: 100vh;
+    height: 100svh;
+    padding: 0 1.25rem 1.15rem;
+    justify-content: flex-end;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  /* Dedicated Mobile Portrait Video Framing */
+  .hero-media-wrapper {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: 42svh;
+    min-height: 220px;
+    max-height: 380px;
+    transform: none;
+    opacity: 0.95;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  /* Exact Face Framing: Shows forehead, eyes/sunglasses, nose, mouth & shoulders */
+  .hero-video-element,
+  .hero-fallback-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 18%;
+  }
+
+  /* Soft Cinematic Gradient Blend into Deep Black Hero */
+  .hero-media-mask-container {
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 0.7) 70%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 0.7) 70%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  .media-vignette-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 60%;
+    background: linear-gradient(
+      to bottom,
+      transparent 10%,
+      rgba(5, 5, 10, 0.4) 45%,
+      rgba(5, 5, 10, 0.85) 75%,
+      var(--bg-dark) 100%
+    );
+    pointer-events: none;
+  }
+
+  .media-vignette-top {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 28px;
+    background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .media-vignette-left,
+  .media-vignette-radial {
+    display: none;
+  }
+
+  .media-glow-magenta {
+    left: 5%;
+    top: 15%;
+    width: 200px;
+    height: 220px;
+    filter: blur(45px);
+    opacity: 0.5;
+  }
+
+  .media-glow-blue {
+    right: 5%;
+    top: 15%;
+    width: 200px;
+    height: 220px;
+    filter: blur(45px);
+    opacity: 0.5;
+  }
+
+  .ambient-blob-purple,
+  .ambient-blob-magenta,
+  .ambient-blob-blue {
+    display: none; /* Hide large desktop ambient shapes on mobile to keep focus clean */
+  }
+
+  /* Mobile Content Positioning below the Face */
+  .hero-content-wrapper {
+    position: relative;
+    z-index: 10;
+    margin-top: auto;
+    margin-bottom: 0.25rem;
+    max-width: 100%;
+    width: 100%;
+    text-align: left;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-intro-row {
+    margin-bottom: 0.35rem;
+  }
+
+  .intro-text {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+  }
+
+  .hero-heading-group {
+    margin-bottom: 0.35rem;
+  }
+
+  .hero-title-arjun,
+  .hero-title-dabhi {
+    font-size: clamp(3.1rem, 15vw, 4.6rem);
+    line-height: 0.88;
+    letter-spacing: -0.02em;
+    word-break: break-word;
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.6rem, 2.6vw, 0.72rem);
+    letter-spacing: 0.22em;
+    margin-bottom: 0.5rem;
+    max-width: 100%;
+  }
+
+  .hero-description {
+    font-size: clamp(0.82rem, 3vw, 0.92rem);
+    line-height: 1.45;
+    margin-bottom: 0.85rem;
+    max-width: 100%;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.85rem;
+    width: 100%;
+  }
+
+  .hero-primary-btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.75rem 1.15rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .hero-secondary-btn {
+    padding: 0.7rem 0.95rem;
+    font-size: 0.82rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .play-icon-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero-stats-container {
+    justify-content: space-between;
+    gap: 0.4rem;
+    padding: 0.65rem 0.75rem;
+    background: rgba(14, 12, 22, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .stat-number {
+    font-size: 1.25rem;
+  }
+
+  .stat-label {
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+  }
+
+  .stat-divider {
+    height: 24px;
+  }
+
+  .hero-bottom-bar {
+    display: none;
+  }
+
+  .hero-details-layer {
+    display: none;
+  }
+}
+
+@media (max-width: 390px) {
+  .hero-section {
+    padding: 0 1rem 1rem;
+  }
+
+  .hero-title-arjun,
+  .hero-title-dabhi {
+    font-size: 2.6rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hero-stats-container {
+    padding: 0.55rem 0.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.15rem;
+  }
+
+  .stat-label {
+    font-size: 0.5rem;
+  }
+}

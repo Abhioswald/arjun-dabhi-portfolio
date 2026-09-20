@@ -1,0 +1,94 @@
+/* ==========================================================================
+   MaskedHeading Component Styles (Reliable CSS background-clip: text)
+   ========================================================================== */
+
+.masked-heading {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-display);
+  font-weight: 800;
+  text-transform: uppercase;
+  will-change: transform, opacity;
+  overflow: visible;
+}
+
+.masked-heading__text {
+  display: inline-block;
+  white-space: nowrap;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ==========================================================================
+   ARJUN STYLING
+   High-contrast, bright off-white text enhanced with portrait lighting
+   ========================================================================== */
+.masked-heading--arjun .masked-heading__text {
+  /* Default & Fallback: crisp solid off-white */
+  color: #f4f4f4;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+.masked-heading--arjun .masked-heading__text.is-loaded {
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.90),
+      rgba(242, 242, 248, 0.88)
+    ),
+    url('/assets/hero-portrait.png');
+  background-size: 135%;
+  background-position: 50% 22%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ==========================================================================
+   DABHI STYLING
+   Signature magenta -> purple -> electric blue gradient with portrait texture
+   ========================================================================== */
+.masked-heading--dabhi .masked-heading__text {
+  /* Default & Fallback: approved signature gradient */
+  background-image: linear-gradient(
+    90deg,
+    #ff1bbf 0%,
+    #a438ff 50%,
+    #238cff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 35px rgba(164, 56, 255, 0.45));
+}
+
+.masked-heading--dabhi .masked-heading__text.is-loaded {
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(255, 27, 191, 0.88) 0%,
+      rgba(164, 56, 255, 0.86) 50%,
+      rgba(35, 140, 255, 0.88) 100%
+    ),
+    url('/assets/hero-portrait.png');
+  background-size: 140%;
+  background-position: 50% 28%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  filter: drop-shadow(0 0 40px rgba(164, 56, 255, 0.5));
+}

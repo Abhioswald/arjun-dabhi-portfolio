@@ -1,0 +1,103 @@
+/* Design Tokens and Global Reset for Arjun Dabhi Portfolio */
+:root {
+  --bg-dark: #05050a;
+  --bg-secondary: #0a0a14;
+  --bg-card: rgba(14, 12, 22, 0.6);
+  --bg-glass: rgba(255, 255, 255, 0.03);
+
+  --color-white: #ffffff;
+  --color-offwhite: #f6f5f9;
+  --color-text-dim: #b8b3c3;
+  --color-muted: #857e93;
+  --color-border: rgba(255, 255, 255, 0.08);
+
+  /* Signature Lighting & Accent Gradients */
+  --color-magenta: #ff1a9b;
+  --color-purple: #8a42ff;
+  --color-blue: #168cff;
+  --color-cyan: #00d2ff;
+
+  --gradient-accent: linear-gradient(135deg, #ff1a9b 0%, #8a42ff 50%, #168cff 100%);
+  --gradient-dabhi: linear-gradient(90deg, #ff2397 0%, #9047ff 52%, #1892ff 100%);
+  --gradient-border: linear-gradient(135deg, rgba(255, 26, 155, 0.5), rgba(22, 140, 255, 0.5));
+  --gradient-glow-pink: radial-gradient(circle, rgba(255, 26, 155, 0.28) 0%, rgba(255, 26, 155, 0) 70%);
+  --gradient-glow-blue: radial-gradient(circle, rgba(22, 140, 255, 0.25) 0%, rgba(22, 140, 255, 0) 70%);
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Grotesk', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg-dark);
+  color: var(--color-offwhite);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--color-offwhite);
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Custom Sleek Dark Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: #1c1a29;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e2a42;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 26, 155, 0.35);
+  color: #ffffff;
+}
+
+/* Motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
