@@ -33,36 +33,74 @@ export default function Hero({ heroRef, navRef }) {
   const bgGlowRef = useRef(null);
   const modalVideoRef = useRef(null);
 
+  const [isVideoReady, setIsVideoReady] = useState(false);
+  const videoReadyRef = useRef(false);
+
   // High precision target progress and smooth progress tracking refs
   const targetProgressRef = useRef(0);
   const smoothProgressRef = useRef(0);
   const rafIdRef = useRef(null);
-  const lastTimeRef = useRef(performance.now());
+  const lastTimeRef = useRef(0);
 
-  // Video metadata loaded handler: pause immediately, set to exact first frame, refresh triggers
-  const handleVideoLoaded = useCallback(() => {
+  // Video ready handler (fired on loadeddata / canplay)
+  // CRITICAL FOR IOS SAFARI: Do NOT modify currentTime in this handler.
+  // At page load allow the video to naturally remain at 0 seconds.
+  const handleVideoReady = useCallback(() => {
     const video = videoRef.current;
-    if (video) {
-      video.pause();
-      video.currentTime = 0.001;
-      targetProgressRef.current = 0;
-      smoothProgressRef.current = 0;
-      lastTimeRef.current = performance.now();
-      ScrollTrigger.refresh();
-    }
+    if (!video) return;
+
+    video.pause();
+    videoReadyRef.current = true;
+    setIsVideoReady(true);
+
+    targetProgressRef.current = 0;
+    smoothProgressRef.current = 0;
+
+    ScrollTrigger.refresh();
+  }, []);
+
+  const handleVideoError = useCallback((err) => {
+    console.warn('Hero video failed to load or decode:', err);
   }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (video) {
       video.pause();
-      video.currentTime = 0.001;
-      targetProgressRef.current = 0;
-      smoothProgressRef.current = 0;
+      // Check if video is already ready from cache
+      if (video.readyState >= 2 && !videoReadyRef.current) {
+        handleVideoReady();
+      }
     }
+
+    // iOS load priming on first user interaction: touchstart / pointerdown
+    const primeVideo = () => {
+      const vid = videoRef.current;
+      if (vid && vid.readyState < 2) {
+        vid.load();
+      }
+    };
+
+    window.addEventListener('touchstart', primeVideo, { once: true, passive: true });
+    window.addEventListener('pointerdown', primeVideo, { once: true, passive: true });
 
     lastTimeRef.current = performance.now();
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Detect mobile / iOS / Safari safely to avoid micro-seeking jitter on WebKit
+    const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
+    const isIOS =
+      /iPad|iPhone|iPod/.test(ua) ||
+      (typeof navigator !== 'undefined' &&
+        navigator.platform === 'MacIntel' &&
+        navigator.maxTouchPoints > 1);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+    const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+    const isSafariOrMobile = isIOS || isSafari || isMobile;
+
+    // Safari/mobile threshold: 0.01s (prevent hundreds of tiny seeks)
+    // Desktop threshold: 0.003s
+    const seekThreshold = isSafariOrMobile ? 0.01 : 0.003;
 
     // Smooth delta-time frame-rate-independent exponential interpolation engine
     const updateVideoFrame = (now) => {
@@ -70,7 +108,6 @@ export default function Hero({ heroRef, navRef }) {
       const dt = Math.min((now - last) / 1000, 0.05);
       lastTimeRef.current = now;
 
-      const isMobile = window.innerWidth <= 768;
       const speed = isMobile ? 15 : 12; // desktop: 12, mobile: 15
       const alpha = 1 - Math.exp(-speed * dt);
 
@@ -78,35 +115,39 @@ export default function Hero({ heroRef, navRef }) {
       let smooth = smoothProgressRef.current + (target - smoothProgressRef.current) * alpha;
 
       const vid = videoRef.current;
+      const isReady =
+        videoReadyRef.current &&
+        vid &&
+        vid.readyState >= 2 &&
+        Number.isFinite(vid.duration) &&
+        vid.duration > 0;
 
-      // 5. Exact Endpoint Snapping: guarantees exact first and final frames
+      // Endpoint snapping & seeking - ONLY when video is actually ready
       if (target <= 0.002) {
         smooth = 0;
         smoothProgressRef.current = 0;
-        if (vid && vid.readyState >= 2 && vid.currentTime > 0.002) {
-          vid.currentTime = 0.001;
+        if (isReady) {
+          // Snap to 0 only once scrolling starts and currentTime > 0.02
+          if (vid.currentTime > 0.02) {
+            vid.currentTime = 0;
+          }
         }
       } else if (target >= 0.998) {
         smooth = 1;
         smoothProgressRef.current = 1;
-        if (vid && vid.readyState >= 2 && Number.isFinite(vid.duration) && vid.duration > 0) {
-          const finalTime = Math.max(0, vid.duration - 0.01);
-          if (Math.abs(vid.currentTime - finalTime) > 0.002) {
+        if (isReady) {
+          const finalTime = Math.max(0, vid.duration - 0.03);
+          if (Math.abs(vid.currentTime - finalTime) > seekThreshold) {
             vid.currentTime = finalTime;
           }
         }
       } else {
         smoothProgressRef.current = smooth;
 
-        if (
-          vid &&
-          vid.readyState >= 2 &&
-          Number.isFinite(vid.duration) &&
-          vid.duration > 0
-        ) {
+        if (isReady) {
           const wanted = smooth * vid.duration;
-          // Performance write guard: Only write currentTime when difference exceeds 0.002s threshold
-          if (Math.abs(vid.currentTime - wanted) > 0.002) {
+          // Performance write guard: Only write currentTime when difference exceeds threshold
+          if (Math.abs(vid.currentTime - wanted) > seekThreshold) {
             vid.currentTime = wanted;
           }
         }
@@ -372,12 +413,14 @@ export default function Hero({ heroRef, navRef }) {
     }, heroRef);
 
     return () => {
+      window.removeEventListener('touchstart', primeVideo);
+      window.removeEventListener('pointerdown', primeVideo);
       if (rafIdRef.current) {
         cancelAnimationFrame(rafIdRef.current);
       }
       ctx.revert();
     };
-  }, [heroRef, navRef, handleVideoLoaded]);
+  }, [heroRef, navRef, handleVideoReady]);
 
   return (
     <>
@@ -394,7 +437,9 @@ export default function Hero({ heroRef, navRef }) {
         <HeroMedia
           mediaRef={mediaRef}
           videoRef={videoRef}
-          onVideoLoaded={handleVideoLoaded}
+          isVideoReady={isVideoReady}
+          onVideoReady={handleVideoReady}
+          onVideoError={handleVideoError}
         />
 
         {/* Right Side Editorial Details (Keywords, Vertical PORTFOLIO, Quote, Location) */}
@@ -529,7 +574,7 @@ export default function Hero({ heroRef, navRef }) {
             <div className="modal-video-container">
               <video
                 ref={modalVideoRef}
-                src="/assets/hero.mp4"
+                src="/assets/showreel.mp4"
                 poster="/assets/hero-portrait.png"
                 autoPlay
                 controls

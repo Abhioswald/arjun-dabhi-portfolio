@@ -147,12 +147,38 @@
   );
 }
 
-.hero-video-element {
+.hero-video-poster {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 38%;
   display: block;
+  z-index: 1;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.hero-video-poster.video-ready {
+  opacity: 0;
+}
+
+.hero-video-element {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.hero-video-element.video-ready {
+  opacity: 1;
 }
 
 .hero-fallback-image {
@@ -870,6 +896,7 @@
 
   /* Exact Face Framing: Shows forehead, eyes/sunglasses, nose, mouth & shoulders */
   .hero-video-element,
+  .hero-video-poster,
   .hero-fallback-image {
     width: 100%;
     height: 100%;
