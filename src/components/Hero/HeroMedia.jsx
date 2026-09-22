@@ -4,9 +4,10 @@ import './Hero.css';
 export default function HeroMedia({
   mediaRef,
   videoRef,
-  isVideoReady,
+  videoVisible,
   onVideoReady,
   onVideoError,
+  onVideoSeeked,
 }) {
   return (
     <div className="hero-media-wrapper" ref={mediaRef}>
@@ -16,27 +17,34 @@ export default function HeroMedia({
 
       {/* Main Portrait Video Layer (Scroll-Scrubbed) */}
       <div className="hero-media-mask-container">
-        {/* Independent Poster Image Layer - guarantees immediate portrait render */}
-        <img
-          src="/assets/hero-portrait.png"
-          className={`hero-video-poster ${isVideoReady ? 'video-ready' : ''}`}
-          alt=""
-          aria-hidden="true"
-        />
+        <div className="hero-media-visual">
+          <img
+            className={`hero-video-poster ${
+              videoVisible ? 'is-hidden' : ''
+            }`}
+            src="/assets/hero-portrait.png"
+            alt=""
+            aria-hidden="true"
+          />
 
-        <video
-          ref={videoRef}
-          className={`hero-video-element ${isVideoReady ? 'video-ready' : ''}`}
-          src="/assets/hero.mp4"
-          muted
-          playsInline
-          preload="auto"
-          disablePictureInPicture
-          disableRemotePlayback
-          onLoadedData={onVideoReady}
-          onError={onVideoError}
-          aria-label="Arjun Dabhi scroll-scrubbed video portrait"
-        />
+          <video
+            ref={videoRef}
+            className={`hero-video-element ${
+              videoVisible ? 'is-visible' : ''
+            }`}
+            src="/assets/hero.mp4"
+            muted
+            playsInline
+            preload="auto"
+            disablePictureInPicture
+            disableRemotePlayback
+            onLoadedData={onVideoReady}
+            onCanPlay={onVideoReady}
+            onSeeked={onVideoSeeked}
+            onError={onVideoError}
+            aria-label="Arjun Dabhi scroll-scrubbed video portrait"
+          />
+        </div>
 
         {/* Cinematic atmospheric vignette overlays */}
         <div className="media-vignette-top" aria-hidden="true" />

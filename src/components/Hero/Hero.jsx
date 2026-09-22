@@ -33,14 +33,15 @@ export default function Hero({ heroRef, navRef }) {
   const bgGlowRef = useRef(null);
   const modalVideoRef = useRef(null);
 
-  const [isVideoReady, setIsVideoReady] = useState(false);
+  const [videoVisible, setVideoVisible] = useState(false);
+  const videoVisibleRef = useRef(false);
   const videoReadyRef = useRef(false);
 
   // Coalesced scroll seek tracking refs
   const targetProgressRef = useRef(0);
   const seekRafRef = useRef(null);
 
-  // Video ready handler (fired on loadeddata)
+  // Video ready handler (fired on loadeddata / canplay)
   // Runs exactly once and is completely idempotent
   const handleVideoReady = useCallback(() => {
     const video = videoRef.current;
@@ -50,15 +51,30 @@ export default function Hero({ heroRef, navRef }) {
     video.pause();
 
     videoReadyRef.current = true;
-    setIsVideoReady(true);
 
     requestAnimationFrame(() => {
       ScrollTrigger.refresh();
     });
   }, []);
 
+  const handleVideoSeeked = useCallback(() => {
+    const video = videoRef.current;
+
+    if (!video || video.readyState < 2) {
+      return;
+    }
+
+    if (!videoVisibleRef.current) {
+      videoVisibleRef.current = true;
+      setVideoVisible(true);
+    }
+  }, []);
+
   const handleVideoError = useCallback((err) => {
     console.warn('Hero video failed to load or decode:', err);
+    videoReadyRef.current = false;
+    videoVisibleRef.current = false;
+    setVideoVisible(false);
   }, []);
 
   useEffect(() => {
@@ -82,14 +98,11 @@ export default function Hero({ heroRef, navRef }) {
       const vid = videoRef.current;
       if (!vid) return;
 
-      if (
-        typeof HTMLMediaElement !== 'undefined' &&
-        vid.networkState === HTMLMediaElement.NETWORK_EMPTY
-      ) {
+      vid.pause();
+
+      if (vid.readyState < 2) {
         vid.load();
       }
-
-      vid.pause();
     };
 
     window.addEventListener('touchstart', primeVideo, { passive: true, once: true });
@@ -125,7 +138,6 @@ export default function Hero({ heroRef, navRef }) {
         const vid = videoRef.current;
 
         const ready =
-          videoReadyRef.current &&
           vid &&
           vid.readyState >= 2 &&
           Number.isFinite(vid.duration) &&
@@ -143,13 +155,29 @@ export default function Hero({ heroRef, navRef }) {
 
         const wantedTime =
           p <= 0.002
-            ? 0
+            ? 0.001
             : p >= 0.998
               ? maxTime
               : Math.min(Math.max(0, p * vid.duration), maxTime);
 
-        if (Math.abs(vid.currentTime - wantedTime) >= seekThreshold) {
+        const shouldForceInitialSeek =
+          !videoVisibleRef.current &&
+          p > 0.003;
+
+        if (
+          shouldForceInitialSeek ||
+          Math.abs(vid.currentTime - wantedTime) >= seekThreshold
+        ) {
           vid.currentTime = wantedTime;
+
+          if ('requestVideoFrameCallback' in vid) {
+            vid.requestVideoFrameCallback(() => {
+              if (!videoVisibleRef.current) {
+                videoVisibleRef.current = true;
+                setVideoVisible(true);
+              }
+            });
+          }
         }
       });
     };
@@ -442,9 +470,10 @@ export default function Hero({ heroRef, navRef }) {
         <HeroMedia
           mediaRef={mediaRef}
           videoRef={videoRef}
-          isVideoReady={isVideoReady}
+          videoVisible={videoVisible}
           onVideoReady={handleVideoReady}
           onVideoError={handleVideoError}
+          onVideoSeeked={handleVideoSeeked}
         />
 
         {/* Right Side Editorial Details (Keywords, Vertical PORTFOLIO, Quote, Location) */}
