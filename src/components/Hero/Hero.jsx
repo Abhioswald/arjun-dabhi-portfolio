@@ -36,27 +36,25 @@ export default function Hero({ heroRef, navRef }) {
   const [isVideoReady, setIsVideoReady] = useState(false);
   const videoReadyRef = useRef(false);
 
-  // High precision target progress and smooth progress tracking refs
+  // Coalesced scroll seek tracking refs
   const targetProgressRef = useRef(0);
-  const smoothProgressRef = useRef(0);
-  const rafIdRef = useRef(null);
-  const lastTimeRef = useRef(0);
+  const seekRafRef = useRef(null);
 
-  // Video ready handler (fired on loadeddata / canplay)
-  // CRITICAL FOR IOS SAFARI: Do NOT modify currentTime in this handler.
-  // At page load allow the video to naturally remain at 0 seconds.
+  // Video ready handler (fired on loadeddata)
+  // Runs exactly once and is completely idempotent
   const handleVideoReady = useCallback(() => {
     const video = videoRef.current;
-    if (!video) return;
+
+    if (!video || videoReadyRef.current) return;
 
     video.pause();
+
     videoReadyRef.current = true;
     setIsVideoReady(true);
 
-    targetProgressRef.current = 0;
-    smoothProgressRef.current = 0;
-
-    ScrollTrigger.refresh();
+    requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
   }, []);
 
   const handleVideoError = useCallback((err) => {
@@ -74,20 +72,32 @@ export default function Hero({ heroRef, navRef }) {
     }
 
     // iOS load priming on first user interaction: touchstart / pointerdown
+    // Guarded to run once without interrupting ongoing seeks
+    let videoPrimed = false;
+
     const primeVideo = () => {
+      if (videoPrimed) return;
+      videoPrimed = true;
+
       const vid = videoRef.current;
-      if (vid && vid.readyState < 2) {
+      if (!vid) return;
+
+      if (
+        typeof HTMLMediaElement !== 'undefined' &&
+        vid.networkState === HTMLMediaElement.NETWORK_EMPTY
+      ) {
         vid.load();
       }
+
+      vid.pause();
     };
 
-    window.addEventListener('touchstart', primeVideo, { once: true, passive: true });
-    window.addEventListener('pointerdown', primeVideo, { once: true, passive: true });
+    window.addEventListener('touchstart', primeVideo, { passive: true, once: true });
+    window.addEventListener('pointerdown', primeVideo, { passive: true, once: true });
 
-    lastTimeRef.current = performance.now();
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Detect mobile / iOS / Safari safely to avoid micro-seeking jitter on WebKit
+    // Detect mobile / iOS / Safari safely to calibrate seek threshold
     const ua = typeof navigator !== 'undefined' ? navigator.userAgent : '';
     const isIOS =
       /iPad|iPhone|iPod/.test(ua) ||
@@ -98,67 +108,51 @@ export default function Hero({ heroRef, navRef }) {
     const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
     const isSafariOrMobile = isIOS || isSafari || isMobile;
 
-    // Safari/mobile threshold: 0.01s (prevent hundreds of tiny seeks)
-    // Desktop threshold: 0.003s
-    const seekThreshold = isSafariOrMobile ? 0.01 : 0.003;
+    // Coalesced seek threshold:
+    // Desktop: 0.02s
+    // Mobile / iOS: 0.03s
+    const seekThreshold = isSafariOrMobile ? 0.03 : 0.02;
 
-    // Smooth delta-time frame-rate-independent exponential interpolation engine
-    const updateVideoFrame = (now) => {
-      const last = lastTimeRef.current || now;
-      const dt = Math.min((now - last) / 1000, 0.05);
-      lastTimeRef.current = now;
+    // Coalesced scroll seeking: ONE RAF per frame ONLY while scrolling
+    const scheduleVideoSeek = (progress) => {
+      targetProgressRef.current = progress;
 
-      const speed = isMobile ? 15 : 12; // desktop: 12, mobile: 15
-      const alpha = 1 - Math.exp(-speed * dt);
+      if (seekRafRef.current != null) return;
 
-      const target = targetProgressRef.current;
-      let smooth = smoothProgressRef.current + (target - smoothProgressRef.current) * alpha;
+      seekRafRef.current = requestAnimationFrame(() => {
+        seekRafRef.current = null;
 
-      const vid = videoRef.current;
-      const isReady =
-        videoReadyRef.current &&
-        vid &&
-        vid.readyState >= 2 &&
-        Number.isFinite(vid.duration) &&
-        vid.duration > 0;
+        const vid = videoRef.current;
 
-      // Endpoint snapping & seeking - ONLY when video is actually ready
-      if (target <= 0.002) {
-        smooth = 0;
-        smoothProgressRef.current = 0;
-        if (isReady) {
-          // Snap to 0 only once scrolling starts and currentTime > 0.02
-          if (vid.currentTime > 0.02) {
-            vid.currentTime = 0;
-          }
+        const ready =
+          videoReadyRef.current &&
+          vid &&
+          vid.readyState >= 2 &&
+          Number.isFinite(vid.duration) &&
+          vid.duration > 0;
+
+        if (!ready) return;
+
+        if (!vid.paused) {
+          vid.pause();
         }
-      } else if (target >= 0.998) {
-        smooth = 1;
-        smoothProgressRef.current = 1;
-        if (isReady) {
-          const finalTime = Math.max(0, vid.duration - 0.03);
-          if (Math.abs(vid.currentTime - finalTime) > seekThreshold) {
-            vid.currentTime = finalTime;
-          }
-        }
-      } else {
-        smoothProgressRef.current = smooth;
 
-        if (isReady) {
-          const wanted = smooth * vid.duration;
-          // Performance write guard: Only write currentTime when difference exceeds threshold
-          if (Math.abs(vid.currentTime - wanted) > seekThreshold) {
-            vid.currentTime = wanted;
-          }
-        }
-      }
+        const maxTime = Math.max(0, vid.duration - 0.04);
 
-      rafIdRef.current = requestAnimationFrame(updateVideoFrame);
+        const p = targetProgressRef.current;
+
+        const wantedTime =
+          p <= 0.002
+            ? 0
+            : p >= 0.998
+              ? maxTime
+              : Math.min(Math.max(0, p * vid.duration), maxTime);
+
+        if (Math.abs(vid.currentTime - wantedTime) >= seekThreshold) {
+          vid.currentTime = wantedTime;
+        }
+      });
     };
-
-    if (!prefersReducedMotion) {
-      rafIdRef.current = requestAnimationFrame(updateVideoFrame);
-    }
 
     // GSAP context & matchMedia for responsive ScrollTrigger setup
     const ctx = gsap.context(() => {
@@ -278,7 +272,7 @@ export default function Hero({ heroRef, navRef }) {
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-              targetProgressRef.current = self.progress;
+              scheduleVideoSeek(self.progress);
             },
           },
         });
@@ -353,7 +347,7 @@ export default function Hero({ heroRef, navRef }) {
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
-              targetProgressRef.current = self.progress;
+              scheduleVideoSeek(self.progress);
             },
           },
         });
@@ -415,12 +409,23 @@ export default function Hero({ heroRef, navRef }) {
     return () => {
       window.removeEventListener('touchstart', primeVideo);
       window.removeEventListener('pointerdown', primeVideo);
-      if (rafIdRef.current) {
-        cancelAnimationFrame(rafIdRef.current);
+      if (seekRafRef.current != null) {
+        cancelAnimationFrame(seekRafRef.current);
+        seekRafRef.current = null;
       }
       ctx.revert();
     };
   }, [heroRef, navRef, handleVideoReady]);
+
+  // Pause Hero background video when showreel modal is active
+  useEffect(() => {
+    if (showreelOpen) {
+      const vid = videoRef.current;
+      if (vid && !vid.paused) {
+        vid.pause();
+      }
+    }
+  }, [showreelOpen]);
 
   return (
     <>

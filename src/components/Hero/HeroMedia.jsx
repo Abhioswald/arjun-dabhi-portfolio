@@ -34,7 +34,6 @@ export default function HeroMedia({
           disablePictureInPicture
           disableRemotePlayback
           onLoadedData={onVideoReady}
-          onCanPlay={onVideoReady}
           onError={onVideoError}
           aria-label="Arjun Dabhi scroll-scrubbed video portrait"
         />
