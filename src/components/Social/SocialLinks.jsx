@@ -41,7 +41,7 @@ function TwitterXIcon() {
 
 export default function SocialLinks({ socialRef }) {
   const socials = [
-    { name: 'GitHub', icon: GithubIcon, href: 'https://github.com' },
+    { name: 'GitHub', icon: GithubIcon, href: 'https://github.com/Abhioswald' },
     { name: 'LinkedIn', icon: LinkedinIcon, href: 'https://linkedin.com' },
     { name: 'Instagram', icon: InstagramIcon, href: 'https://instagram.com' },
     { name: 'Twitter / X', icon: TwitterXIcon, href: 'https://x.com' },

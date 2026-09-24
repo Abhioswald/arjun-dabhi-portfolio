@@ -1,23 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar({ navRef }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const navLinks = [
-    { name: 'Home', href: '#home', active: true },
-    { name: 'About', href: '#about', active: false },
-    { name: 'Projects', href: '#projects', active: false },
-    { name: 'Skills', href: '#skills', active: false },
-    { name: 'Contact', href: '#contact', active: false },
+    { name: 'Home', href: '#home', id: 'home' },
+    { name: 'About', href: '#about', id: 'about' },
+    { name: 'Projects', href: '#projects', id: 'projects' },
+    { name: 'Skills', href: '#skills', id: 'skills' },
+    { name: 'Contact', href: '#contact', id: 'contact' },
   ];
+
+  // Dynamic active link tracking without heavy scroll listeners
+  useEffect(() => {
+    const sectionIds = ['home', 'about', 'projects', 'skills', 'contact'];
+    const elements = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    if (elements.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: '-25% 0px -45% 0px',
+        threshold: 0.1,
+      }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="navbar-container" ref={navRef}>
       <div className="navbar-inner">
         {/* Brand Logo */}
-        <a href="#home" className="navbar-logo" aria-label="Arjun Dabhi Home">
+        <a href="#home" className="navbar-logo" aria-label="Arjun Dabhi Home" onClick={() => setActiveSection('home')}>
           AD<span className="logo-dot">.</span>
         </a>
 
@@ -27,10 +56,11 @@ export default function Navbar({ navRef }) {
             <a
               key={link.name}
               href={link.href}
-              className={`nav-link ${link.active ? 'active' : ''}`}
+              className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
+              onClick={() => setActiveSection(link.id)}
             >
               {link.name}
-              {link.active && <span className="nav-link-indicator" />}
+              {activeSection === link.id && <span className="nav-link-indicator" />}
             </a>
           ))}
         </nav>
@@ -61,8 +91,11 @@ export default function Navbar({ navRef }) {
             <a
               key={link.name}
               href={link.href}
-              className={`mobile-link ${link.active ? 'active' : ''}`}
-              onClick={() => setMobileMenuOpen(false)}
+              className={`mobile-link ${activeSection === link.id ? 'active' : ''}`}
+              onClick={() => {
+                setActiveSection(link.id);
+                setMobileMenuOpen(false);
+              }}
             >
               {link.name}
             </a>

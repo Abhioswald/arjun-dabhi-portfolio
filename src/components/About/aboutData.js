@@ -36,8 +36,7 @@ export const skillsData = [
 ];
 
 export const socialData = [
-  { name: 'GitHub', href: 'https://github.com', type: 'github' },
+  { name: 'GitHub', href: 'https://github.com/Abhioswald', type: 'github' },
   { name: 'LinkedIn', href: 'https://linkedin.com', type: 'linkedin' },
   { name: 'Instagram', href: 'https://instagram.com', type: 'instagram' },
-  { name: 'Email', href: 'mailto:contact@arjundabhi.com', type: 'email' },
 ];

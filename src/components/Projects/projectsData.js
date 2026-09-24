@@ -7,7 +7,7 @@ export const projectsData = [
     id: 1,
     number: '01',
     title: 'BOO! Ice Cream',
-    image: '/assets/projects/boo.png',
+    image: '/assets/projects/optimized/boo.webp',
     categories: ['Product', 'Landing Page'],
     description:
       'A dark, experimental product experience focused on bold visuals, cinematic presentation and immersive scrolling.',
@@ -20,7 +20,7 @@ export const projectsData = [
     id: 2,
     number: '02',
     title: 'Azura Perfume',
-    image: '/assets/projects/azura.png',
+    image: '/assets/projects/optimized/azura.webp',
     categories: ['Product', 'Landing Page'],
     description:
       'A premium fragrance landing experience combining elegant editorial design, luxury product presentation and atmospheric storytelling.',
@@ -33,7 +33,7 @@ export const projectsData = [
     id: 3,
     number: '03',
     title: 'Gajanand Vada Pav',
-    image: '/assets/projects/gajanand.png',
+    image: '/assets/projects/optimized/gajanand.webp',
     categories: ['Restaurant', 'Landing Page'],
     description:
       'A Gujarati-inspired restaurant landing page built around bold food visuals, local identity and a cinematic browsing experience.',
@@ -46,7 +46,7 @@ export const projectsData = [
     id: 4,
     number: '04',
     title: 'The Weeknd',
-    image: '/assets/projects/the-weeknd.png',
+    image: '/assets/projects/optimized/the-weeknd.webp',
     categories: ['Music / Artist', 'Landing Page'],
     description:
       'A dark cinematic music-inspired web experience exploring dramatic typography, visual storytelling and immersive presentation.',
@@ -59,7 +59,7 @@ export const projectsData = [
     id: 5,
     number: '05',
     title: 'Cakee',
-    image: '/assets/projects/cakee.png',
+    image: '/assets/projects/optimized/cakee.webp',
     categories: ['E-commerce', 'Product'],
     description:
       'A bright cake and dessert shopping interface focused on product discovery, visual hierarchy and an inviting e-commerce experience.',
@@ -72,7 +72,7 @@ export const projectsData = [
     id: 6,
     number: '06',
     title: 'Coffitoo Coffee',
-    image: '/assets/projects/coffitoo.png',
+    image: '/assets/projects/optimized/coffitoo.webp',
     categories: ['Product', 'Landing Page'],
     description:
       'A premium coffee website presenting products, brand storytelling, menu content and a warm modern café aesthetic.',
