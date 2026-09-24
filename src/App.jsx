@@ -4,6 +4,7 @@ import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Projects from './components/Projects/Projects';
 import Skills from './components/Skills/Skills';
+import Contact from './components/Contact/Contact';
 import './App.css';
 
 export default function App() {
@@ -27,6 +28,9 @@ export default function App() {
 
         {/* Section 4: Skills Section */}
         <Skills />
+
+        {/* Section 5: Contact Section */}
+        <Contact />
       </main>
     </div>
   );
