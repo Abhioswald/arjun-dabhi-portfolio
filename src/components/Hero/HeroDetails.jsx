@@ -1,5 +1,5 @@
 import React from 'react';
-import { Compass, Globe } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import './Hero.css';
 
 export default function HeroDetails({ detailsRef, outlineRef }) {
@@ -36,7 +36,6 @@ export default function HeroDetails({ detailsRef, outlineRef }) {
         </div>
         <div className="badge-text-group">
           <span className="badge-title">BASED IN INDIA</span>
-          <span className="badge-sub">AVAILABLE WORLDWIDE</span>
         </div>
       </div>
     </div>

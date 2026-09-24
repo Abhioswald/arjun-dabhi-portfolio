@@ -14,8 +14,8 @@
   background-color: #08090b;
   color: #f3f1ee;
   scroll-margin-top: 100px;
-  padding-top: clamp(80px, 8vw, 130px);
-  padding-bottom: clamp(6rem, 9vw, 9rem);
+  padding-top: clamp(50px, 4.5vw, 75px);
+  padding-bottom: clamp(3.5rem, 5vw, 5rem);
   padding-left: 0;
   padding-right: 0;
   box-sizing: border-box;

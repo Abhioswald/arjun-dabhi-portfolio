@@ -4,7 +4,7 @@ import './Hero.css';
 export default function HeroStats({ statsRef }) {
   const stats = [
     { value: '10+', label: 'PROJECTS' },
-    { value: '2+', label: 'YEARS EXPERIENCE' },
+    { value: '2+', label: 'YEARS LEARNING' },
     { value: '100%', label: 'PASSION' },
   ];
 

@@ -233,7 +233,7 @@
   position: relative;
   z-index: 10;
   max-width: 680px;
-  margin-top: 1.5rem;
+  margin-top: 0;
   box-sizing: border-box;
 }
 
@@ -242,7 +242,7 @@
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.65rem;
 }
 
 .intro-text {
@@ -263,13 +263,13 @@
 .hero-heading-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.15rem;
+  margin-bottom: 0.95rem;
   will-change: transform, opacity;
 }
 
 .hero-title-arjun {
   font-family: var(--font-display);
-  font-size: clamp(3.8rem, 8.2vw, 7.8rem);
+  font-size: clamp(3.5rem, 6.8vw, 6.8rem);
   font-weight: 800;
   line-height: 0.86;
   letter-spacing: -0.03em;
@@ -280,7 +280,7 @@
 
 .hero-title-dabhi {
   font-family: var(--font-display);
-  font-size: clamp(3.8rem, 8.2vw, 7.8rem);
+  font-size: clamp(3.5rem, 6.8vw, 6.8rem);
   font-weight: 800;
   line-height: 0.86;
   letter-spacing: -0.03em;
@@ -300,7 +300,7 @@
   letter-spacing: 0.36em;
   color: #d1cdd9;
   text-transform: uppercase;
-  margin-bottom: 1.4rem;
+  margin-bottom: clamp(0.85rem, 1.5vh, 1.15rem);
   will-change: transform, opacity;
 }
 
@@ -315,7 +315,7 @@
   line-height: 1.65;
   color: var(--color-muted);
   max-width: 480px;
-  margin-bottom: 2.2rem;
+  margin-bottom: clamp(1rem, 1.8vh, 1.45rem);
   will-change: transform, opacity;
 }
 
@@ -324,7 +324,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  margin-bottom: 3.2rem;
+  margin-bottom: clamp(1.2rem, 2.2vh, 1.8rem);
   will-change: transform, opacity;
 }
 
@@ -424,6 +424,7 @@
   display: flex;
   align-items: center;
   gap: 2.2rem;
+  margin-bottom: clamp(1rem, 2vh, 1.8rem);
   will-change: transform, opacity;
   box-sizing: border-box;
 }
@@ -610,7 +611,7 @@
 
 .hero-bottom-bar {
   position: absolute;
-  bottom: 2.2rem;
+  bottom: clamp(1.2rem, 2vh, 1.8rem);
   left: 4rem;
   right: 4rem;
   display: flex;
@@ -619,6 +620,35 @@
   z-index: 20;
   pointer-events: auto;
   box-sizing: border-box;
+}
+
+@media (max-height: 860px) and (min-width: 769px) {
+  .hero-heading-group {
+    margin-bottom: 0.65rem;
+  }
+  .hero-title-arjun,
+  .hero-title-dabhi {
+    font-size: clamp(3rem, 5.5vw, 4.8rem);
+  }
+  .hero-subtitle {
+    margin-bottom: 0.65rem;
+  }
+  .hero-description {
+    margin-bottom: 0.85rem;
+    font-size: 0.95rem;
+  }
+  .hero-cta-row {
+    margin-bottom: 1rem;
+  }
+  .hero-bottom-bar {
+    bottom: 0.95rem;
+  }
+  .hero-stats-container {
+    margin-bottom: 0.5rem;
+  }
+  .stat-number {
+    font-size: 1.55rem;
+  }
 }
 
 .bottom-empty-spacer {
