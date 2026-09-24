@@ -123,8 +123,9 @@ export default function About() {
       const enterTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 80%',
           toggleActions: 'play none none none',
+          once: true,
         },
         defaults: { ease: 'power3.out' },
       });
@@ -132,7 +133,6 @@ export default function About() {
       // Initial state
       gsap.set(
         [
-          markerRef.current,
           portraitWrapRef.current,
           bioRef.current,
           statsRef.current,
@@ -143,39 +143,45 @@ export default function About() {
         { opacity: 0 }
       );
 
+      // Section Marker: Label upward, Number follows, Line grows downward
+      const markerLabel = markerRef.current?.querySelector('.about-marker-label');
+      const markerNumber = markerRef.current?.querySelector('.about-marker-number');
+      const markerLine = markerRef.current?.querySelector('.about-marker-line');
+
+      if (markerLabel && markerNumber && markerLine) {
+        gsap.set([markerLabel, markerNumber], { opacity: 0, y: 18 });
+        gsap.set(markerLine, { scaleY: 0, opacity: 0, transformOrigin: 'top center' });
+
+        enterTl.to(markerLabel, { opacity: 1, y: 0, duration: 0.7 }, 0.05);
+        enterTl.to(markerNumber, { opacity: 1, y: 0, duration: 0.7 }, 0.12);
+        enterTl.to(markerLine, { scaleY: 1, opacity: 1, duration: 0.8 }, 0.18);
+      }
+
       // Portrait: rise & scale subtly into place
       enterTl.fromTo(
         portraitWrapRef.current,
-        { opacity: 0, y: 45, scale: 1.035 },
-        { opacity: 1, y: 0, scale: 1, duration: 1.1, ease: 'power3.out' },
-        0
-      );
-
-      // Marker: ABOUT 02
-      enterTl.fromTo(
-        markerRef.current,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.8 },
+        { opacity: 0, y: 38, scale: 1.025 },
+        { opacity: 1, y: 0, scale: 1, duration: 1.0, ease: 'power3.out' },
         0.1
       );
 
-      // Headline lines: sequential reveal
+      // Headline lines: sequential masked upward reveal
       const headlineLines = headlineRef.current?.querySelectorAll('.headline-line');
       if (headlineLines && headlineLines.length > 0) {
         enterTl.fromTo(
           headlineLines,
-          { opacity: 0, y: 45 },
-          { opacity: 1, y: 0, duration: 1.0, stagger: 0.11, ease: 'power4.out' },
-          0.15
+          { opacity: 0, y: 38 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' },
+          0.18
         );
       }
 
       // Biography copy
       enterTl.fromTo(
         bioRef.current,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: 26 },
         { opacity: 1, y: 0, duration: 0.85 },
-        0.35
+        0.36
       );
 
       // Stats row
@@ -183,7 +189,7 @@ export default function About() {
         statsRef.current,
         { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.85 },
-        0.45
+        0.46
       );
 
       // Quote
@@ -191,15 +197,15 @@ export default function About() {
         quoteRef.current,
         { opacity: 0, y: 18 },
         { opacity: 1, y: 0, duration: 0.8 },
-        0.55
+        0.56
       );
 
       // Right column intro
       enterTl.fromTo(
         rightIntroRef.current,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: 24 },
         { opacity: 1, y: 0, duration: 0.85 },
-        0.3
+        0.32
       );
 
       // Pillar cards: stagger fade-up
@@ -207,9 +213,9 @@ export default function About() {
       if (cards && cards.length > 0) {
         enterTl.fromTo(
           cards,
-          { opacity: 0, y: 25 },
+          { opacity: 0, y: 35 },
           { opacity: 1, y: 0, duration: 0.8, stagger: 0.1 },
-          0.45
+          0.46
         );
       }
 
@@ -229,7 +235,7 @@ export default function About() {
         enterTl.fromTo(
           skillFills,
           { scaleX: 0 },
-          { scaleX: 1, duration: 0.9, stagger: 0.08, ease: 'power2.out' },
+          { scaleX: 1, duration: 0.85, stagger: 0.08, ease: 'power2.out' },
           0.65
         );
       }
@@ -242,18 +248,58 @@ export default function About() {
         0.75
       );
 
-      // 2. Desktop Parallax for Portrait (Disabled on mobile <= 768px)
+      // 2. Desktop Parallax & Decorative Movement (strictly disabled on mobile <= 768px)
       const mm = gsap.matchMedia();
       mm.add('(min-width: 769px)', () => {
         if (portraitWrapRef.current) {
           gsap.to(portraitWrapRef.current, {
-            y: 22,
+            y: 16,
             ease: 'none',
             scrollTrigger: {
               trigger: sectionRef.current,
               start: 'top bottom',
               end: 'bottom top',
-              scrub: 0.8,
+              scrub: 0.6,
+            },
+          });
+        }
+
+        if (markerNumber) {
+          gsap.to(markerNumber, {
+            y: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.4,
+            },
+          });
+        }
+
+        if (quoteRef.current) {
+          gsap.to(quoteRef.current, {
+            y: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.4,
+            },
+          });
+        }
+
+        const amberGlow = sectionRef.current?.querySelector('.about-glow-amber');
+        if (amberGlow) {
+          gsap.to(amberGlow, {
+            y: 18,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.6,
             },
           });
         }

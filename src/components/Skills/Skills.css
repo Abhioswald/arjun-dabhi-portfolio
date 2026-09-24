@@ -25,6 +25,24 @@
   overflow: hidden;
 }
 
+/* Subtle top edge transition fade: amber / purple carryover from Projects */
+.skills-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background: radial-gradient(
+    ellipse 65% 100% at 50% 0%,
+    rgba(243, 183, 110, 0.08) 0%,
+    rgba(138, 66, 255, 0.06) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Atmospheric Ambient Background Gradients */
 .skills-ambient-background {
   position: absolute;
@@ -205,6 +223,11 @@
   line-height: 0.96;
   letter-spacing: -0.04em;
   margin: 0.7rem 0 1.25rem;
+  overflow: hidden;
+}
+
+.skills-headline .headline-line {
+  will-change: transform, opacity;
 }
 
 .headline-white {
@@ -285,13 +308,14 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
+  transition: transform var(--motion-medium) var(--ease-out),
+              border-color var(--motion-medium) var(--ease-out),
+              box-shadow var(--motion-medium) var(--ease-out);
+  will-change: transform;
 }
 
 .skill-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   border-color: rgba(243, 183, 110, 0.32);
   box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
 }
@@ -346,8 +370,11 @@
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
   padding: 0.62rem 0.9rem;
-  transition: all 0.22s ease;
+  transition: transform var(--motion-fast) var(--ease-out),
+              background-color var(--motion-fast) var(--ease-out),
+              border-color var(--motion-fast) var(--ease-out);
   box-sizing: border-box;
+  will-change: transform;
 }
 
 .skill-chip:hover {
@@ -462,9 +489,10 @@
   align-items: flex-start;
   gap: 1.1rem;
   box-sizing: border-box;
-  transition: transform 0.25s ease,
-              border-color 0.25s ease,
-              background-color 0.25s ease;
+  transition: transform var(--motion-medium) var(--ease-out),
+              border-color var(--motion-medium) var(--ease-out),
+              background-color var(--motion-medium) var(--ease-out);
+  will-change: transform;
 }
 
 .tool-strip-card:hover {

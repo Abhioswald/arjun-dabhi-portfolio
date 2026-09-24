@@ -24,6 +24,24 @@
   overflow: hidden;
 }
 
+/* Subtle top edge transition fade: amber to purple / gold transition bridge from Skills */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: radial-gradient(
+    ellipse 70% 100% at 50% 0%,
+    rgba(243, 183, 110, 0.09) 0%,
+    rgba(138, 66, 255, 0.07) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Atmospheric Ambient Background Gradients */
 .contact-ambient-background {
   position: absolute;
@@ -199,6 +217,11 @@
   line-height: 0.96;
   letter-spacing: -0.045em;
   margin: 0.7rem 0 1.25rem;
+  overflow: hidden;
+}
+
+.contact-headline .headline-line {
+  will-change: transform, opacity;
 }
 
 .headline-white {
@@ -329,13 +352,14 @@
   padding: 1.1rem 1.25rem;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.28s ease,
-              background-color 0.28s ease,
-              box-shadow 0.28s ease;
+  transition: transform var(--motion-medium) var(--ease-out),
+              border-color var(--motion-medium) var(--ease-out),
+              background-color var(--motion-medium) var(--ease-out),
+              box-shadow var(--motion-medium) var(--ease-out);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   box-sizing: border-box;
+  will-change: transform;
 }
 
 .contact-method-card:hover {
@@ -591,13 +615,14 @@
   border: none;
   cursor: pointer;
   padding: 0.9rem 1.5rem;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              filter 0.25s ease,
-              box-shadow 0.25s ease,
-              opacity 0.25s ease;
+  transition: transform var(--motion-fast) var(--ease-out),
+              filter var(--motion-fast) var(--ease-out),
+              box-shadow var(--motion-fast) var(--ease-out),
+              opacity var(--motion-fast) var(--ease-out);
   box-shadow: 0 10px 24px -6px rgba(224, 122, 56, 0.35);
   margin-top: 0.5rem;
   box-sizing: border-box;
+  will-change: transform;
 }
 
 .contact-submit-btn:hover:not(:disabled) {
@@ -608,7 +633,7 @@
 }
 
 .contact-submit-btn:active:not(:disabled) {
-  transform: scale(0.99);
+  transform: translateY(0) scale(0.985);
 }
 
 .contact-submit-btn:disabled {
@@ -620,11 +645,11 @@
 }
 
 .contact-submit-btn .btn-arrow-icon {
-  transition: transform 0.25s ease;
+  transition: transform var(--motion-fast) var(--ease-out);
 }
 
 .contact-submit-btn:hover:not(:disabled) .btn-arrow-icon {
-  transform: translate(2px, -2px);
+  transform: translate(3px, -2px);
 }
 
 /* Neutral note when email is absent */

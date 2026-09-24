@@ -96,8 +96,9 @@ export default function Skills() {
       const enterTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 80%',
           toggleActions: 'play none none none',
+          once: true,
         },
         defaults: { ease: 'power3.out' },
       });
@@ -105,36 +106,65 @@ export default function Skills() {
       // Initial state
       gsap.set(
         [
-          markerRef.current,
-          headerMainRef.current,
           headerSideRef.current,
           toolsStripRef.current,
         ],
         { opacity: 0 }
       );
 
-      // Marker
-      enterTl.fromTo(
-        markerRef.current,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        0.05
-      );
+      // Section Marker: Label upward, Number follows, Line grows downward
+      const markerLabel = markerRef.current?.querySelector('.skills-marker-label');
+      const markerNumber = markerRef.current?.querySelector('.skills-marker-number');
+      const markerLine = markerRef.current?.querySelector('.skills-marker-line');
 
-      // Main Header
-      enterTl.fromTo(
-        headerMainRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.95 },
-        0.12
-      );
+      if (markerLabel && markerNumber && markerLine) {
+        gsap.set([markerLabel, markerNumber], { opacity: 0, y: 18 });
+        gsap.set(markerLine, { scaleY: 0, opacity: 0, transformOrigin: 'top center' });
+
+        enterTl.to(markerLabel, { opacity: 1, y: 0, duration: 0.7 }, 0.05);
+        enterTl.to(markerNumber, { opacity: 1, y: 0, duration: 0.7 }, 0.12);
+        enterTl.to(markerLine, { scaleY: 1, opacity: 1, duration: 0.8 }, 0.18);
+      }
+
+      // Eyebrow
+      const eyebrow = headerMainRef.current?.querySelector('.skills-eyebrow');
+      if (eyebrow) {
+        enterTl.fromTo(
+          eyebrow,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          0.1
+        );
+      }
+
+      // Headline lines: sequential masked upward reveal
+      const headlineLines = headerMainRef.current?.querySelectorAll('.headline-line');
+      if (headlineLines && headlineLines.length > 0) {
+        enterTl.fromTo(
+          headlineLines,
+          { opacity: 0, y: 38 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' },
+          0.16
+        );
+      }
+
+      // Copy
+      const introCopy = headerMainRef.current?.querySelector('.skills-intro-copy');
+      if (introCopy) {
+        enterTl.fromTo(
+          introCopy,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          0.32
+        );
+      }
 
       // Quote Side
       enterTl.fromTo(
         headerSideRef.current,
-        { opacity: 0, y: 35 },
+        { opacity: 0, y: 28 },
         { opacity: 1, y: 0, duration: 0.85 },
-        0.22
+        0.26
       );
 
       // Skill Cards Stagger
@@ -142,26 +172,71 @@ export default function Skills() {
       if (cards && cards.length > 0) {
         enterTl.fromTo(
           cards,
-          { opacity: 0, y: 50, scale: 0.985 },
+          { opacity: 0, y: 40, scale: 0.99 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.85,
-            stagger: 0.12,
+            duration: 0.8,
+            stagger: 0.1,
             ease: 'power3.out',
           },
-          0.35
+          0.38
         );
       }
 
       // Tools Strip
       enterTl.fromTo(
         toolsStripRef.current,
-        { opacity: 0, y: 30 },
-        { opacity: 1, y: 0, duration: 0.85 },
-        0.55
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.8 },
+        0.52
       );
+
+      // Desktop subtle parallax & decorative motion (Disabled on mobile <= 768px)
+      const mm = gsap.matchMedia();
+      mm.add('(min-width: 769px)', () => {
+        if (markerNumber) {
+          gsap.to(markerNumber, {
+            y: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.4,
+            },
+          });
+        }
+
+        const quoteCard = sectionRef.current?.querySelector('.skills-quote-card');
+        if (quoteCard) {
+          gsap.to(quoteCard, {
+            y: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.4,
+            },
+          });
+        }
+
+        const purpleGlow = sectionRef.current?.querySelector('.skills-glow-purple');
+        if (purpleGlow) {
+          gsap.to(purpleGlow, {
+            y: 20,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.6,
+            },
+          });
+        }
+      });
     }, sectionRef);
 
     return () => {

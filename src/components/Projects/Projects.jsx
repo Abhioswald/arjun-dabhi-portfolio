@@ -53,8 +53,9 @@ export default function Projects() {
       const enterTl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top 75%',
+          start: 'top 80%',
           toggleActions: 'play none none none',
+          once: true,
         },
         defaults: { ease: 'power3.out' },
       });
@@ -62,44 +63,73 @@ export default function Projects() {
       // Initial state
       gsap.set(
         [
-          markerRef.current,
-          headerMainRef.current,
           headerSideRef.current,
           filtersRef.current,
         ],
         { opacity: 0 }
       );
 
-      // Section Marker
-      enterTl.fromTo(
-        markerRef.current,
-        { opacity: 0, y: 25 },
-        { opacity: 1, y: 0, duration: 0.8 },
-        0.05
-      );
+      // Section Marker: Label upward, Number follows, Line grows downward
+      const markerLabel = markerRef.current?.querySelector('.projects-marker-label');
+      const markerNumber = markerRef.current?.querySelector('.projects-marker-number');
+      const markerLine = markerRef.current?.querySelector('.projects-marker-line');
 
-      // Main Header (Eyebrow + Headline + Intro)
-      enterTl.fromTo(
-        headerMainRef.current,
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.95 },
-        0.12
-      );
+      if (markerLabel && markerNumber && markerLine) {
+        gsap.set([markerLabel, markerNumber], { opacity: 0, y: 18 });
+        gsap.set(markerLine, { scaleY: 0, opacity: 0, transformOrigin: 'top center' });
+
+        enterTl.to(markerLabel, { opacity: 1, y: 0, duration: 0.7 }, 0.05);
+        enterTl.to(markerNumber, { opacity: 1, y: 0, duration: 0.7 }, 0.12);
+        enterTl.to(markerLine, { scaleY: 1, opacity: 1, duration: 0.8 }, 0.18);
+      }
+
+      // Eyebrow
+      const eyebrow = headerMainRef.current?.querySelector('.projects-eyebrow');
+      if (eyebrow) {
+        enterTl.fromTo(
+          eyebrow,
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.7 },
+          0.1
+        );
+      }
+
+      // Headline lines: sequential masked upward reveal
+      const headlineLines = headerMainRef.current?.querySelectorAll('.headline-line');
+      if (headlineLines && headlineLines.length > 0) {
+        enterTl.fromTo(
+          headlineLines,
+          { opacity: 0, y: 38 },
+          { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, ease: 'power3.out' },
+          0.16
+        );
+      }
+
+      // Copy
+      const introCopy = headerMainRef.current?.querySelector('.projects-intro-copy');
+      if (introCopy) {
+        enterTl.fromTo(
+          introCopy,
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.8 },
+          0.32
+        );
+      }
 
       // Side Header (Quote + Count)
       enterTl.fromTo(
         headerSideRef.current,
-        { opacity: 0, y: 35 },
+        { opacity: 0, y: 28 },
         { opacity: 1, y: 0, duration: 0.85 },
-        0.22
+        0.28
       );
 
       // Filters bar
       enterTl.fromTo(
         filtersRef.current,
-        { opacity: 0, y: 25 },
+        { opacity: 0, y: 20 },
         { opacity: 1, y: 0, duration: 0.75 },
-        0.32
+        0.38
       );
 
       // Cards stagger entrance
@@ -107,22 +137,63 @@ export default function Projects() {
       if (cards && cards.length > 0) {
         enterTl.fromTo(
           cards,
-          { opacity: 0, y: 55, scale: 0.985 },
+          { opacity: 0, y: 42, scale: 0.99 },
           {
             opacity: 1,
             y: 0,
             scale: 1,
-            duration: 0.85,
-            stagger: 0.1,
+            duration: 0.8,
+            stagger: 0.08,
             ease: 'power3.out',
           },
-          0.42
+          0.44
         );
       }
 
-      // 2. Desktop subtle parallax inside card screenshots (Disabled on mobile <= 768px)
+      // 2. Desktop subtle parallax & decorative motion (Disabled on mobile <= 768px)
       const mm = gsap.matchMedia();
       mm.add('(min-width: 769px)', () => {
+        if (markerNumber) {
+          gsap.to(markerNumber, {
+            y: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.4,
+            },
+          });
+        }
+
+        const quoteCard = sectionRef.current?.querySelector('.projects-quote-card');
+        if (quoteCard) {
+          gsap.to(quoteCard, {
+            y: 10,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.4,
+            },
+          });
+        }
+
+        const purpleGlow = sectionRef.current?.querySelector('.projects-glow-purple');
+        if (purpleGlow) {
+          gsap.to(purpleGlow, {
+            y: 20,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.6,
+            },
+          });
+        }
+
         const images = cardsGridRef.current?.querySelectorAll(
           '.project-screenshot-img'
         );
@@ -132,15 +203,15 @@ export default function Projects() {
             if (cardEl) {
               gsap.fromTo(
                 img,
-                { y: -7 },
+                { y: -6 },
                 {
-                  y: 7,
+                  y: 6,
                   ease: 'none',
                   scrollTrigger: {
                     trigger: cardEl,
                     start: 'top bottom',
                     end: 'bottom top',
-                    scrub: 0.7,
+                    scrub: 0.6,
                   },
                 }
               );

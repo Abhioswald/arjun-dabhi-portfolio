@@ -25,6 +25,24 @@
   overflow: hidden;
 }
 
+/* Subtle top edge transition fade from About amber into neutral dark with faint purple */
+.projects-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 130px;
+  background: radial-gradient(
+    ellipse 65% 100% at 50% 0%,
+    rgba(243, 183, 110, 0.08) 0%,
+    rgba(138, 66, 255, 0.05) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* Atmospheric Ambient Background Gradients */
 .projects-ambient-background {
   position: absolute;
@@ -205,6 +223,11 @@
   line-height: 0.96;
   letter-spacing: -0.04em;
   margin: 0.7rem 0 1.25rem;
+  overflow: hidden;
+}
+
+.projects-headline .headline-line {
+  will-change: transform, opacity;
 }
 
 .headline-white {
@@ -367,14 +390,15 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-              border-color 0.3s ease,
-              box-shadow 0.3s ease;
-  animation: projectCardFade 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  transition: transform var(--motion-medium) var(--ease-out),
+              border-color var(--motion-medium) var(--ease-out),
+              box-shadow var(--motion-medium) var(--ease-out);
+  animation: projectCardFade var(--motion-medium) var(--ease-out) both;
+  will-change: transform;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: rgba(243, 183, 110, 0.35);
   box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.7);
 }
@@ -394,12 +418,12 @@
   object-fit: cover;
   display: block;
   transform: scale(1.002);
-  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform var(--motion-medium) var(--ease-out);
   will-change: transform;
 }
 
 .project-card:hover .project-screenshot-img {
-  transform: scale(1.025);
+  transform: scale(1.022);
 }
 
 .project-screenshot-gradient {
