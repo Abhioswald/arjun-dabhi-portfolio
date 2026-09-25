@@ -9,31 +9,37 @@ export default function CaseStudyNextProject({
     description:
       'A Gujarati-inspired restaurant experience built around bold food visuals and local identity.',
     image: '/assets/projects/optimized/gajanand.webp',
-    targetUrl: '/#projects',
+    targetUrl: '/projects/gajanand',
   },
 }) {
   const navigate = useNavigate();
+  const target = nextData.targetUrl || '/#projects';
+  const isHash = target.startsWith('/#');
 
   const handleClick = (e) => {
     e.preventDefault();
-    navigate('/#projects', { state: { scrollTo: 'projects' } });
+    if (isHash) {
+      navigate('/#projects', { state: { scrollTo: 'projects' } });
+    } else {
+      navigate(target);
+    }
   };
 
   return (
     <section className="cs-next-section" aria-label="Next Project in Portfolio">
       <div className="cs-next-container">
         <a
-          href="/#projects"
+          href={target}
           onClick={handleClick}
           className="cs-next-card"
-          aria-label={`Next project: ${nextData.title}. Return to portfolio projects.`}
+          aria-label={`Next project: ${nextData.title}`}
         >
           <div className="cs-next-copy">
             <span className="cs-next-eyebrow">{nextData.marker}</span>
             <h2 className="cs-next-title">{nextData.title}</h2>
             <p className="cs-next-desc">{nextData.description}</p>
             <div className="cs-next-action-prompt">
-              <span>View in Projects</span>
+              <span>Explore Project</span>
               <ArrowRight size={16} aria-hidden="true" />
             </div>
           </div>

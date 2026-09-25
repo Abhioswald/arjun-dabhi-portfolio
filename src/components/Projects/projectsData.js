@@ -40,6 +40,7 @@ export const projectsData = [
       'A Gujarati-inspired restaurant landing page built around bold food visuals, local identity and a cinematic browsing experience.',
     objectPosition: 'center 35%',
     tech: [],
+    caseStudyUrl: '/projects/gajanand',
     liveUrl: 'https://gajanand-six.vercel.app/',
     githubUrl: 'https://github.com/Abhioswald/gajanand',
   },
