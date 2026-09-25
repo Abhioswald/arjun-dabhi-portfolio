@@ -13,8 +13,8 @@ export const projectsData = [
       'A dark, experimental product experience focused on bold visuals, cinematic presentation and immersive scrolling.',
     objectPosition: 'center top',
     tech: [],
-    liveUrl: '',
-    githubUrl: '',
+    liveUrl: 'https://boo-icecream.vercel.app/',
+    githubUrl: 'https://github.com/Abhioswald/boo-icecream',
   },
   {
     id: 2,
@@ -39,8 +39,8 @@ export const projectsData = [
       'A Gujarati-inspired restaurant landing page built around bold food visuals, local identity and a cinematic browsing experience.',
     objectPosition: 'center 35%',
     tech: [],
-    liveUrl: '',
-    githubUrl: '',
+    liveUrl: 'https://gajanand-six.vercel.app/',
+    githubUrl: 'https://github.com/Abhioswald/gajanand',
   },
   {
     id: 4,

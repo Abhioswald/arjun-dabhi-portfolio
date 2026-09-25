@@ -578,11 +578,18 @@
   letter-spacing: 0.08em;
   color: #f3b76e;
   text-decoration: none;
-  transition: color 0.2s ease, transform 0.2s ease;
+  transition: color var(--motion-fast) var(--ease-out);
+}
+
+.project-view-link svg {
+  transition: transform var(--motion-fast) var(--ease-out);
 }
 
 .project-view-link:hover {
   color: #f8ca8f;
+}
+
+.project-view-link:hover svg {
   transform: translateX(3px);
 }
 
@@ -596,7 +603,10 @@
   background: rgba(255, 255, 255, 0.035);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: rgba(255, 255, 255, 0.7);
-  transition: all 0.2s ease;
+  transition: color var(--motion-fast) var(--ease-out),
+              background-color var(--motion-fast) var(--ease-out),
+              border-color var(--motion-fast) var(--ease-out),
+              transform var(--motion-fast) var(--ease-out);
   text-decoration: none;
 }
 
@@ -710,6 +720,7 @@
   .project-screenshot-img,
   .filter-pill,
   .project-view-link,
+  .project-view-link svg,
   .project-github-btn,
   .project-corner-arrow {
     transition: none !important;

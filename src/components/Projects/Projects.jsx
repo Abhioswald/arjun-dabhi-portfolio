@@ -344,19 +344,6 @@ export default function Projects() {
                   aria-hidden="true"
                 />
                 <span className="project-num-badge">{project.number}</span>
-
-                {/* Optional interactive arrow button if live URL exists */}
-                {project.liveUrl && (
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-corner-arrow"
-                    aria-label={`Open live site for ${project.title}`}
-                  >
-                    <ArrowUpRight size={15} aria-hidden="true" />
-                  </a>
-                )}
               </div>
 
               {/* Card Body */}
@@ -386,33 +373,33 @@ export default function Projects() {
                 )}
 
                 {/* Action Row: ONLY rendered if links exist */}
-                {(project.liveUrl || project.githubUrl) && (
+                {project.liveUrl || project.githubUrl ? (
                   <div className="project-card-actions">
-                    {project.liveUrl && (
+                    {project.liveUrl ? (
                       <a
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-view-link"
-                        aria-label={`View live ${project.title} project`}
+                        aria-label={`View ${project.title} live project`}
                       >
                         <span>View Project</span>
                         <ArrowUpRight size={14} aria-hidden="true" />
                       </a>
-                    )}
-                    {project.githubUrl && (
+                    ) : null}
+                    {project.githubUrl ? (
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-github-btn"
-                        aria-label={`View GitHub repository for ${project.title}`}
+                        aria-label={`View ${project.title} on GitHub`}
                       >
                         <GithubIcon size={16} />
                       </a>
-                    )}
+                    ) : null}
                   </div>
-                )}
+                ) : null}
               </div>
             </article>
           ))}
