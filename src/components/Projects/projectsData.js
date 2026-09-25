@@ -13,6 +13,7 @@ export const projectsData = [
       'A dark, experimental product experience focused on bold visuals, cinematic presentation and immersive scrolling.',
     objectPosition: 'center top',
     tech: [],
+    caseStudyUrl: '/projects/boo',
     liveUrl: 'https://boo-icecream.vercel.app/',
     githubUrl: 'https://github.com/Abhioswald/boo-icecream',
   },

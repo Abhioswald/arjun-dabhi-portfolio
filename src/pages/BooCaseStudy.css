@@ -1,0 +1,1093 @@
+/* ==========================================================================
+   BOO! ICE CREAM CASE STUDY STYLES
+   Project-specific visual language: near-black, electric purple, bold white type
+   ========================================================================== */
+
+.boo-case-study {
+  background-color: var(--cs-bg-0, #030304);
+  color: var(--cs-text-main, #f5f3f7);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  font-family: var(--font-body, 'Plus Jakarta Sans', sans-serif);
+}
+
+/* Background Atmosphere */
+.boo-ambient-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.boo-glow-orb-1 {
+  position: absolute;
+  top: 5%;
+  right: -5%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(167, 66, 255, 0.12) 0%, transparent 70%);
+  filter: blur(80px);
+}
+
+.boo-glow-orb-2 {
+  position: absolute;
+  top: 45%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 41, 255, 0.08) 0%, transparent 70%);
+  filter: blur(100px);
+}
+
+.boo-glow-orb-3 {
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(138, 66, 255, 0.1) 0%, transparent 70%);
+  filter: blur(90px);
+}
+
+.boo-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 80%);
+}
+
+/* Common Container */
+.boo-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   01 — HERO SECTION
+   ========================================================================== */
+.boo-hero-section {
+  padding-top: clamp(105px, 13vh, 140px);
+  padding-bottom: clamp(50px, 8vh, 80px);
+  position: relative;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.boo-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.12fr;
+  gap: clamp(2rem, 3.8vw, 3.6rem);
+  align-items: center;
+}
+
+.boo-hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.boo-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--cs-font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--cs-purple-bright);
+  text-transform: uppercase;
+}
+
+.boo-hero-title {
+  font-family: var(--cs-font-display);
+  font-size: clamp(3.2rem, 6.8vw, 5.8rem);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.boo-hero-title-accent {
+  background: linear-gradient(135deg, #ffffff 0%, var(--cs-violet-soft) 55%, var(--cs-purple-bright) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.boo-hero-desc {
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  color: var(--cs-text-muted);
+  line-height: 1.65;
+  max-width: 540px;
+  margin: 0;
+}
+
+/* Action Buttons */
+.boo-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  padding-top: 0.2rem;
+}
+
+.boo-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, var(--cs-purple-deep) 0%, var(--cs-magenta) 100%);
+  color: #ffffff;
+  font-family: var(--cs-font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.65rem;
+  min-height: 48px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 0 25px var(--cs-purple-glow);
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.boo-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(214, 41, 255, 0.5);
+  color: #fff;
+}
+
+.boo-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--cs-text-main);
+  border: 1px solid var(--cs-border);
+  font-family: var(--cs-font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 0.85rem 1.65rem;
+  min-height: 48px;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: all 0.25s ease;
+}
+
+.boo-btn-secondary:hover {
+  background: rgba(167, 66, 255, 0.1);
+  border-color: var(--cs-purple-bright);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Facts Row (Desktop: Clean 3-Column horizontal row) */
+.boo-hero-facts {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1.4rem, 2.2vw, 2.4rem);
+  flex-wrap: nowrap;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--cs-border);
+  margin-top: 0.8rem;
+}
+
+.boo-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.boo-fact-item:last-child {
+  white-space: normal;
+  flex: 1;
+}
+
+.boo-fact-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--cs-purple-bright);
+  text-transform: uppercase;
+}
+
+.boo-fact-value {
+  font-size: 0.88rem;
+  color: var(--cs-text-main);
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+/* Hero Visual Crop */
+.boo-hero-visual-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: #050507;
+  box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.9),
+              0 0 35px rgba(167, 66, 255, 0.15);
+  aspect-ratio: 16 / 10.8;
+}
+
+.boo-hero-visual-desktop {
+  display: block;
+}
+
+.boo-hero-visual-mobile {
+  display: none;
+}
+
+.boo-hero-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.boo-hero-visual-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 40%, rgba(3, 3, 4, 0.5) 100%),
+              linear-gradient(to top, rgba(3, 3, 4, 0.65) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   02 — PROJECT OVERVIEW
+   ========================================================================== */
+.boo-section {
+  padding: clamp(65px, 9vh, 95px) 0;
+  position: relative;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.boo-section-header {
+  max-width: 740px;
+  margin-bottom: 2.6rem;
+}
+
+.boo-section-title {
+  font-family: var(--cs-font-display);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin: 0 0 1.2rem;
+}
+
+.boo-section-intro {
+  font-size: 1.05rem;
+  color: var(--cs-text-muted);
+  line-height: 1.7;
+  margin: 0 0 0.8rem;
+}
+
+/* Feature Cards Grid */
+.boo-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.boo-overview-card {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 16px;
+  padding: 1.8rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.boo-overview-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--cs-purple-bright), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.boo-overview-card:hover {
+  border-color: var(--cs-purple-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.7),
+              0 0 20px var(--cs-purple-glow);
+}
+
+.boo-overview-card:hover::before {
+  opacity: 1;
+}
+
+.boo-card-title {
+  font-family: var(--cs-font-mono);
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cs-violet-soft);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.boo-card-desc {
+  font-size: 0.92rem;
+  color: var(--cs-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   03 — FULL WEBSITE EXPERIENCE
+   ========================================================================== */
+.boo-experience-section {
+  padding: clamp(75px, 10vh, 110px) 0;
+  background: linear-gradient(180deg, var(--cs-bg-0) 0%, var(--cs-bg-1) 50%, var(--cs-bg-0) 100%);
+  position: relative;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.boo-experience-showcase-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.boo-experience-frame {
+  width: 78%;
+  max-width: 1040px;
+  background: #050507;
+  border: 1px solid var(--cs-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 35px 80px -20px rgba(0, 0, 0, 0.95),
+              0 0 40px rgba(167, 66, 255, 0.12);
+  position: relative;
+}
+
+/* Browser Frame Top Chrome */
+.boo-frame-chrome {
+  height: 40px;
+  background: #08080b;
+  border-bottom: 1px solid var(--cs-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+}
+
+.boo-frame-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.boo-frame-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.boo-frame-url {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--cs-text-dim);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0.2rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.boo-full-screenshot-container {
+  width: 100%;
+  position: relative;
+  background: #050507;
+}
+
+.boo-full-screenshot-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Key Moments Checklist */
+.boo-experience-moments-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.boo-moment-pill {
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--cs-text-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--cs-border);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.boo-moment-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cs-purple-bright);
+}
+
+/* ==========================================================================
+   04 — VISUAL LANGUAGE
+   ========================================================================== */
+.boo-visual-lang-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.boo-visual-block {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.boo-visual-block:hover {
+  border-color: var(--cs-purple-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px -12px rgba(0, 0, 0, 0.8);
+}
+
+.boo-visual-block-crop {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: #050507;
+}
+
+.boo-visual-block-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.boo-visual-block:hover .boo-visual-block-img {
+  transform: scale(1.03);
+}
+
+.boo-visual-block-copy {
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.boo-visual-num {
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--cs-purple-bright);
+}
+
+.boo-visual-name {
+  font-family: var(--cs-font-display);
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.boo-visual-desc {
+  font-size: 0.92rem;
+  color: var(--cs-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   05 — WEBSITE MOMENTS (MOSAIC)
+   ========================================================================== */
+.boo-moments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.boo-moment-card {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.boo-moment-card:hover {
+  border-color: var(--cs-purple-bright);
+  transform: translateY(-4px);
+  box-shadow: 0 25px 50px -15px rgba(0, 0, 0, 0.8),
+              0 0 25px var(--cs-purple-glow);
+}
+
+.boo-moment-crop-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #050507;
+}
+
+.boo-moment-crop-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.boo-moment-card:hover .boo-moment-crop-img {
+  transform: scale(1.025);
+}
+
+.boo-moment-card-body {
+  padding: 1.4rem 1.6rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.boo-moment-tag {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--cs-purple-bright);
+}
+
+.boo-moment-title {
+  font-family: var(--cs-font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+/* ==========================================================================
+   06 — MOTION & INTERACTION
+   ========================================================================== */
+.boo-motion-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.boo-motion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.boo-motion-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding-left: 1.4rem;
+  border-left: 2px solid var(--cs-border);
+  transition: border-color 0.25s ease;
+}
+
+.boo-motion-item:hover {
+  border-color: var(--cs-purple-bright);
+}
+
+.boo-motion-item-title {
+  font-family: var(--cs-font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cs-violet-soft);
+  margin: 0;
+}
+
+.boo-motion-item-desc {
+  font-size: 0.92rem;
+  color: var(--cs-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.boo-motion-visual-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: #050507;
+  padding: 1rem;
+}
+
+.boo-motion-visual-inner {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 11;
+}
+
+.boo-motion-visual-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boo-motion-path-ornament {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--cs-font-mono);
+  font-size: 0.68rem;
+  color: var(--cs-purple-bright);
+  background: rgba(3, 3, 4, 0.75);
+  backdrop-filter: blur(8px);
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--cs-border);
+}
+
+/* ==========================================================================
+   07 — DEVELOPMENT PROCESS
+   ========================================================================== */
+.boo-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.boo-process-card {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 16px;
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  position: relative;
+}
+
+.boo-process-num {
+  font-family: var(--cs-font-display);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: rgba(167, 66, 255, 0.35);
+  line-height: 1;
+}
+
+.boo-process-title {
+  font-family: var(--cs-font-mono);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cs-violet-soft);
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.boo-process-desc {
+  font-size: 0.92rem;
+  color: var(--cs-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ==========================================================================
+   08 — CHALLENGES
+   ========================================================================== */
+.boo-challenges-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+}
+
+.boo-challenge-card {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 18px;
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.boo-challenge-card:hover {
+  border-color: var(--cs-purple-bright);
+  box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.7);
+}
+
+.boo-challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--cs-purple-bright);
+  text-transform: uppercase;
+}
+
+.boo-challenge-title {
+  font-family: var(--cs-font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.boo-challenge-step {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-bottom: 0.85rem;
+}
+
+.boo-challenge-step:not(:last-child) {
+  border-bottom: 1px solid rgba(170, 80, 255, 0.08);
+}
+
+.boo-step-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--cs-purple-bright);
+  text-transform: uppercase;
+  margin-bottom: 0.1rem;
+}
+
+.boo-step-content {
+  font-size: 0.94rem;
+  color: rgba(255, 255, 255, 0.72);
+  line-height: 1.72;
+  margin: 0;
+}
+
+.boo-step-content.result {
+  color: #f5f3f7;
+  font-weight: 600;
+  line-height: 1.72;
+}
+
+/* ==========================================================================
+   09 — LEARNINGS
+   ========================================================================== */
+.boo-learnings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.8rem;
+}
+
+.boo-learning-item {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 16px;
+  padding: 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  transition: border-color 0.25s ease;
+}
+
+.boo-learning-item:hover {
+  border-color: var(--cs-purple-bright);
+}
+
+.boo-learning-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--cs-purple-bright);
+  margin-top: 0.45rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px var(--cs-purple-bright);
+}
+
+.boo-learning-text {
+  font-size: 0.96rem;
+  color: var(--cs-text-main);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ==========================================================================
+   10 — TECH STACK
+   ========================================================================== */
+.boo-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.boo-stack-card {
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 16px;
+  padding: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  transition: all 0.25s ease;
+}
+
+.boo-stack-card:hover {
+  border-color: var(--cs-purple-bright);
+  transform: translateY(-2px);
+  background: rgba(167, 66, 255, 0.05);
+}
+
+.boo-stack-name {
+  font-family: var(--cs-font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.boo-stack-role {
+  font-family: var(--cs-font-mono);
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+}
+
+/* ==========================================================================
+   11 — PROJECT CLOSING CTA
+   ========================================================================== */
+.boo-closing-cta-section {
+  padding: clamp(75px, 10vh, 110px) 0;
+  background: radial-gradient(ellipse at center, rgba(167, 66, 255, 0.12) 0%, transparent 70%);
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.boo-closing-cta-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.boo-closing-headline {
+  font-family: var(--cs-font-display);
+  font-size: clamp(3rem, 6.5vw, 5.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+}
+
+.boo-closing-headline-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, var(--cs-violet-soft) 50%, var(--cs-magenta) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.boo-closing-desc {
+  font-size: 1.1rem;
+  color: var(--cs-text-muted);
+  max-width: 560px;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.boo-closing-actions {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 0.6rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .boo-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .boo-hero-visual-desktop {
+    display: none !important;
+  }
+
+  .boo-hero-visual-mobile {
+    display: block !important;
+    width: 100%;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  .boo-hero-facts {
+    flex-wrap: wrap;
+    gap: 1.2rem 2.2rem;
+    padding-top: 1.2rem;
+  }
+
+  .boo-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boo-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boo-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .boo-experience-frame {
+    width: 90%;
+  }
+
+  .boo-motion-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .boo-container {
+    padding: 0 1.25rem;
+  }
+
+  .boo-visual-lang-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .boo-moments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .boo-challenges-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .boo-learnings-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .boo-experience-frame {
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .boo-hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.65rem;
+  }
+
+  .boo-btn-primary,
+  .boo-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+    padding: 0.85rem 1.4rem;
+  }
+
+  .boo-hero-visual-mobile {
+    margin: 0.6rem 0 1rem;
+  }
+
+  .boo-hero-facts {
+    flex-direction: column;
+    gap: 0.85rem;
+    padding-top: 1rem;
+    margin-top: 0.2rem;
+  }
+
+  .boo-closing-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  .boo-overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boo-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .boo-stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .boo-case-study *,
+  .boo-hero-visual-img,
+  .boo-visual-block-img,
+  .boo-moment-crop-img,
+  .boo-btn-primary,
+  .boo-btn-secondary {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

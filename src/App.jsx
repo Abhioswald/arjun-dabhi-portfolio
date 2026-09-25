@@ -1,20 +1,30 @@
 import React, { useRef, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Navbar from './components/Navbar/Navbar';
-import Hero from './components/Hero/Hero';
-import About from './components/About/About';
-import Projects from './components/Projects/Projects';
-import Skills from './components/Skills/Skills';
-import Contact from './components/Contact/Contact';
+import HomePage from './pages/HomePage';
+import BooCaseStudy from './pages/BooCaseStudy';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function App() {
-  const heroRef = useRef(null);
-  const navRef = useRef(null);
+// Global route change scroll handler
+function ScrollHandler() {
+  const location = useLocation();
+
+  useEffect(() => {
+    // When navigating to a new page without a specific hash or scrollTo state, scroll to top
+    if (!location.hash && !location.state?.scrollTo) {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash, location.state]);
+
+  return null;
+}
+
+function GlobalLayout() {
   const progressBarRef = useRef(null);
+  const location = useLocation();
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia(
@@ -35,7 +45,7 @@ export default function App() {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [location.pathname]);
 
   return (
     <div className="portfolio-app-root">
@@ -46,25 +56,20 @@ export default function App() {
         aria-hidden="true"
       />
 
-      {/* Global Navigation Bar */}
-      <Navbar navRef={navRef} />
+      <ScrollHandler />
 
-      {/* Main Hero Section with Pinned GSAP ScrollTrigger Sequence */}
-      <main>
-        <Hero heroRef={heroRef} navRef={navRef} />
-
-        {/* Section 2: About Section */}
-        <About />
-
-        {/* Section 3: Projects Section */}
-        <Projects />
-
-        {/* Section 4: Skills Section */}
-        <Skills />
-
-        {/* Section 5: Contact Section */}
-        <Contact />
-      </main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects/boo" element={<BooCaseStudy />} />
+      </Routes>
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <GlobalLayout />
+    </BrowserRouter>
   );
 }

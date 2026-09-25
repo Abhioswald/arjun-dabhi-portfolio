@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Sparkles, ArrowUpRight } from 'lucide-react';
@@ -373,9 +374,18 @@ export default function Projects() {
                 )}
 
                 {/* Action Row: ONLY rendered if links exist */}
-                {project.liveUrl || project.githubUrl ? (
+                {project.caseStudyUrl || project.liveUrl || project.githubUrl ? (
                   <div className="project-card-actions">
-                    {project.liveUrl ? (
+                    {project.caseStudyUrl ? (
+                      <Link
+                        to={project.caseStudyUrl}
+                        className="project-view-link"
+                        aria-label={`Read ${project.title} case study`}
+                      >
+                        <span>Case Study</span>
+                        <ArrowUpRight size={14} aria-hidden="true" />
+                      </Link>
+                    ) : project.liveUrl ? (
                       <a
                         href={project.liveUrl}
                         target="_blank"
@@ -387,17 +397,33 @@ export default function Projects() {
                         <ArrowUpRight size={14} aria-hidden="true" />
                       </a>
                     ) : null}
-                    {project.githubUrl ? (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="project-github-btn"
-                        aria-label={`View ${project.title} on GitHub`}
-                      >
-                        <GithubIcon size={16} />
-                      </a>
-                    ) : null}
+
+                    <div className="project-action-icons" style={{ display: 'flex', gap: '0.45rem', alignItems: 'center' }}>
+                      {project.caseStudyUrl && project.liveUrl ? (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-github-btn"
+                          aria-label={`View ${project.title} live site`}
+                          title="Live Site"
+                        >
+                          <ArrowUpRight size={16} />
+                        </a>
+                      ) : null}
+                      {project.githubUrl ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-github-btn"
+                          aria-label={`View ${project.title} on GitHub`}
+                          title="Source Code"
+                        >
+                          <GithubIcon size={16} />
+                        </a>
+                      ) : null}
+                    </div>
                   </div>
                 ) : null}
               </div>
