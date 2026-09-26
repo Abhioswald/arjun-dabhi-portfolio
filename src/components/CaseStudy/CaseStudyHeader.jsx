@@ -3,16 +3,19 @@ import { ArrowUpRight } from 'lucide-react';
 import CaseStudyBackButton from './CaseStudyBackButton';
 
 export default function CaseStudyHeader({
-  liveUrl = 'https://boo-icecream.vercel.app/',
-  projectName = 'BOO! Ice Cream',
+  liveUrl = '',
+  projectName = '',
+  sectionLinks,
 }) {
-  const sectionLinks = [
+  const defaultLinks = [
     { name: 'Overview', href: '#overview' },
     { name: 'Experience', href: '#experience' },
     { name: 'Process', href: '#process' },
     { name: 'Features', href: '#moments' },
     { name: 'Learnings', href: '#learnings' },
   ];
+
+  const links = sectionLinks || defaultLinks;
 
   return (
     <header className="cs-navbar" role="banner">
@@ -22,24 +25,26 @@ export default function CaseStudyHeader({
 
         {/* Center: Small Section Links */}
         <nav className="cs-nav-sections" aria-label="Case Study Section Navigation">
-          {sectionLinks.map((item) => (
+          {links.map((item) => (
             <a key={item.name} href={item.href} className="cs-nav-section-link">
               {item.name}
             </a>
           ))}
         </nav>
 
-        {/* Right: Visit Project ↗ */}
-        <a
-          href={liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="cs-nav-visit-btn"
-          aria-label={`Visit live ${projectName} project in new tab`}
-        >
-          <span>Visit Project</span>
-          <ArrowUpRight size={15} aria-hidden="true" />
-        </a>
+        {/* Right: Visit Project ↗ only if real destination exists */}
+        {liveUrl ? (
+          <a
+            href={liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cs-nav-visit-btn"
+            aria-label={`Visit live ${projectName} project in new tab`}
+          >
+            <span>Visit Project</span>
+            <ArrowUpRight size={15} aria-hidden="true" />
+          </a>
+        ) : null}
       </div>
     </header>
   );

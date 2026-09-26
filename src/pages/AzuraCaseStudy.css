@@ -1,0 +1,1740 @@
+/* ==========================================================================
+   AZURA PERFUME CASE STUDY STYLES
+   Visual Identity: Deep oceanic teal, warm cream/ivory, muted metallic gold
+   Scoped to .azura-case-study to avoid leaking into other pages.
+   ========================================================================== */
+
+.azura-case-study {
+  /* Scoped Theme Custom Properties */
+  --cs-teal-deep: #062f34;
+  --cs-teal-mid: #083b40;
+  --cs-teal-light: #0a4549;
+  --cs-teal-dark: #041a1d;
+  --cs-bg-0: #031315;
+  --cs-bg-1: #041a1d;
+  --cs-bg-2: #062428;
+  --cs-bg-card: rgba(8, 59, 64, 0.42);
+  --cs-bg-card-hover: rgba(10, 69, 73, 0.65);
+
+  --cs-cream: #efe3c7;
+  --cs-cream-light: #f5ecd8;
+  --cs-gold: #d8b46b;
+  --cs-gold-muted: #d5a94f;
+  --cs-rust: #b86d42;
+
+  --cs-text-main: #f2eee5;
+  --cs-text-muted: rgba(242, 238, 229, 0.68);
+  --cs-text-dim: rgba(239, 227, 199, 0.45);
+
+  --cs-border: rgba(216, 180, 107, 0.18);
+  --cs-border-active: rgba(216, 180, 107, 0.45);
+  --cs-glow-teal: rgba(8, 59, 64, 0.35);
+  --cs-glow-gold: rgba(216, 180, 107, 0.20);
+
+  /* Override shared case-study tokens to prevent purple/saffron leakage */
+  --cs-purple-bright: #d8b46b;
+  --cs-purple-deep: #083b40;
+  --cs-magenta: #b86d42;
+  --cs-violet-soft: #d5a94f;
+  --cs-purple-glow: rgba(216, 180, 107, 0.25);
+
+  --cs-font-serif: Georgia, 'Times New Roman', serif;
+  --cs-font-sans: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  --cs-font-mono: 'Space Grotesk', monospace;
+
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--cs-bg-0);
+  color: var(--cs-text-main);
+  overflow-x: hidden;
+  font-family: var(--cs-font-sans);
+}
+
+/* ==========================================================================
+   SCOPED SHARED COMPONENT OVERRIDES (Teal / Gold / Cream)
+   ========================================================================== */
+.azura-case-study .cs-marker-label {
+  color: var(--cs-gold);
+}
+
+.azura-case-study .cs-marker-line {
+  background: linear-gradient(to right, var(--cs-gold), transparent);
+}
+
+.azura-case-study .cs-back-btn:hover {
+  border-color: var(--cs-gold);
+  color: var(--cs-cream-light);
+  box-shadow: 0 0 16px rgba(216, 180, 107, 0.25);
+}
+
+.azura-case-study .cs-nav-section-link:hover {
+  color: var(--cs-gold);
+}
+
+.azura-case-study .cs-next-card {
+  border-color: var(--cs-border);
+  background: linear-gradient(
+    135deg,
+    rgba(6, 47, 52, 0.6) 0%,
+    rgba(4, 26, 29, 0.85) 100%
+  );
+}
+
+.azura-case-study .cs-next-card:hover {
+  border-color: var(--cs-gold);
+  box-shadow: 0 20px 48px rgba(3, 19, 21, 0.9), 0 0 32px var(--cs-glow-gold);
+}
+
+.azura-case-study .cs-next-eyebrow {
+  color: var(--cs-gold);
+}
+
+/* Container */
+.azura-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .azura-container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .azura-container {
+    padding: 0 48px;
+  }
+}
+
+/* Ambient Background */
+.azura-ambient-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.azura-glow-orb-teal {
+  position: absolute;
+  top: -150px;
+  right: -100px;
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(8, 59, 64, 0.45) 0%,
+    transparent 70%
+  );
+  filter: blur(80px);
+}
+
+.azura-glow-orb-gold {
+  position: absolute;
+  top: 900px;
+  left: -200px;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 180, 107, 0.14) 0%,
+    transparent 70%
+  );
+  filter: blur(90px);
+}
+
+.azura-glow-orb-ocean {
+  position: absolute;
+  top: 2400px;
+  right: -150px;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(10, 69, 73, 0.28) 0%,
+    transparent 70%
+  );
+  filter: blur(100px);
+}
+
+.azura-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(216, 180, 107, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(216, 180, 107, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ==========================================================================
+   01 — HERO SECTION
+   ========================================================================== */
+.azura-hero-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 148px;
+  padding-bottom: 104px;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.azura-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .azura-hero-grid {
+    grid-template-columns: 47fr 53fr; /* exactly ~47% copy / 53% visual */
+    gap: 52px;
+  }
+}
+
+.azura-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.azura-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(8, 59, 64, 0.5);
+  border: 1px solid var(--cs-border);
+  border-radius: 9999px;
+  width: fit-content;
+  color: var(--cs-gold);
+  font-family: var(--cs-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 28px;
+}
+
+.azura-hero-title-group {
+  margin-bottom: 28px;
+}
+
+.azura-hero-title {
+  margin: 0;
+  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+}
+
+.azura-hero-title-main {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--cs-cream-light);
+  text-transform: uppercase;
+}
+
+.azura-hero-title-editorial {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(2rem, 4.2vw, 3.6rem);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--cs-gold);
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+
+.azura-hero-tagline {
+  font-family: var(--cs-font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  color: var(--cs-text-dim);
+  text-transform: uppercase;
+  margin-top: 16px;
+}
+
+.azura-hero-desc {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--cs-text-muted);
+  max-width: 520px;
+  margin-bottom: 42px;
+}
+
+/* Verified Project Facts */
+.azura-hero-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-top: 30px;
+  border-top: 1px solid var(--cs-border);
+}
+
+@media (min-width: 600px) {
+  .azura-hero-facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.azura-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.azura-fact-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--cs-gold);
+  text-transform: uppercase;
+}
+
+.azura-fact-value {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--cs-cream);
+  line-height: 1.4;
+}
+
+/* Hero Visual */
+.azura-hero-visual-wrapper {
+  position: relative;
+}
+
+.azura-hero-visual-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: var(--cs-teal-dark);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.7), 0 0 30px rgba(8, 59, 64, 0.4);
+}
+
+.azura-hero-visual-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--cs-teal-dark);
+  aspect-ratio: 16 / 11;
+}
+
+.azura-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.azura-hero-visual-card:hover .azura-hero-img {
+  transform: scale(1.02);
+}
+
+.azura-visual-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(4, 26, 29, 0.9);
+  border-top: 1px solid var(--cs-border);
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--cs-text-dim);
+}
+
+.azura-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cs-gold);
+  box-shadow: 0 0 8px var(--cs-gold);
+}
+
+/* ==========================================================================
+   SHARED SECTION HEADERS
+   ========================================================================== */
+.azura-section {
+  position: relative;
+  z-index: 1;
+  padding: 115px 0;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.azura-section-header {
+  margin-bottom: 54px;
+}
+
+.azura-section-heading {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--cs-cream-light);
+  margin-bottom: 16px;
+  white-space: pre-line;
+}
+
+.azura-highlight-gold {
+  color: var(--cs-gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.azura-section-desc {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--cs-text-muted);
+  max-width: 720px;
+}
+
+/* ==========================================================================
+   02 — OVERVIEW SECTION
+   ========================================================================== */
+.azura-overview-text p {
+  margin-bottom: 14px;
+}
+
+.azura-overview-text p:last-child {
+  margin-bottom: 0;
+}
+
+.azura-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .azura-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .azura-overview-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.azura-overview-card {
+  position: relative;
+  padding: 38px 28px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.azura-overview-card:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(216, 180, 107, 0.15);
+}
+
+.azura-card-num {
+  font-family: var(--cs-font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-gold);
+  margin-bottom: 20px;
+}
+
+.azura-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.azura-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   03 — EXPERIENCE SECTION (Full Vertical Showcase)
+   ========================================================================== */
+.azura-experience-chapters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 44px;
+  padding: 12px 20px;
+  background: rgba(8, 59, 64, 0.3);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.azura-chapter-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-gold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.azura-chapter-flow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--cs-cream);
+  white-space: nowrap;
+}
+
+.azura-chapter-sep {
+  color: var(--cs-gold);
+  opacity: 0.6;
+}
+
+.azura-full-showcase-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.azura-full-showcase-container {
+  width: 100%;
+  max-width: 1000px; /* 78-82% on desktop */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: var(--cs-bg-1);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(8, 59, 64, 0.4);
+}
+
+.azura-browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #04181a;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.azura-browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.azura-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.azura-dot-1 {
+  background: #e06c75;
+}
+.azura-dot-2 {
+  background: #e5c07b;
+}
+.azura-dot-3 {
+  background: #98c379;
+}
+
+.azura-browser-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 18px;
+  background: rgba(8, 59, 64, 0.5);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  color: var(--cs-cream);
+}
+
+.azura-url-lock {
+  font-size: 0.7rem;
+}
+
+.azura-browser-status {
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--cs-gold);
+}
+
+.azura-full-img-frame {
+  position: relative;
+  background: #031315;
+  line-height: 0;
+}
+
+.azura-full-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   04 — VISUAL LANGUAGE
+   ========================================================================== */
+.azura-visual-blocks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .azura-visual-blocks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.azura-visual-block-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: var(--cs-bg-card);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.azura-visual-block-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cs-gold);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(216, 180, 107, 0.2);
+}
+
+.azura-visual-block-media {
+  position: relative;
+  aspect-ratio: 16 / 12.5; /* ~10% more visual height */
+  overflow: hidden;
+  background: var(--cs-teal-dark);
+}
+
+.azura-visual-block-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.azura-visual-block-card:hover .azura-visual-block-img {
+  transform: scale(1.05);
+}
+
+.azura-visual-block-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(3, 19, 21, 0.8) 100%
+  );
+}
+
+.azura-block-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 10px;
+  background: rgba(3, 19, 21, 0.85);
+  border: 1px solid var(--cs-border);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--cs-gold);
+}
+
+.azura-visual-block-meta {
+  padding: 24px 22px;
+}
+
+.azura-visual-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.azura-color-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--cs-gold);
+}
+
+.azura-block-name {
+  font-family: var(--cs-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cs-cream);
+  margin: 0;
+}
+
+.azura-block-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   05 — WEBSITE MOMENTS (Editorial Mosaic)
+   ========================================================================== */
+.azura-mosaic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .azura-mosaic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .azura-mosaic-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 28px;
+  }
+
+  /* Editorial Hierarchy: Distinct card weights */
+  /* Row 1: Hero dominant (7) + Philosophy (5) */
+  .azura-mosaic-a {
+    grid-column: span 7;
+  }
+  .azura-mosaic-b {
+    grid-column: span 5;
+  }
+
+  /* Row 2: Product detail (5) + Materials prominent (7) */
+  .azura-mosaic-c {
+    grid-column: span 5;
+  }
+  .azura-mosaic-d {
+    grid-column: span 7;
+  }
+
+  /* Row 3: Collection prominent (7) + Story (5) */
+  .azura-mosaic-e {
+    grid-column: span 7;
+  }
+  .azura-mosaic-f {
+    grid-column: span 5;
+  }
+
+  /* Row 4: Testimonial (6) + Final (6) */
+  .azura-mosaic-g {
+    grid-column: span 6;
+  }
+  .azura-mosaic-h {
+    grid-column: span 6;
+  }
+}
+
+.azura-mosaic-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: var(--cs-bg-card);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.azura-mosaic-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cs-gold);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(216, 180, 107, 0.15);
+}
+
+.azura-mosaic-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--cs-teal-dark);
+}
+
+.azura-mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.azura-mosaic-card:hover .azura-mosaic-img {
+  transform: scale(1.04);
+}
+
+.azura-mosaic-key {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(3, 19, 21, 0.85);
+  border: 1px solid var(--cs-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  color: var(--cs-gold);
+}
+
+.azura-mosaic-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.azura-mosaic-cat {
+  font-family: var(--cs-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-gold);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.azura-mosaic-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin-bottom: 8px;
+}
+
+.azura-mosaic-caption {
+  font-size: 0.86rem;
+  line-height: 1.55;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   06 — MATERIALS STORY SECTION (Azura Signature)
+   ========================================================================== */
+.azura-materials-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .azura-materials-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 56px; /* Generous breathing room */
+  }
+}
+
+.azura-materials-preview {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: #efe3c7; /* Cream mat container matching real screenshot background */
+  padding: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.azura-materials-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.azura-materials-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.azura-materials-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.azura-timeline-node {
+  padding: 26px 24px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.azura-timeline-node:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+  transform: translateX(4px);
+}
+
+.azura-node-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.azura-node-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(8, 59, 64, 0.8);
+  border: 1px solid var(--cs-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cs-font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cs-gold);
+  flex-shrink: 0;
+}
+
+.azura-node-phase-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.azura-node-phase {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-gold);
+  text-transform: uppercase;
+}
+
+.azura-node-name {
+  font-family: var(--cs-font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin: 2px 0 0;
+}
+
+.azura-node-detail {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--cs-text-muted);
+  margin-bottom: 14px;
+}
+
+.azura-note-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.azura-note-pill {
+  padding: 4px 10px;
+  background: rgba(8, 59, 64, 0.4);
+  border: 1px solid var(--cs-border);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--cs-cream);
+}
+
+/* ==========================================================================
+   07 — COLLECTION SECTION (Wardrobe of Moods)
+   ========================================================================== */
+.azura-collection-visual {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: #f5ecd8;
+  margin-bottom: 48px;
+  max-width: 1080px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.azura-collection-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.azura-collection-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.azura-fragrance-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .azura-fragrance-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .azura-fragrance-cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.azura-fragrance-card {
+  padding: 24px 20px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.35s ease;
+}
+
+.azura-fragrance-card:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(216, 180, 107, 0.15);
+}
+
+.azura-fragrance-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.azura-fragrance-num {
+  font-family: var(--cs-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--cs-gold);
+}
+
+.azura-fragrance-badge {
+  font-family: var(--cs-font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-teal-dark);
+  background: var(--cs-gold);
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-weight: 700;
+}
+
+.azura-fragrance-name {
+  font-family: var(--cs-font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin-bottom: 6px;
+}
+
+.azura-fragrance-price {
+  font-family: var(--cs-font-mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cs-gold);
+  margin-bottom: 10px;
+}
+
+.azura-fragrance-family {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--cs-text-main);
+  margin-bottom: 6px;
+}
+
+.azura-fragrance-notes {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--cs-text-muted);
+}
+
+.azura-notes-label {
+  color: var(--cs-text-dim);
+}
+
+/* ==========================================================================
+   08 — BRAND STORY & ATELIER
+   ========================================================================== */
+.azura-story-showcase {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: var(--cs-teal-dark);
+  margin-bottom: 36px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+.azura-story-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.azura-story-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.azura-story-pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+@media (min-width: 768px) {
+  .azura-story-pillars-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.azura-story-pillar {
+  padding: 28px 22px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+}
+
+.azura-pillar-step {
+  display: inline-block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  color: var(--cs-gold);
+  margin-bottom: 10px;
+}
+
+.azura-pillar-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-text-dim);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.azura-pillar-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin-bottom: 12px;
+}
+
+.azura-pillar-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+.azura-story-stats-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .azura-story-stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.azura-story-stat-card {
+  padding: 26px 20px;
+  background: rgba(8, 59, 64, 0.35);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.azura-stat-num {
+  font-family: var(--cs-font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--cs-gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.azura-stat-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--cs-cream);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   09 — PROCESS
+   ========================================================================== */
+.azura-process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .azura-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .azura-process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.azura-process-card {
+  padding: 30px 22px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.azura-process-card:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+  transform: translateY(-4px);
+}
+
+.azura-process-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(8, 59, 64, 0.6);
+  border: 1px solid var(--cs-border);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--cs-gold);
+  margin-bottom: 14px;
+}
+
+.azura-process-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin-bottom: 12px;
+}
+
+.azura-process-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   10 — MOTION
+   ========================================================================== */
+.azura-motion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .azura-motion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .azura-motion-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.azura-motion-card {
+  padding: 28px 22px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.azura-motion-card:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+}
+
+.azura-motion-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(8, 59, 64, 0.6);
+  border: 1px solid var(--cs-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cs-gold);
+  margin-bottom: 16px;
+}
+
+.azura-motion-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin-bottom: 10px;
+}
+
+.azura-motion-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   11 — CHALLENGES
+   ========================================================================== */
+.azura-challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.azura-challenge-card {
+  padding: 36px 30px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.azura-challenge-card:hover {
+  border-color: var(--cs-gold);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(216, 180, 107, 0.15);
+}
+
+.azura-challenge-header {
+  margin-bottom: 24px;
+}
+
+.azura-challenge-tag {
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--cs-gold);
+  text-transform: uppercase;
+}
+
+.azura-challenge-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--cs-cream-light);
+  margin-top: 6px;
+}
+
+.azura-challenge-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 840px) {
+  .azura-challenge-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.azura-challenge-col {
+  padding: 20px;
+  background: rgba(3, 19, 21, 0.6);
+  border: 1px solid var(--cs-border);
+  border-radius: 6px;
+}
+
+.azura-col-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.azura-label-problem {
+  color: #d88b6b;
+}
+
+.azura-label-solution {
+  color: var(--cs-gold);
+}
+
+.azura-label-result {
+  color: #79c3a5;
+}
+
+.azura-col-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   12 — LEARNINGS
+   ========================================================================== */
+.azura-learnings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .azura-learnings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.azura-learning-card {
+  padding: 30px 24px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.azura-learning-card:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+  transform: translateY(-4px);
+}
+
+.azura-learning-num {
+  font-family: var(--cs-font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cs-gold);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.azura-learning-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--cs-text-main);
+  margin: 0;
+}
+
+/* ==========================================================================
+   13 — TECH STACK
+   ========================================================================== */
+.azura-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 600px) {
+  .azura-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .azura-stack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.azura-stack-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 18px;
+  background: var(--cs-bg-card);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.azura-stack-card:hover {
+  background: var(--cs-bg-card-hover);
+  border-color: var(--cs-gold);
+  transform: translateY(-3px);
+}
+
+.azura-stack-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(8, 59, 64, 0.6);
+  border: 1px solid var(--cs-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cs-gold);
+  flex-shrink: 0;
+}
+
+.azura-stack-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.azura-stack-name {
+  font-family: var(--cs-font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cs-cream);
+  margin: 0 0 4px;
+}
+
+.azura-stack-role {
+  font-size: 0.8rem;
+  color: var(--cs-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   14 — EDITORIAL ENDING / CTA
+   ========================================================================== */
+.azura-ending-section {
+  position: relative;
+  z-index: 1;
+  padding: 110px 0;
+  border-bottom: 1px solid var(--cs-border);
+}
+
+.azura-ending-card {
+  position: relative;
+  padding: 64px 36px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--cs-border);
+  background: linear-gradient(
+    135deg,
+    rgba(6, 47, 52, 0.7) 0%,
+    rgba(3, 19, 21, 0.95) 100%
+  );
+  text-align: center;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(8, 59, 64, 0.3);
+}
+
+.azura-ending-ambient {
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(216, 180, 107, 0.12) 0%,
+    transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.azura-ending-content {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.azura-ending-badge {
+  display: inline-block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.18em;
+  color: var(--cs-gold);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.azura-ending-title {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--cs-cream-light);
+  margin-bottom: 18px;
+}
+
+.azura-ending-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--cs-text-muted);
+  margin-bottom: 36px;
+}
+
+.azura-ending-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.azura-ending-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(8, 59, 64, 0.5);
+  border: 1px solid var(--cs-border);
+  border-radius: 8px;
+  color: var(--cs-cream-light);
+  font-family: var(--cs-font-mono);
+  font-size: 0.88rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.azura-ending-back-btn:hover {
+  background: rgba(10, 69, 73, 0.8);
+  border-color: var(--cs-gold);
+  box-shadow: 0 0 24px rgba(216, 180, 107, 0.25);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MOBILE & VIEWPORT OPTIMIZATIONS (390x844 & Responsive)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .azura-hero-section {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .azura-section {
+    padding: 70px 0;
+  }
+
+  .azura-hero-title-main {
+    font-size: clamp(2.6rem, 10vw, 3.2rem);
+  }
+
+  .azura-hero-title-editorial {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+
+  .azura-hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .azura-hero-content {
+    display: contents; /* Allows children to be ordered seamlessly with the visual */
+  }
+
+  .azura-hero-eyebrow {
+    order: 1;
+    margin-bottom: 16px;
+  }
+
+  .azura-hero-title-group {
+    order: 2;
+    margin-bottom: 16px;
+  }
+
+  .azura-hero-desc {
+    order: 3;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  /* On mobile, real hero visual sits prominently right after intro description */
+  .azura-hero-visual-wrapper {
+    order: 4;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .azura-hero-facts {
+    order: 5;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+    margin-top: 8px;
+    border-top: 1px solid var(--cs-border);
+  }
+
+  .azura-ending-card {
+    padding: 44px 20px;
+  }
+
+  .azura-full-showcase-container {
+    max-width: 100%;
+  }
+
+  .azura-challenge-card {
+    padding: 24px 18px;
+  }
+
+  .azura-materials-layout {
+    gap: 28px;
+  }
+
+  .azura-timeline-node {
+    padding: 20px 16px;
+  }
+
+  .azura-story-pillar {
+    padding: 22px 18px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .azura-hero-visual-card:hover .azura-hero-img,
+  .azura-visual-block-card:hover .azura-visual-block-img,
+  .azura-mosaic-card:hover .azura-mosaic-img,
+  .azura-overview-card:hover,
+  .azura-visual-block-card:hover,
+  .azura-mosaic-card:hover,
+  .azura-timeline-node:hover,
+  .azura-fragrance-card:hover,
+  .azura-process-card:hover,
+  .azura-learning-card:hover,
+  .azura-stack-card:hover,
+  .azura-ending-back-btn:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+}

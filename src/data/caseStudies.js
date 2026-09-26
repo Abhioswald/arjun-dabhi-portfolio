@@ -608,6 +608,419 @@ export const gajanandCaseStudyData = {
 
   nextProject: {
     marker: 'NEXT PROJECT',
+    title: 'Azura Perfume',
+    description:
+      'A luxury fragrance website shaped around refined storytelling, distinctive tiger-inspired identity and elegant product presentation.',
+    image: '/assets/projects/optimized/azura.webp',
+    targetUrl: '/projects/azura',
+  },
+};
+
+export const azuraCaseStudyData = {
+  slug: 'azura',
+  number: '03',
+  title: 'Azura Perfume',
+  tagline: 'WILD ESSENCE. REFINED.',
+  eyebrow: '03 / PROJECT',
+  secondaryWord: 'Perfume',
+  description:
+    'A luxury fragrance website shaped around refined storytelling, distinctive tiger-inspired identity and elegant product presentation.',
+  caseStudyUrl: '/projects/azura',
+  liveUrl: '',
+  githubUrl: '',
+  mainImage: '/assets/projects/optimized/azura.webp',
+  heroImage: '/assets/case-studies/azura/azura-hero.webp',
+
+  facts: [
+    { label: 'TYPE', value: 'Luxury Product Website' },
+    { label: 'ROLE', value: 'Design & Development' },
+    { label: 'STACK', value: 'HTML5 · CSS3 · JavaScript · LocalStorage' },
+    { label: 'YEAR', value: '2026' },
+  ],
+
+  overview: {
+    marker: '02 / OVERVIEW',
+    heading: 'More Than Just a Fragrance.',
+    highlight: 'a Fragrance.',
+    paragraphs: [
+      'Azura combines premium fragrance presentation with nature-inspired storytelling, deep teal surfaces, elegant typography and a distinctive tiger identity.',
+      'The experience guides visitors through olfactory notes, material craftsmanship, an 8-fragrance collection wardrobe, and private client reflections.',
+    ],
+    featureCards: [
+      {
+        title: 'DISTINCT IDENTITY',
+        description: 'Tiger imagery and refined typography create a memorable visual language.',
+      },
+      {
+        title: 'LUXURY EXPERIENCE',
+        description: 'Premium spacing, restrained color and editorial composition.',
+      },
+      {
+        title: 'PRODUCT FOCUS',
+        description: 'The fragrance bottle remains central to the experience.',
+      },
+      {
+        title: 'RESPONSIVE DESIGN',
+        description: 'The experience adapts seamlessly across devices.',
+      },
+    ],
+  },
+
+  experience: {
+    marker: '03 / EXPERIENCE',
+    heading: 'The Full Experience.',
+    description:
+      'The complete digital experience is presented as a measured, atmospheric vertical showcase—flowing from the untamed hero reveal to philosophy, signature ingredient notes, collection catalog, French craftsmanship atelier, and private client reflections.',
+    fullImage: '/assets/case-studies/azura/azura-full.webp',
+    fullImageOriginal: '/assets/projects/azura.png',
+    keyMoments: [
+      '01 THE UNTAMED COLLECTION — WILD ESSENCE',
+      '02 THE PHILOSOPHY — INSTINCT & DISCIPLINE',
+      '03 FEATURED FRAGRANCE — A QUIET FORCE',
+      '04 INGREDIENT STORY — THREE MATERIALS',
+      '05 THE AZURA COLLECTION — WARDROBE OF MOODS',
+      '06 CRAFTED WITH INTENTION — FROM RAW TO SIGNATURE',
+      '07 WORN, REMEMBERED — PRIVATE TESTIMONIALS',
+      '08 THE PRIVATE LIST — ATELIER INVITATIONS',
+    ],
+  },
+
+  visualLanguage: {
+    marker: '04 / VISUAL LANGUAGE',
+    heading: 'Wild.\nElegant.\nDistinctive.',
+    description:
+      "Azura's aesthetic marries the raw majesty of untamed nature with high-perfumery precision, balancing deep oceanic teals with warm ivory canvas, muted metallic gold, and botanical illustration.",
+    blocks: [
+      {
+        number: '01',
+        name: 'TIGER',
+        subtitle: 'Nature-inspired visual identity.',
+        accent: '#d8b46b',
+        image: '/assets/case-studies/azura/azura-instinct.webp',
+        alt: 'Azura blue leopard emblem and philosophy presentation',
+      },
+      {
+        number: '02',
+        name: 'COLOR',
+        subtitle: 'Deep teal, cream and muted gold.',
+        accent: '#083b40',
+        image: '/assets/case-studies/azura/azura-materials.webp',
+        alt: 'Azura ivory ingredient showcase with metallic gold and deep teal typography',
+      },
+      {
+        number: '03',
+        name: 'PRODUCT',
+        subtitle: 'Perfume bottle remains the focal object.',
+        accent: '#b86d42',
+        image: '/assets/case-studies/azura/azura-wild-essence.webp',
+        alt: 'Azura Wild Essence perfume bottle on pedestal with orbital rings',
+      },
+    ],
+  },
+
+  moments: {
+    marker: '05 / WEBSITE MOMENTS',
+    heading: 'A Story Told\nin Details.',
+    description:
+      'Every touchpoint on the Azura website is shaped with deliberate restraint—where editorial hierarchy, subtle micro-motion, and tangible product details replace conventional e-commerce noise.',
+    items: [
+      {
+        key: 'A',
+        title: 'Wild Essence Opening',
+        category: 'HERO PRESENTATION',
+        image: '/assets/case-studies/azura/azura-hero.webp',
+        caption: 'High-contrast typography paired with the luminous perfume bottle and tiger portrait.',
+      },
+      {
+        key: 'B',
+        title: 'Instinct Gives It Life',
+        category: 'PHILOSOPHY & VISION',
+        image: '/assets/case-studies/azura/azura-instinct.webp',
+        caption: 'Editorial multi-column breakdown exploring emotion, material truth and quiet distinction.',
+      },
+      {
+        key: 'C',
+        title: 'A Quiet Force',
+        category: 'PRODUCT SPECIFICATION',
+        image: '/assets/case-studies/azura/azura-wild-essence.webp',
+        caption: 'Tactile product staging with orbital rings, notes breakdown and direct bag interaction.',
+      },
+      {
+        key: 'D',
+        title: 'Three Materials',
+        category: 'SENSORY EVOLUTION',
+        image: '/assets/case-studies/azura/azura-materials.webp',
+        caption: 'Time-evolving ingredient timeline transitioning to an ivory editorial background.',
+      },
+      {
+        key: 'E',
+        title: 'A Wardrobe of Moods',
+        category: 'CURATED COLLECTION',
+        image: '/assets/case-studies/azura/azura-collection.webp',
+        caption: 'Interactive multi-fragrance carousel highlighting Wild Essence, Oceanic, Nocturne and Lumière.',
+      },
+      {
+        key: 'F',
+        title: 'Raw to Lasting Signature',
+        category: 'ATELIER CRAFTSMANSHIP',
+        image: '/assets/case-studies/azura/azura-story.webp',
+        caption: 'Grasse formulation narrative with verified 18-month timeline and composition metrics.',
+      },
+      {
+        key: 'G',
+        title: 'Worn, Remembered',
+        category: 'CLIENT IMPRESSIONS',
+        image: '/assets/case-studies/azura/azura-testimonial.webp',
+        caption: 'Understated frosted-glass testimonials celebrating personal olfactory memory.',
+      },
+      {
+        key: 'H',
+        title: 'The Private List',
+        category: 'ENGAGEMENT & FOOTER',
+        image: '/assets/case-studies/azura/azura-final.webp',
+        caption: 'Considered private list access accompanied by the iconic tiger artwork and client care navigation.',
+      },
+    ],
+  },
+
+  materials: {
+    marker: '06 / MATERIALS',
+    heading: 'Three Materials.\nOne Evolving Memory.',
+    image: '/assets/case-studies/azura/azura-materials.webp',
+    description:
+      'Wild Essence is formulated around a three-tier olfactory progression where raw elements evolve on the skin over twelve hours.',
+    stages: [
+      {
+        step: '01',
+        phase: 'TOP NOTES (0–20 MIN)',
+        name: 'Bergamot & Sea Salt',
+        notes: ['Bergamot', 'Sea Salt', 'Pink Pepper'],
+        detail:
+          'A bright mineral opening with fresh citrus energy and a cool, windswept marine character that awakens the senses.',
+      },
+      {
+        step: '02',
+        phase: 'HEART NOTES (20 MIN–4 HRS)',
+        name: 'Midnight Jasmine',
+        notes: ['Midnight Jasmine', 'Mineral Accord', 'Solar Notes'],
+        detail:
+          'A luminous, intoxicating floral core that tempers the opening salinity into a refined, radiant aura.',
+      },
+      {
+        step: '03',
+        phase: 'BASE NOTES (4–12+ HRS)',
+        name: 'Dry Cedarwood & Amber',
+        notes: ['Dry Cedarwood', 'Warm Amber', 'Skin Musk'],
+        detail:
+          'A grounding foundation of aged woods and amber that locks onto the wearer with understated warmth and enduring presence.',
+      },
+    ],
+  },
+
+  collection: {
+    marker: '07 / COLLECTION',
+    heading: 'A Wardrobe\nof Moods.',
+    image: '/assets/case-studies/azura/azura-collection.webp',
+    description:
+      'Eight distinct signatures created for different hours, seasons and states of mind—united by clarity, depth and a restrained sense of luxury.',
+    items: [
+      {
+        number: '01',
+        name: 'Wild Essence',
+        price: '$149',
+        badge: 'SIGNATURE',
+        family: 'Woody · Mineral · Amber',
+        notes: 'Sea salt · Jasmine · Cedarwood',
+      },
+      {
+        number: '02',
+        name: 'Oceanic',
+        price: '$129',
+        badge: 'NEW',
+        family: 'Fresh · Aquatic',
+        notes: 'Marine air · Bergamot · Driftwood',
+      },
+      {
+        number: '03',
+        name: 'Nocturne',
+        price: '$159',
+        badge: 'BESTSELLER',
+        family: 'Leather · Oud',
+        notes: 'Saffron · Leather · Smoked oud',
+      },
+      {
+        number: '04',
+        name: 'Lumière',
+        price: '$139',
+        badge: 'LUMINOUS',
+        family: 'Floral · Vanilla',
+        notes: 'Neroli · White florals · Vanilla',
+      },
+    ],
+  },
+
+  story: {
+    marker: '08 / STORY',
+    heading: 'From Raw Material\nto Lasting Signature.',
+    image: '/assets/case-studies/azura/azura-story.webp',
+    description:
+      'Every Azura fragrance moves through a measured process of sourcing, composing, resting and refining in Grasse, France. Nothing is rushed; every adjustment must earn its place.',
+    pillars: [
+      {
+        step: '01',
+        title: 'Source',
+        subtitle: 'Materials with a clear identity.',
+        detail:
+          'Botanicals, woods and resins are selected for texture, radiance and evolution on skin with complete origin traceability.',
+      },
+      {
+        step: '02',
+        title: 'Compose',
+        subtitle: 'Contrast creates emotion.',
+        detail:
+          'Bright and shadowed materials are balanced until the composition feels alive rather than conventionally arranged.',
+      },
+      {
+        step: '03',
+        title: 'Rest & Refine',
+        subtitle: 'Time reveals what technique cannot.',
+        detail:
+          'Each concentrate matures through extended maceration before final evaluation, allowing rough edges to soften.',
+      },
+    ],
+    stats: [
+      { value: '18', label: 'Months from first brief to final formula' },
+      { value: '42', label: 'Evaluations for every signature composition' },
+      { value: '01', label: 'Final formula selected without compromise' },
+    ],
+  },
+
+  process: {
+    marker: '09 / PROCESS',
+    heading: 'From Concept\nto Experience.',
+    description:
+      'Developing Azura required translating high-perfumery traditions into an interactive digital medium that feels physical, atmospheric, and unhurried.',
+    phases: [
+      {
+        phase: '01',
+        title: 'DIRECTION',
+        detail:
+          'Establishing the luxury editorial identity—combining rich dark teal, warm ivory canvas, restrained gold accents and classic serif typography.',
+      },
+      {
+        phase: '02',
+        title: 'STRUCTURE',
+        detail:
+          'Designing responsive sections that balance dramatic sensory imagery with structured ingredient timelines and catalog navigation.',
+      },
+      {
+        phase: '03',
+        title: 'DEVELOPMENT',
+        detail:
+          'Engineering interactive product storytelling, olfactory note progressions, and client-side consultation without heavy third-party framework dependencies.',
+      },
+      {
+        phase: '04',
+        title: 'POLISH',
+        detail:
+          'Fine-tuning responsive typography, optimizing WebP image assets, adding Save-Data video respect, and perfecting fluid mobile touch interactions.',
+      },
+    ],
+  },
+
+  motion: {
+    marker: '10 / MOTION',
+    heading: 'Motion With\nRestraint.',
+    description:
+      'Unlike fast-paced digital products, luxury perfume requires pacing that breathes. Azura employs calm, deliberate transitions that mirror the slow diffusion of fragrance notes.',
+    traits: [
+      {
+        name: 'Measured Pacing',
+        detail: 'Subtle 0.8–1.1s cubic-bezier reveals replace snappy consumer-app bounces.',
+      },
+      {
+        name: 'Atmospheric Video Control',
+        detail: 'A gentle background ambient film with custom pause controls and Save-Data awareness.',
+      },
+      {
+        name: 'Sensory Progression',
+        detail: 'Note evolution sliders and fragrance card transitions guide focus one detail at a time.',
+      },
+      {
+        name: 'Full Accessibility',
+        detail: 'Respects prefers-reduced-motion across all transitions while preserving clean typographic hierarchy.',
+      },
+    ],
+  },
+
+  challenges: {
+    marker: '11 / CHALLENGES',
+    heading: 'Luxury Without\nVisual Noise.',
+    items: [
+      {
+        challenge: 'Maintaining Readability Over Rich Dark Visuals',
+        whatHappened:
+          'The rich dark-teal backgrounds and intricate tiger artwork risked obscuring critical editorial text and micro-labels.',
+        solution:
+          'Crafted precise opacity tiers and subtle radial vignettes, pairing high-contrast cream typography (#efe3c7) with restrained gold borders.',
+        result:
+          'Effortless editorial legibility while preserving the deep, mysterious atmosphere of the brand.',
+      },
+      {
+        challenge: 'Multi-Step E-Commerce & Consultation Without a Backend',
+        whatHappened:
+          'The project required full shopping bag, wishlist, fragrance consultation and account flows without relying on server databases.',
+        solution:
+          'Engineered a unified vanilla JavaScript state layer backed by structured localStorage schemas and cross-component custom events (azura:cart-updated).',
+        result:
+          'Instantaneous client-side responsiveness with persistent cart quantities, wishlist state, and seamless page transitions.',
+      },
+      {
+        challenge: 'Responsive Editorial Layouts & Media Performance',
+        whatHappened:
+          'Large high-resolution imagery and video backgrounds threatened mobile page speed and caused layout shifts on smaller viewports.',
+        solution:
+          'Implemented intrinsic image aspect ratios, WebP formats, async decoding, and network-aware media loading that disables autoplay on constrained connections.',
+        result:
+          'Zero layout shift (CLS), rapid paint times, and consistent luxury spacing from desktop down to 390px mobile screens.',
+      },
+    ],
+  },
+
+  learnings: {
+    marker: '12 / LEARNINGS',
+    heading: 'What This Project\nTaught Me.',
+    items: [
+      'Luxury web design is defined by what you omit—restraint in typography, pacing, and color creates far more authority than visual excess.',
+      'Pure vanilla web technologies (HTML, CSS, modern ES6+) can deliver world-class interactive experiences without the overhead of heavy JavaScript frameworks.',
+      'Sensory storytelling in digital interfaces succeeds when visual structure mirrors the real-world product journey (top, heart, and base notes).',
+      'True responsiveness in editorial layouts means redesigning spatial relationships for vertical mobile screens rather than simply shrinking desktop grids.',
+    ],
+  },
+
+  techStack: {
+    marker: '13 / STACK',
+    heading: 'Built With.',
+    items: [
+      { name: 'HTML5', role: 'Semantic Structure & Accessibility' },
+      { name: 'CSS3', role: 'Custom Design System & CSS Grid' },
+      { name: 'JavaScript (ES6+)', role: 'Interactive Engine & Custom Events' },
+      { name: 'LocalStorage API', role: 'Client-Side Cart & Wishlist State' },
+      { name: 'Responsive Media', role: 'Optimized WebP & Video Elements' },
+      { name: 'Georgia Serif', role: 'Editorial Luxury Typography' },
+    ],
+  },
+
+  cta: {
+    headline: 'DISCOVER\nTHE WILD ESSENCE.',
+    description:
+      'A study in refined product storytelling, visual identity and interactive frontend design.',
+    backText: '← Back to Projects',
+    backUrl: '/#projects',
+  },
+
+  nextProject: {
+    marker: 'NEXT PROJECT',
     title: 'BOO! Ice Cream',
     description:
       'A dark product experience built around bold visual storytelling, immersive scrolling and a distinctive blackcurrant identity.',
@@ -615,4 +1028,5 @@ export const gajanandCaseStudyData = {
     targetUrl: '/projects/boo',
   },
 };
+
 

@@ -27,6 +27,7 @@ export const projectsData = [
       'A premium fragrance landing experience combining elegant editorial design, luxury product presentation and atmospheric storytelling.',
     objectPosition: 'center top',
     tech: [],
+    caseStudyUrl: '/projects/azura',
     liveUrl: '',
     githubUrl: '',
   },
