@@ -1,0 +1,1683 @@
+/* ==========================================================================
+   THE WEEKND CASE STUDY STYLES
+   Visual Identity: Near-black void, deep crimson / blood red, dramatic cinematic lighting
+   Scoped to .weeknd-case-study to avoid leaking into other pages.
+   ========================================================================== */
+
+.weeknd-case-study {
+  /* Scoped Theme Custom Properties */
+  --wk-bg-0: #020202;
+  --wk-bg-1: #050303;
+  --wk-bg-2: #090404;
+  --wk-bg-3: #0d0505;
+  --wk-bg-card: rgba(13, 5, 5, 0.52);
+  --wk-bg-card-hover: rgba(26, 8, 9, 0.72);
+
+  --wk-crimson: #d31520;
+  --wk-crimson-bright: #ef1e2c;
+  --wk-crimson-muted: #b80f18;
+  --wk-red-deep: #66070d;
+  --wk-red-dark: #8b0a12;
+
+  --wk-text-main: #f1ede7;
+  --wk-text-secondary: #e7dfd7;
+  --wk-text-muted: rgba(241, 237, 231, 0.58);
+  --wk-text-dim: rgba(241, 237, 231, 0.38);
+
+  --wk-border: rgba(211, 21, 32, 0.18);
+  --wk-border-active: rgba(211, 21, 32, 0.45);
+  --wk-glow-crimson: rgba(211, 21, 32, 0.28);
+  --wk-glow-deep: rgba(102, 7, 13, 0.45);
+
+  /* Override shared case-study tokens to prevent purple/teal/saffron leakage */
+  --cs-purple-bright: #d31520;
+  --cs-purple-deep: #66070d;
+  --cs-magenta: #b80f18;
+  --cs-violet-soft: #ef1e2c;
+  --cs-purple-glow: rgba(211, 21, 32, 0.28);
+
+  --cs-font-serif: Georgia, 'Times New Roman', serif;
+  --cs-font-sans: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+  --cs-font-mono: 'Space Grotesk', monospace;
+
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--wk-bg-0);
+  color: var(--wk-text-main);
+  overflow-x: hidden;
+  font-family: var(--cs-font-sans);
+}
+
+/* ==========================================================================
+   SCOPED SHARED COMPONENT OVERRIDES (Crimson / Void)
+   ========================================================================== */
+.weeknd-case-study .cs-marker-label {
+  color: var(--wk-crimson);
+}
+
+.weeknd-case-study .cs-marker-line {
+  background: linear-gradient(to right, var(--wk-crimson), transparent);
+}
+
+.weeknd-case-study .cs-back-btn:hover {
+  border-color: var(--wk-crimson);
+  color: var(--wk-text-main);
+  box-shadow: 0 0 16px rgba(211, 21, 32, 0.35);
+}
+
+.weeknd-case-study .cs-nav-section-link:hover {
+  color: var(--wk-crimson-bright);
+}
+
+.weeknd-case-study .cs-next-card {
+  border-color: var(--wk-border);
+  background: linear-gradient(
+    135deg,
+    rgba(18, 5, 6, 0.7) 0%,
+    rgba(5, 3, 3, 0.9) 100%
+  );
+}
+
+.weeknd-case-study .cs-next-card:hover {
+  border-color: var(--wk-crimson);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.95), 0 0 32px var(--wk-glow-crimson);
+}
+
+.weeknd-case-study .cs-next-eyebrow {
+  color: var(--wk-crimson);
+}
+
+/* Container */
+.weeknd-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (min-width: 768px) {
+  .weeknd-container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .weeknd-container {
+    padding: 0 48px;
+  }
+}
+
+/* Atmospheric Ambient Background */
+.weeknd-ambient-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.weeknd-glow-orb-crimson {
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 800px;
+  height: 800px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(211, 21, 32, 0.28) 0%,
+    rgba(102, 7, 13, 0.12) 45%,
+    transparent 70%
+  );
+  filter: blur(90px);
+}
+
+.weeknd-glow-orb-deep {
+  position: absolute;
+  top: 1200px;
+  left: -200px;
+  width: 750px;
+  height: 750px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(184, 15, 24, 0.18) 0%,
+    transparent 70%
+  );
+  filter: blur(100px);
+}
+
+.weeknd-glow-orb-void {
+  position: absolute;
+  top: 3200px;
+  right: -180px;
+  width: 900px;
+  height: 900px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(239, 30, 44, 0.15) 0%,
+    transparent 70%
+  );
+  filter: blur(110px);
+}
+
+.weeknd-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(211, 21, 32, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(211, 21, 32, 0.035) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* ==========================================================================
+   01 — HERO SECTION
+   ========================================================================== */
+.weeknd-hero-section {
+  position: relative;
+  z-index: 1;
+  padding-top: 148px;
+  padding-bottom: 104px;
+  border-bottom: 1px solid var(--wk-border);
+}
+
+.weeknd-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .weeknd-hero-grid {
+    grid-template-columns: 44fr 56fr; /* ~44% copy / 56% visual (+7% visual presence) */
+    gap: 46px;
+  }
+}
+
+.weeknd-hero-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.weeknd-hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(18, 5, 6, 0.7);
+  border: 1px solid var(--wk-border);
+  border-radius: 9999px;
+  width: fit-content;
+  color: var(--wk-crimson);
+  font-family: var(--cs-font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 26px;
+}
+
+.weeknd-hero-title-group {
+  margin-bottom: 26px;
+}
+
+.weeknd-hero-title {
+  margin: 0;
+  line-height: 0.95;
+  display: flex;
+  flex-direction: column;
+}
+
+.weeknd-hero-title-main {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(3.2rem, 7vw, 6.2rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: var(--wk-text-main);
+  text-transform: uppercase;
+}
+
+.weeknd-hero-title-weeknd {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(3.4rem, 8vw, 7.2rem);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--wk-crimson-bright);
+  text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(211, 21, 32, 0.45);
+}
+
+.weeknd-hero-tagline {
+  font-family: var(--cs-font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.22em;
+  color: var(--wk-text-dim);
+  text-transform: uppercase;
+  margin-top: 18px;
+}
+
+.weeknd-hero-desc {
+  font-size: 1.12rem;
+  line-height: 1.75;
+  color: var(--wk-text-muted);
+  max-width: 520px;
+  margin-bottom: 38px;
+}
+
+/* Verified Project Facts */
+.weeknd-hero-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding-top: 30px;
+  border-top: 1px solid var(--wk-border);
+}
+
+@media (min-width: 600px) {
+  .weeknd-hero-facts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.weeknd-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.weeknd-fact-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+}
+
+.weeknd-fact-value {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--wk-text-main);
+  line-height: 1.4;
+}
+
+/* Hero Visual */
+.weeknd-hero-visual-wrapper {
+  position: relative;
+}
+
+.weeknd-hero-visual-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-1);
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.85), 0 0 36px var(--wk-glow-crimson);
+}
+
+.weeknd-hero-visual-frame {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--wk-bg-0);
+  aspect-ratio: 16 / 11.5;
+}
+
+.weeknd-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.weeknd-hero-visual-card:hover .weeknd-hero-img {
+  transform: scale(1.02);
+}
+
+.weeknd-visual-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: rgba(5, 3, 3, 0.95);
+  border-top: 1px solid var(--wk-border);
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--wk-text-dim);
+}
+
+.weeknd-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--wk-crimson);
+  box-shadow: 0 0 8px var(--wk-crimson);
+}
+
+/* ==========================================================================
+   SHARED SECTION HEADERS
+   ========================================================================== */
+.weeknd-section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(90px, 8vw, 140px) 0;
+  border-bottom: 1px solid var(--wk-border);
+}
+
+.weeknd-section-header {
+  margin-bottom: 54px;
+}
+
+.weeknd-section-heading {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--wk-text-main);
+  margin-bottom: 16px;
+  white-space: pre-line;
+}
+
+.weeknd-highlight-crimson {
+  color: var(--wk-crimson-bright);
+  font-style: italic;
+  font-weight: 400;
+  text-shadow: 0 0 24px rgba(211, 21, 32, 0.35);
+}
+
+.weeknd-section-desc {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: var(--wk-text-muted);
+  max-width: 720px;
+}
+
+/* ==========================================================================
+   02 — OVERVIEW SECTION
+   ========================================================================== */
+.weeknd-overview-text p {
+  margin-bottom: 14px;
+}
+
+.weeknd-overview-text p:last-child {
+  margin-bottom: 0;
+}
+
+.weeknd-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .weeknd-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .weeknd-overview-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.weeknd-overview-card {
+  position: relative;
+  padding: 42px 32px; /* ~10% increased internal breathing room */
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.weeknd-overview-card:hover {
+  background: var(--wk-bg-card-hover);
+  border-color: var(--wk-crimson);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px var(--wk-glow-crimson);
+}
+
+.weeknd-card-num {
+  font-family: var(--cs-font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--wk-crimson);
+  margin-bottom: 20px;
+}
+
+.weeknd-card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.weeknd-card-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   03 — EXPERIENCE SECTION (Full Vertical Showcase)
+   ========================================================================== */
+.weeknd-experience-chapters {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 44px;
+  padding: 12px 20px;
+  background: rgba(18, 5, 6, 0.45);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.weeknd-chapter-label {
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.weeknd-chapter-flow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.06em;
+  color: var(--wk-text-main);
+  white-space: nowrap;
+}
+
+.weeknd-chapter-sep {
+  color: var(--wk-crimson);
+  opacity: 0.6;
+}
+
+.weeknd-full-showcase-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.weeknd-full-showcase-container {
+  width: 100%;
+  max-width: 960px; /* ~75% content container on desktop */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(211, 21, 32, 0.22);
+  background: var(--wk-bg-1);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.95), 0 0 35px -8px rgba(102, 7, 13, 0.35),
+    0 0 16px -4px rgba(184, 15, 24, 0.18);
+}
+
+.weeknd-browser-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: #090304;
+  border-bottom: 1px solid var(--wk-border);
+}
+
+.weeknd-browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.weeknd-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.weeknd-dot-1 {
+  background: #e06c75;
+}
+.weeknd-dot-2 {
+  background: #e5c07b;
+}
+.weeknd-dot-3 {
+  background: #98c379;
+}
+
+.weeknd-browser-url {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 18px;
+  background: rgba(18, 5, 6, 0.75);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  color: var(--wk-text-main);
+}
+
+.weeknd-url-lock {
+  font-size: 0.7rem;
+}
+
+.weeknd-browser-status {
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--wk-crimson);
+}
+
+.weeknd-full-img-frame {
+  position: relative;
+  background: #020202;
+  line-height: 0;
+}
+
+.weeknd-full-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   04 — ASCENSION SECTION (Project-Specific Stage Showcase)
+   ========================================================================== */
+.weeknd-ascension-visual {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-1);
+  margin-bottom: 40px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8), 0 0 30px var(--wk-glow-crimson);
+}
+
+@media (min-width: 992px) {
+  .weeknd-ascension-visual {
+    max-width: 84%; /* Target: 80–86% of content container */
+    margin: 0 auto 48px;
+  }
+}
+
+.weeknd-ascension-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.weeknd-ascension-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.weeknd-ascension-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 840px) {
+  .weeknd-ascension-meta-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 36px;
+  }
+}
+
+.weeknd-manifesto-card {
+  padding: 34px 30px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.weeknd-manifesto-kicker {
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.weeknd-manifesto-quote {
+  font-family: var(--cs-font-serif);
+  font-size: 1.28rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--wk-text-main);
+  margin: 0 0 16px;
+}
+
+.weeknd-manifesto-author {
+  font-family: var(--cs-font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  color: var(--wk-text-dim);
+}
+
+.weeknd-stage-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.weeknd-stage-detail-card {
+  padding: 22px 20px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+}
+
+.weeknd-detail-label {
+  display: block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.weeknd-detail-value {
+  font-size: 0.94rem;
+  line-height: 1.5;
+  color: var(--wk-text-main);
+  margin: 0;
+}
+
+/* ==========================================================================
+   05 — VISUAL LANGUAGE
+   ========================================================================== */
+.weeknd-visual-blocks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .weeknd-visual-blocks-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.weeknd-visual-block-card {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-card);
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.weeknd-visual-block-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--wk-crimson);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7), 0 0 28px var(--wk-glow-crimson);
+}
+
+.weeknd-visual-block-media {
+  position: relative;
+  aspect-ratio: 16 / 12;
+  overflow: hidden;
+  background: var(--wk-bg-1);
+}
+
+.weeknd-visual-block-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.weeknd-visual-block-card:hover .weeknd-visual-block-img {
+  transform: scale(1.05);
+}
+
+.weeknd-visual-block-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(2, 2, 2, 0.85) 100%
+  );
+}
+
+.weeknd-block-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 10px;
+  background: rgba(5, 3, 3, 0.9);
+  border: 1px solid var(--wk-border);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--wk-crimson);
+}
+
+.weeknd-visual-block-meta {
+  padding: 24px 22px;
+}
+
+.weeknd-visual-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.weeknd-color-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--wk-crimson);
+}
+
+.weeknd-block-name {
+  font-family: var(--cs-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--wk-text-main);
+  margin: 0;
+}
+
+.weeknd-block-subtitle {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--wk-crimson-bright);
+  margin: 0 0 8px;
+}
+
+.weeknd-block-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   06 — WEBSITE MOMENTS (Editorial Mosaic)
+   ========================================================================== */
+.weeknd-mosaic-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+
+@media (min-width: 640px) {
+  .weeknd-mosaic-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .weeknd-mosaic-grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 28px;
+  }
+
+  /* Editorial Hierarchy:
+     ASCENSION: largest (span 12)
+     HERO: large (span 7)
+     AFTERLIFE: large (span 7)
+     LEGACY: medium (span 5)
+     CROWD: wide (span 12)
+     FINALE: quiet / wide (span 5) */
+
+  /* Row 1: Hero (large, 7) + Legacy (medium, 5) */
+  .weeknd-mosaic-a {
+    grid-column: span 7;
+  }
+  .weeknd-mosaic-d {
+    grid-column: span 5;
+  }
+
+  /* Row 2: Ascension (largest focal point, 12) */
+  .weeknd-mosaic-b {
+    grid-column: span 12;
+  }
+
+  /* Row 3: Crowd / Rebirth (wide panorama, 12) */
+  .weeknd-mosaic-c {
+    grid-column: span 12;
+  }
+
+  /* Row 4: Afterlife (large, 7) + Finale Outro (quiet, 5) */
+  .weeknd-mosaic-e {
+    grid-column: span 7;
+  }
+  .weeknd-mosaic-f {
+    grid-column: span 5;
+  }
+}
+
+.weeknd-mosaic-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-card);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.weeknd-mosaic-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--wk-crimson);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7), 0 0 24px var(--wk-glow-crimson);
+}
+
+.weeknd-mosaic-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--wk-bg-1);
+}
+
+/* Distinct Aspect Ratios Matching Hierarchy */
+.weeknd-mosaic-b .weeknd-mosaic-media {
+  aspect-ratio: 16 / 9; /* Ascension - largest dominant scene */
+}
+
+.weeknd-mosaic-a .weeknd-mosaic-media {
+  aspect-ratio: 16 / 10; /* Hero - large */
+}
+
+.weeknd-mosaic-e .weeknd-mosaic-media {
+  aspect-ratio: 16 / 10; /* Afterlife - large */
+}
+
+.weeknd-mosaic-d .weeknd-mosaic-media {
+  aspect-ratio: 16 / 11; /* Legacy - medium */
+}
+
+.weeknd-mosaic-c .weeknd-mosaic-media {
+  aspect-ratio: 21 / 9; /* Crowd / Rebirth - wide eclipse panorama */
+}
+
+.weeknd-mosaic-c {
+  border-color: rgba(211, 21, 32, 0.32);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.8), 0 0 20px -6px rgba(211, 21, 32, 0.25);
+}
+
+.weeknd-mosaic-f .weeknd-mosaic-media {
+  aspect-ratio: 16 / 11; /* Finale - quiet */
+}
+
+.weeknd-mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.weeknd-mosaic-card:hover .weeknd-mosaic-img {
+  transform: scale(1.04);
+}
+
+.weeknd-mosaic-key {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(5, 3, 3, 0.9);
+  border: 1px solid var(--wk-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  color: var(--wk-crimson);
+}
+
+.weeknd-mosaic-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.weeknd-mosaic-cat {
+  font-family: var(--cs-font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.weeknd-mosaic-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  margin-bottom: 8px;
+}
+
+.weeknd-mosaic-caption {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   07 — LEGACY SECTION (Editorial Spread)
+   ========================================================================== */
+.weeknd-legacy-section .weeknd-section-header {
+  margin-bottom: 78px; /* +24px separation for editorial magazine spread */
+}
+
+.weeknd-legacy-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .weeknd-legacy-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 76px; /* +20px separation between image and copy */
+  }
+}
+
+.weeknd-legacy-preview {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.8);
+}
+
+.weeknd-legacy-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.weeknd-legacy-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.weeknd-legacy-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weeknd-legacy-manifesto-box {
+  padding: 26px 24px;
+  background: rgba(18, 5, 6, 0.5);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+}
+
+.weeknd-legacy-manifesto-text {
+  font-family: var(--cs-font-serif);
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--wk-text-main);
+  margin: 8px 0 0;
+}
+
+.weeknd-legacy-pillar-card {
+  padding: 24px 22px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.weeknd-legacy-pillar-card:hover {
+  background: var(--wk-bg-card-hover);
+  border-color: var(--wk-crimson);
+  transform: translateX(4px);
+}
+
+.weeknd-pillar-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.weeknd-pillar-num {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(18, 5, 6, 0.8);
+  border: 1px solid var(--wk-crimson);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--cs-font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--wk-crimson);
+  flex-shrink: 0;
+}
+
+.weeknd-pillar-sub {
+  display: block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+}
+
+.weeknd-pillar-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  margin: 2px 0 0;
+}
+
+.weeknd-pillar-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   08 — AFTERLIFE SECTION
+   ========================================================================== */
+.weeknd-afterlife-showcase {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-1);
+  margin-bottom: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+.weeknd-afterlife-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.weeknd-afterlife-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.weeknd-afterlife-quote-card {
+  padding: 32px 28px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  text-align: center;
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.weeknd-afterlife-quote {
+  font-family: var(--cs-font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--wk-text-main);
+  margin: 12px 0 0;
+}
+
+/* ==========================================================================
+   09 — MOTION SECTION
+   ========================================================================== */
+.weeknd-motion-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .weeknd-motion-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .weeknd-motion-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.weeknd-motion-card {
+  padding: 28px 22px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.weeknd-motion-card:hover {
+  background: var(--wk-bg-card-hover);
+  border-color: var(--wk-crimson);
+}
+
+.weeknd-motion-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 8px;
+  background: rgba(18, 5, 6, 0.8);
+  border: 1px solid var(--wk-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wk-crimson);
+  margin-bottom: 16px;
+}
+
+.weeknd-motion-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  margin-bottom: 10px;
+}
+
+.weeknd-motion-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   10 — PROCESS SECTION
+   ========================================================================== */
+.weeknd-process-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .weeknd-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .weeknd-process-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.weeknd-process-card {
+  padding: 30px 22px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.weeknd-process-card:hover {
+  background: var(--wk-bg-card-hover);
+  border-color: var(--wk-crimson);
+  transform: translateY(-4px);
+}
+
+.weeknd-process-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: rgba(18, 5, 6, 0.8);
+  border: 1px solid var(--wk-border);
+  border-radius: 4px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--wk-crimson);
+  margin-bottom: 14px;
+}
+
+.weeknd-process-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  margin-bottom: 12px;
+}
+
+.weeknd-process-desc {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   11 — CHALLENGES SECTION
+   ========================================================================== */
+.weeknd-challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.weeknd-challenge-card {
+  padding: 36px 30px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.weeknd-challenge-card:hover {
+  border-color: var(--wk-crimson);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 24px var(--wk-glow-crimson);
+}
+
+.weeknd-challenge-header {
+  margin-bottom: 24px;
+}
+
+.weeknd-challenge-tag {
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+}
+
+.weeknd-challenge-title {
+  font-family: var(--cs-font-serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  margin-top: 6px;
+}
+
+.weeknd-challenge-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 840px) {
+  .weeknd-challenge-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+}
+
+.weeknd-challenge-col {
+  padding: 20px;
+  background: rgba(5, 3, 3, 0.75);
+  border: 1px solid var(--wk-border);
+  border-radius: 6px;
+}
+
+.weeknd-col-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--cs-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.weeknd-label-problem {
+  color: #e06c75;
+}
+
+.weeknd-label-solution {
+  color: var(--wk-crimson);
+}
+
+.weeknd-label-result {
+  color: #79c3a5;
+}
+
+.weeknd-col-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   12 — LEARNINGS SECTION
+   ========================================================================== */
+.weeknd-learnings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .weeknd-learnings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.weeknd-learning-card {
+  padding: 30px 24px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.weeknd-learning-card:hover {
+  background: var(--wk-bg-card-hover);
+  border-color: var(--wk-crimson);
+  transform: translateY(-4px);
+}
+
+.weeknd-learning-num {
+  font-family: var(--cs-font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--wk-crimson);
+  margin-bottom: 14px;
+  display: block;
+}
+
+.weeknd-learning-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--wk-text-main);
+  margin: 0;
+}
+
+/* ==========================================================================
+   13 — TECH STACK
+   ========================================================================== */
+.weeknd-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 600px) {
+  .weeknd-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .weeknd-stack-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.weeknd-stack-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 18px;
+  background: var(--wk-bg-card);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.weeknd-stack-card:hover {
+  background: var(--wk-bg-card-hover);
+  border-color: var(--wk-crimson);
+  transform: translateY(-3px);
+}
+
+.weeknd-stack-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: rgba(18, 5, 6, 0.8);
+  border: 1px solid var(--wk-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--wk-crimson);
+  flex-shrink: 0;
+}
+
+.weeknd-stack-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.weeknd-stack-name {
+  font-family: var(--cs-font-serif);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--wk-text-main);
+  margin: 0 0 4px;
+}
+
+.weeknd-stack-role {
+  font-size: 0.8rem;
+  color: var(--wk-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   14 — FINALE / EDITORIAL ENDING
+   ========================================================================== */
+.weeknd-ending-section {
+  position: relative;
+  z-index: 1;
+  padding: clamp(90px, 8vw, 140px) 0;
+  border-bottom: 1px solid var(--wk-border);
+  text-align: center;
+}
+
+.weeknd-ending-visual-frame {
+  max-width: 820px;
+  margin: 0 auto 52px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--wk-border);
+  background: var(--wk-bg-1);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 36px -10px rgba(102, 7, 13, 0.4);
+}
+
+.weeknd-ending-frame {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background-color: #000;
+}
+
+.weeknd-ending-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.weeknd-ending-quiet-signoff {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.weeknd-ending-badge {
+  display: inline-block;
+  font-family: var(--cs-font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  color: var(--wk-crimson);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.weeknd-ending-title {
+  font-family: var(--cs-font-serif);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--wk-text-main);
+  margin-bottom: 18px;
+  letter-spacing: 0.04em;
+}
+
+.weeknd-ending-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--wk-text-muted);
+  margin: 0 auto 36px;
+  max-width: 540px;
+}
+
+.weeknd-ending-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.weeknd-ending-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: rgba(18, 5, 6, 0.85);
+  border: 1px solid var(--wk-border);
+  border-radius: 8px;
+  color: var(--wk-text-main);
+  font-family: var(--cs-font-mono);
+  font-size: 0.86rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: all 0.35s ease;
+}
+
+.weeknd-ending-back-btn:hover {
+  background: rgba(26, 8, 9, 0.98);
+  border-color: var(--wk-crimson);
+  box-shadow: 0 0 24px var(--wk-glow-crimson);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   MOBILE & VIEWPORT OPTIMIZATIONS (390x844 & Responsive)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .weeknd-hero-section {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .weeknd-section {
+    padding: 70px 0;
+  }
+
+  .weeknd-hero-title-main {
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
+  }
+
+  .weeknd-hero-title-weeknd {
+    font-size: clamp(2.8rem, 11vw, 3.8rem);
+  }
+
+  .weeknd-hero-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .weeknd-hero-content {
+    display: contents; /* Seamless re-ordering with hero visual card */
+  }
+
+  .weeknd-hero-eyebrow {
+    order: 1;
+    margin-bottom: 16px;
+  }
+
+  .weeknd-hero-title-group {
+    order: 2;
+    margin-bottom: 16px;
+  }
+
+  .weeknd-hero-desc {
+    order: 3;
+    font-size: 1rem;
+    line-height: 1.65;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  /* Early visual reveal on mobile */
+  .weeknd-hero-visual-wrapper {
+    order: 4;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .weeknd-hero-facts {
+    order: 5;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+    margin-top: 8px;
+    border-top: 1px solid var(--wk-border);
+  }
+
+  .weeknd-ending-card {
+    padding: 44px 20px;
+  }
+
+  .weeknd-full-showcase-container {
+    max-width: 100%;
+  }
+
+  .weeknd-challenge-card {
+    padding: 24px 18px;
+  }
+
+  .weeknd-legacy-layout {
+    gap: 28px;
+  }
+
+  .weeknd-legacy-pillar-card {
+    padding: 20px 16px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .weeknd-hero-visual-card:hover .weeknd-hero-img,
+  .weeknd-visual-block-card:hover .weeknd-visual-block-img,
+  .weeknd-mosaic-card:hover .weeknd-mosaic-img,
+  .weeknd-overview-card:hover,
+  .weeknd-visual-block-card:hover,
+  .weeknd-mosaic-card:hover,
+  .weeknd-legacy-pillar-card:hover,
+  .weeknd-process-card:hover,
+  .weeknd-learning-card:hover,
+  .weeknd-stack-card:hover,
+  .weeknd-ending-back-btn:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+}

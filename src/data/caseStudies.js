@@ -1021,6 +1021,360 @@ export const azuraCaseStudyData = {
 
   nextProject: {
     marker: 'NEXT PROJECT',
+    title: 'The Weeknd',
+    description:
+      'A dark cinematic music experience built around dramatic typography, immersive imagery and atmospheric visual storytelling.',
+    image: '/assets/case-studies/the-weeknd/weeknd-hero.webp',
+    targetUrl: '/projects/the-weeknd',
+  },
+};
+
+export const theWeekndCaseStudyData = {
+  slug: 'the-weeknd',
+  number: '04',
+  title: 'The Weeknd',
+  secondaryWord: 'Experience',
+  tagline: 'HURRY UP TOMORROW · CINEMATIC ARCHIVE',
+  eyebrow: '04 / PROJECT',
+  description:
+    'A dark cinematic music experience built around dramatic typography, immersive imagery and atmospheric visual storytelling.',
+  liveUrl: '',
+  githubUrl: '',
+  mainImage: '/assets/projects/optimized/the-weeknd.webp',
+  heroImage: '/assets/case-studies/the-weeknd/weeknd-hero.webp',
+
+  facts: [
+    { label: 'TYPE', value: 'Music / Artist Experience' },
+    { label: 'ROLE', value: 'Design & Development' },
+    { label: 'STACK', value: 'HTML5 · CSS3 · Vanilla JS' },
+    { label: 'YEAR', value: '2026' },
+  ],
+
+  overview: {
+    marker: '02 / OVERVIEW',
+    heading: 'Music Beyond\nthe Screen.',
+    paragraphs: [
+      'The project explores a cinematic visual direction for a music-focused website, combining dark imagery, dramatic red lighting, oversized typography and immersive section transitions.',
+      'Inspired by the dark, theatrical universe of The Weeknd’s Hurry Up Tomorrow era, the interface treats each webpage section as an independent visual chapter—balancing monumental scale with intimate detail.',
+    ],
+    featureCards: [
+      {
+        title: 'CINEMATIC IDENTITY',
+        description: 'Near-black surfaces and saturated crimson lighting establish an intense visual atmosphere.',
+      },
+      {
+        title: 'ARTIST FOCUS',
+        description: 'Portraiture, theatrical silhouettes and performance imagery remain the visual center.',
+      },
+      {
+        title: 'EDITORIAL TYPOGRAPHY',
+        description: 'Oversized display typography gives each section a dramatic, poster-like presence.',
+      },
+      {
+        title: 'IMMERSIVE PACING',
+        description: 'Expansive negative space and controlled visual reveals create cinematic rhythm.',
+      },
+    ],
+  },
+
+  experience: {
+    marker: '03 / EXPERIENCE',
+    heading: 'The Full\nExperience.',
+    description:
+      'The complete digital experience is structured as a continuous vertical showcase—progressing from dawn into fiery ascension, congregation rebirth, legacy sanctum, and transcendental afterlife.',
+    fullImage: '/assets/case-studies/the-weeknd/weeknd-full-compressed.webp',
+    chapters: [
+      '01 Dawn / Hero',
+      '02 Ascension',
+      '03 Rebirth',
+      '04 Legacy',
+      '05 Afterlife',
+      'Finale Outro',
+    ],
+  },
+
+  ascension: {
+    marker: '04 / ASCENSION',
+    heading: 'Ascension.',
+    subtitle: 'Rise Through the Fire.',
+    description:
+      'A monumental performance arena filled with fiery red lighting, smoke columns, and a reflective stage floor. Abel Tesfaye stands centered with open arms beneath an inferno sky.',
+    manifesto:
+      'I broke the silence. I lit the sky. Every scar became a signal. Every fall became fuel. Now I ascend. Higher than the dark. This is not the end. This is ASCENSION.',
+    image: '/assets/case-studies/the-weeknd/weeknd-ascension.webp',
+    stageImage: '/assets/case-studies/the-weeknd/weeknd-cinematic-stage.webp',
+    badge: 'CHAPTER 02 · ASCENSION',
+    details: [
+      { label: 'ATMOSPHERE', value: 'Blazing inferno smoke & flame columns' },
+      { label: 'PERSPECTIVE', value: 'Low-angle stage depth reflection' },
+      { label: 'COMPOSITION', value: 'Isolated central performer with open silhouette' },
+    ],
+  },
+
+  visualLanguage: {
+    marker: '05 / VISUAL LANGUAGE',
+    heading: 'Black.\nCrimson.\nCinema.',
+    description:
+      'Three core visual pillars define the project aesthetic, abandoning conventional bright web design in favor of visceral stage lighting and stark graphic contrast.',
+    blocks: [
+      {
+        number: '01',
+        name: 'CONTRAST',
+        subtitle: 'Near-black surfaces with saturated red light.',
+        detail:
+          'Deep void tones (#020202, #050303) contrast with razor-sharp crimson beams and radiant smoke glows.',
+        accent: '#d31520',
+        image: '/assets/case-studies/the-weeknd/weeknd-red-portrait.webp',
+        alt: 'High contrast red lighting on Abel portrait',
+      },
+      {
+        number: '02',
+        name: 'TYPOGRAPHY',
+        subtitle: 'Oversized titles behave like poster graphics.',
+        detail:
+          'High-impact editorial display lettering creates monumentality, functioning as architectural elements within each scene.',
+        accent: '#b80f18',
+        image: '/assets/case-studies/the-weeknd/weeknd-hero.webp',
+        alt: 'Oversized THE WEEKND red editorial headline',
+      },
+      {
+        number: '03',
+        name: 'ATMOSPHERE',
+        subtitle: 'Smoke, silhouettes and stage imagery create depth.',
+        detail:
+          'Layered atmospheric haze, floating particles, and rim lighting give flat screens the physical depth of a stadium concert.',
+        accent: '#ef1e2c',
+        image: '/assets/case-studies/the-weeknd/weeknd-afterlife.webp',
+        alt: 'Atmospheric light beam and temple columns in Afterlife',
+      },
+    ],
+  },
+
+  moments: {
+    marker: '06 / WEBSITE MOMENTS',
+    heading: 'Frames From\nthe Experience.',
+    description:
+      'An editorial mosaic capturing the shifting visual moods across chapters—from intimate close-ups to monumental stadium compositions.',
+    items: [
+      {
+        key: 'A',
+        title: 'Hurry Up Tomorrow',
+        category: '01 HERO / DAWN',
+        caption: 'Dramatic scarlet title lockup with dark portrait and atmospheric red haze.',
+        image: '/assets/case-studies/the-weeknd/weeknd-hero.webp',
+      },
+      {
+        key: 'B',
+        title: 'Rise Through the Fire',
+        category: '02 ASCENSION',
+        caption: 'Theatrical arena staging with central silhouette rising through fire columns.',
+        image: '/assets/case-studies/the-weeknd/weeknd-ascension.webp',
+      },
+      {
+        key: 'C',
+        title: 'The Transformation',
+        category: '03 REBIRTH',
+        caption: 'Masked red-robed congregation under an eclipse against a dystopian skyline.',
+        image: '/assets/case-studies/the-weeknd/weeknd-crowd.webp',
+      },
+      {
+        key: 'D',
+        title: 'Legends Never Fade',
+        category: '04 LEGACY',
+        caption: 'Seated portrait in crimson blazer with swirling blue smoke and cathedral candles.',
+        image: '/assets/case-studies/the-weeknd/weeknd-legacy.webp',
+      },
+      {
+        key: 'E',
+        title: 'Into the Light',
+        category: '05 AFTERLIFE',
+        caption: 'Temple architecture, celestial portal beam, and transcendental ritual ascent.',
+        image: '/assets/case-studies/the-weeknd/weeknd-afterlife.webp',
+      },
+      {
+        key: 'F',
+        title: 'The Journey Continues',
+        category: 'FINALE / OUTRO',
+        caption: 'Orbital depth stars and minimal signature signoff in the infinite void.',
+        image: '/assets/case-studies/the-weeknd/weeknd-final.webp',
+      },
+    ],
+  },
+
+  legacy: {
+    marker: '07 / LEGACY',
+    heading: 'Legacy.',
+    subtitle: 'Legends Never Fade.',
+    description:
+      'Chapter 04 takes inspiration from classic editorial magazine spreads. Abel Tesfaye appears seated in a tailored red suit with dark sunglasses, enveloped in spiraling blue smoke that cuts against the deep crimson circular eclipse.',
+    manifesto:
+      'I came from the shadows. I built my empire in silence. This is not the end. This is what I leave behind. This is LEGACY.',
+    image: '/assets/case-studies/the-weeknd/weeknd-legacy.webp',
+    pillars: [
+      {
+        step: '01',
+        title: 'CATHEDRAL LIGHTING',
+        subtitle: 'Atmospheric Pillars',
+        detail: 'Towering neo-gothic pillar silhouettes and warm candlelight flank the frame.',
+      },
+      {
+        step: '02',
+        title: 'COLOR DUALITY',
+        subtitle: 'Cerulean & Crimson',
+        detail: 'Cool blue cigarette smoke cutting across warm saturated crimson blazer fabric.',
+      },
+      {
+        step: '03',
+        title: 'CIRCULAR SANCTUM',
+        subtitle: 'Architectural Authority',
+        detail: 'Concentric eclipse rings framing the artist in quiet, commanding authority.',
+      },
+    ],
+  },
+
+  afterlife: {
+    marker: '08 / AFTERLIFE',
+    heading: 'Afterlife.',
+    subtitle: 'The Other Side of the Void.',
+    description:
+      'The narrative culmination moves from earthly stadium flames into a celestial temple. A solitary vertical light beam pierces from the heavens onto a sun-wheel portal, as ritual figures reach upward toward an ascending silhouette.',
+    manifesto:
+      'I lived in the dark. I loved in the dark. I gave you my darkness. Now I walk into the light, not to be seen — but to be free. This is AFTERLIFE.',
+    image: '/assets/case-studies/the-weeknd/weeknd-afterlife.webp',
+    focalImage: '/assets/case-studies/the-weeknd/weeknd-final.webp',
+  },
+
+  motion: {
+    marker: '09 / MOTION',
+    heading: 'Built With\nAtmosphere.',
+    description:
+      'Grounded in the source architecture: pure CSS3 and native vanilla JavaScript coordinate multi-layer depth transitions and atmospheric visual shifts without third-party physics engines.',
+    traits: [
+      {
+        name: 'Multi-Depth Parallax',
+        detail:
+          'Calculates viewport offsets on background layers, smoke planes, and character cutouts with native RAF loops.',
+      },
+      {
+        name: 'Atmospheric Fog Drifts',
+        detail:
+          'CSS keyframe animations shift smoke and haze layers at differing speeds to simulate natural volume.',
+      },
+      {
+        name: 'Transition Veil Curtain',
+        detail:
+          'Deep black-and-crimson gradient wipes mask hard section cuts, preserving continuous cinematic flow.',
+      },
+      {
+        name: 'Master Journey Progress',
+        detail:
+          'Global hairline progress indicator and interactive rail tracking the viewer through all 5 chapters.',
+      },
+    ],
+  },
+
+  process: {
+    marker: '10 / PROCESS',
+    heading: 'From Mood\nto Experience.',
+    description:
+      'Translating the sensory drama of an album era into a responsive, performant digital destination.',
+    phases: [
+      {
+        phase: 'PHASE 01',
+        title: 'Visual Direction',
+        detail:
+          'Establishing near-black palettes, saturated crimson light tokens, and moody concert lighting aesthetics.',
+      },
+      {
+        phase: 'PHASE 02',
+        title: 'Chapter Structure',
+        detail:
+          'Architecting 5 monumental sticky scenes with expansive negative space and theatrical pacing.',
+      },
+      {
+        phase: 'PHASE 03',
+        title: 'Frontend Engineering',
+        detail:
+          'Developing vanilla JavaScript parallax layers, custom audio visualizer states, and preloader sequences.',
+      },
+      {
+        phase: 'PHASE 04',
+        title: 'Performance Polish',
+        detail:
+          'Fine-tuning WebP image weights, reducing mobile render noise, and calibrating high-contrast text legibility.',
+      },
+    ],
+  },
+
+  challenges: {
+    marker: '11 / CHALLENGES',
+    heading: 'Keeping Darkness\nReadable.',
+    items: [
+      {
+        challenge: 'Maintaining Text Legibility Over High-Contrast Imagery',
+        whatHappened:
+          'Deep black backgrounds and blinding crimson light blooms caused text elements to either disappear or clash with underlying image layers.',
+        solution:
+          'Created dedicated atmospheric vignette layers and semi-opaque scrim backdrops, pairing warm white typography (#f1ede7) with subtle dark drop shadows.',
+        result:
+          'Flawless readability across all chapters without compromising the intense dark cinematic mood.',
+      },
+      {
+        challenge: 'Oversized Typography Sizing on Constrained Viewports',
+        whatHappened:
+          'Gigantic display titles like "THE WEEKND" and "TRANSFORMATION" clipped or wrapped awkwardly on mobile screens.',
+        solution:
+          'Engineered responsive CSS clamp() formulas with dynamic viewport-relative units and negative margin compensations for letterspacing.',
+        result:
+          'Monumental poster presence on ultra-wide screens, scaling smoothly down to 390px mobile viewports with zero horizontal overflow.',
+      },
+      {
+        challenge: 'Performance With Massive Multi-Layered Stage Scenes',
+        whatHappened:
+          'Each chapter loaded multiple full-screen layered PNGs (backgrounds, characters, smoke planes), straining mobile memory and initial load times.',
+        solution:
+          'Implemented prioritized asset loading—preloading only the hero and Chapter 02 while deferring remaining chapters via async loading and optimized WebP compression.',
+        result:
+          'Instant initial interactivity with silky-smooth frame rates even on lower-powered devices.',
+      },
+    ],
+  },
+
+  learnings: {
+    marker: '12 / LEARNINGS',
+    heading: 'What This Project\nTaught Me.',
+    items: [
+      'Negative space is a storytelling instrument—leaving vast black gaps between chapters builds anticipation and elevates each reveal to a theatrical event.',
+      'A strict two-tone color discipline (near-black and crimson) yields far higher visual impact and mood consistency than complex multi-hue schemes.',
+      'Vanilla web standards (HTML5, modern CSS3, ES6+) can create deeply immersive parallax and atmospheric depth without bloated external frameworks.',
+      'Designing for an artist universe demands respecting the emotional tone—every rule, badge, and transition must serve the cinematic narrative.',
+    ],
+  },
+
+  techStack: {
+    marker: '13 / STACK',
+    heading: 'Built With.',
+    items: [
+      { name: 'HTML5', role: 'Semantic Chapter Architecture & Accessibility' },
+      { name: 'CSS3', role: 'Custom Lighting Tokens & Depth Layers' },
+      { name: 'Vanilla JavaScript', role: 'Parallax Engine, Progress Rail & State' },
+      { name: 'WebP Media Pipeline', role: 'Optimized Stage Assets & Frame Buffers' },
+      { name: 'Georgia Serif', role: 'Editorial Film-Poster Typography' },
+      { name: 'Responsive Layouts', role: 'Adaptive Mobile Viewports Down to 390px' },
+    ],
+  },
+
+  cta: {
+    headline: 'THE JOURNEY\nCONTINUES.',
+    description:
+      'A cinematic exploration of music, typography, atmosphere and interactive visual storytelling.',
+    backText: 'Explore More Work',
+    backUrl: '/#projects',
+    image: '/assets/case-studies/the-weeknd/weeknd-final.webp',
+  },
+
+  nextProject: {
+    marker: 'NEXT PROJECT',
     title: 'BOO! Ice Cream',
     description:
       'A dark product experience built around bold visual storytelling, immersive scrolling and a distinctive blackcurrant identity.',
@@ -1028,5 +1382,6 @@ export const azuraCaseStudyData = {
     targetUrl: '/projects/boo',
   },
 };
+
 
 

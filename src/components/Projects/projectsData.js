@@ -55,6 +55,7 @@ export const projectsData = [
       'A dark cinematic music-inspired web experience exploring dramatic typography, visual storytelling and immersive presentation.',
     objectPosition: 'center top',
     tech: [],
+    caseStudyUrl: '/projects/the-weeknd',
     liveUrl: '',
     githubUrl: '',
   },
