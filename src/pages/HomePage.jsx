@@ -15,17 +15,18 @@ export default function HomePage() {
   const location = useLocation();
 
   useEffect(() => {
-    // If navigating back to /#projects or with scrollTo state
-    if (location.hash === '#projects' || location.state?.scrollTo === 'projects') {
+    // If navigating with a hash (e.g. /#contact, /#projects) or with scrollTo state
+    const targetId = location.hash ? location.hash.replace('#', '') : location.state?.scrollTo;
+    if (targetId) {
       const timer = setTimeout(() => {
-        const el = document.getElementById('projects');
+        const el = document.getElementById(targetId);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
       }, 120);
       return () => clearTimeout(timer);
     }
-  }, [location]);
+  }, [location.pathname, location.hash, location.state]);
 
   return (
     <div className="portfolio-homepage">

@@ -1,3 +1,5 @@
+import { contactInfo } from '../Contact/contactData';
+
 export const statsData = [
   { number: '10+', label: 'Projects' },
   { number: '2+', label: 'Years Learning' },
@@ -36,7 +38,11 @@ export const skillsData = [
 ];
 
 export const socialData = [
-  { name: 'GitHub', href: 'https://github.com/Abhioswald', type: 'github' },
-  { name: 'LinkedIn', href: 'https://linkedin.com', type: 'linkedin' },
-  { name: 'Instagram', href: 'https://instagram.com', type: 'instagram' },
+  {
+    name: 'GitHub',
+    href: contactInfo.github,
+    type: 'github',
+    ariaLabel: 'View Arjun Dabhi on GitHub',
+  },
 ];
+

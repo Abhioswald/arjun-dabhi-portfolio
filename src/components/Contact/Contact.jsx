@@ -139,7 +139,7 @@ export default function Contact() {
       href: contactInfo.github,
       icon: <GithubIcon size={18} />,
       isExternal: true,
-      ariaLabel: "Visit Arjun Dabhi's GitHub profile",
+      ariaLabel: 'View Arjun Dabhi on GitHub',
     });
   }
 
@@ -593,9 +593,12 @@ export default function Contact() {
                       onBlur={handleBlur}
                       required
                       autoComplete="name"
+                      aria-required="true"
+                      aria-invalid={Boolean(formErrors.name)}
+                      aria-describedby={formErrors.name ? 'contact-name-error' : undefined}
                     />
                     {formErrors.name && (
-                      <span className="form-error-msg" role="alert">
+                      <span id="contact-name-error" className="form-error-msg" role="alert">
                         {formErrors.name}
                       </span>
                     )}
@@ -610,6 +613,7 @@ export default function Contact() {
                       id="contact-email"
                       name="email"
                       type="email"
+                      inputMode="email"
                       className={`form-input ${formErrors.email ? 'has-error' : ''}`}
                       placeholder="e.g. alex@example.com"
                       value={formData.email}
@@ -617,9 +621,12 @@ export default function Contact() {
                       onBlur={handleBlur}
                       required
                       autoComplete="email"
+                      aria-required="true"
+                      aria-invalid={Boolean(formErrors.email)}
+                      aria-describedby={formErrors.email ? 'contact-email-error' : undefined}
                     />
                     {formErrors.email && (
-                      <span className="form-error-msg" role="alert">
+                      <span id="contact-email-error" className="form-error-msg" role="alert">
                         {formErrors.email}
                       </span>
                     )}
@@ -658,9 +665,12 @@ export default function Contact() {
                     onChange={handleInputChange}
                     onBlur={handleBlur}
                     required
+                    aria-required="true"
+                    aria-invalid={Boolean(formErrors.message)}
+                    aria-describedby={formErrors.message ? 'contact-message-error' : undefined}
                   />
                   {formErrors.message && (
-                    <span className="form-error-msg" role="alert">
+                    <span id="contact-message-error" className="form-error-msg" role="alert">
                       {formErrors.message}
                     </span>
                   )}
@@ -671,17 +681,18 @@ export default function Contact() {
                   type="submit"
                   className="contact-submit-btn"
                   disabled={!isEmailConfigured}
-                  aria-label="Send Message"
+                  aria-disabled={!isEmailConfigured}
+                  aria-label={!isEmailConfigured ? 'Direct messaging coming soon' : 'Send Message'}
                 >
-                  <span>Send Message</span>
+                  <span>{!isEmailConfigured ? 'Direct Messaging Coming Soon' : 'Send Message'}</span>
                   <ArrowUpRight size={17} className="btn-arrow-icon" aria-hidden="true" />
                 </button>
 
-                {/* Neutral note when email is not yet configured */}
+                {/* Truthful note when email is not yet configured */}
                 {!isEmailConfigured && (
                   <div className="contact-unavailable-note" role="status">
                     <span className="contact-unavailable-dot" aria-hidden="true" />
-                    <span>Contact email will be available soon.</span>
+                    <span>Direct email integration will be connected soon. In the meantime, connect via GitHub.</span>
                   </div>
                 )}
               </form>

@@ -32,6 +32,11 @@
   box-shadow: 0 4px 15px rgba(255, 26, 155, 0.2);
 }
 
+.social-icon-btn:focus-visible {
+  outline: 2px solid var(--color-purple, #8a42ff);
+  outline-offset: 3px;
+}
+
 .social-tagline {
   font-family: var(--font-mono);
   font-size: 0.7rem;

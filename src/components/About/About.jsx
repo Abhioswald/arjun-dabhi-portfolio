@@ -469,7 +469,7 @@ export default function About() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="about-social-icon-btn"
-                    aria-label={social.name}
+                    aria-label={social.ariaLabel || `View Arjun Dabhi on ${social.name}`}
                   >
                     {getSocialIcon(social.type)}
                   </a>

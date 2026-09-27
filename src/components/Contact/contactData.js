@@ -8,6 +8,17 @@ export const contactInfo = {
   location: '',
 };
 
+// Verified public profiles (single source of truth across portfolio)
+export const verifiedSocials = [
+  {
+    name: 'GitHub',
+    handle: '@Abhioswald',
+    href: contactInfo.github,
+    type: 'github',
+    ariaLabel: 'View Arjun Dabhi on GitHub',
+  },
+];
+
 // Safe factual highlight blocks for the bottom info strip
 export const bottomInfoBlocks = [
   {

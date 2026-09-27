@@ -567,11 +567,28 @@
 }
 
 .form-input:focus,
-.form-textarea:focus {
+.form-input:focus-visible,
+.form-textarea:focus,
+.form-textarea:focus-visible {
   border-color: #f3b76e;
   background: rgba(16, 18, 24, 0.85);
   box-shadow: 0 0 16px rgba(243, 183, 110, 0.14),
               0 0 8px rgba(138, 66, 255, 0.12);
+  outline: none;
+}
+
+/* Dark theme browser autofill styling */
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-textarea:-webkit-autofill,
+.form-textarea:-webkit-autofill:hover,
+.form-textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: #f3f1ee;
+  -webkit-box-shadow: 0 0 0 1000px #0e1015 inset;
+  box-shadow: 0 0 0 1000px #0e1015 inset;
+  transition: background-color 5000s ease-in-out 0s;
+  caret-color: #f3f1ee;
 }
 
 .form-input::placeholder,
@@ -630,6 +647,11 @@
   filter: brightness(1.08);
   box-shadow: 0 14px 28px -6px rgba(224, 122, 56, 0.45),
               0 0 18px rgba(138, 66, 255, 0.25);
+}
+
+.contact-submit-btn:focus-visible {
+  outline: 2px solid #f3b76e;
+  outline-offset: 3px;
 }
 
 .contact-submit-btn:active:not(:disabled) {

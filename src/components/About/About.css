@@ -630,6 +630,11 @@
   transform: translateY(0) scale(0.985);
 }
 
+.about-cta-btn:focus-visible {
+  outline: 2px solid #f3b76e;
+  outline-offset: 3px;
+}
+
 .about-cta-btn:hover .cta-arrow {
   transform: translateX(3px);
 }
@@ -663,6 +668,11 @@
   color: #f3b76e;
   border-color: rgba(243, 183, 110, 0.35);
   background: rgba(243, 183, 110, 0.08);
+}
+
+.about-social-icon-btn:focus-visible {
+  outline: 2px solid #f3b76e;
+  outline-offset: 3px;
 }
 
 .about-social-icon-btn:active {
