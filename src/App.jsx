@@ -1,17 +1,20 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import HomePage from './pages/HomePage';
-import BooCaseStudy from './pages/BooCaseStudy';
-import GajanandCaseStudy from './pages/GajanandCaseStudy';
-import AzuraCaseStudy from './pages/AzuraCaseStudy';
-import TheWeekndCaseStudy from './pages/TheWeekndCaseStudy';
-import CakeeCaseStudy from './pages/CakeeCaseStudy';
-import CoffitooCaseStudy from './pages/CoffitooCaseStudy';
+import RouteLoader from './components/RouteLoader/RouteLoader';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
+
+// Lazy-loaded Case Study Routes
+const BooCaseStudy = lazy(() => import('./pages/BooCaseStudy'));
+const GajanandCaseStudy = lazy(() => import('./pages/GajanandCaseStudy'));
+const AzuraCaseStudy = lazy(() => import('./pages/AzuraCaseStudy'));
+const TheWeekndCaseStudy = lazy(() => import('./pages/TheWeekndCaseStudy'));
+const CakeeCaseStudy = lazy(() => import('./pages/CakeeCaseStudy'));
+const CoffitooCaseStudy = lazy(() => import('./pages/CoffitooCaseStudy'));
 
 // Global route change scroll handler
 function ScrollHandler() {
@@ -65,12 +68,54 @@ function GlobalLayout() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/projects/boo" element={<BooCaseStudy />} />
-        <Route path="/projects/gajanand" element={<GajanandCaseStudy />} />
-        <Route path="/projects/azura" element={<AzuraCaseStudy />} />
-        <Route path="/projects/the-weeknd" element={<TheWeekndCaseStudy />} />
-        <Route path="/projects/cakee" element={<CakeeCaseStudy />} />
-        <Route path="/projects/coffitoo" element={<CoffitooCaseStudy />} />
+        <Route
+          path="/projects/boo"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <BooCaseStudy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/projects/gajanand"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <GajanandCaseStudy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/projects/azura"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <AzuraCaseStudy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/projects/the-weeknd"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <TheWeekndCaseStudy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/projects/cakee"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <CakeeCaseStudy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/projects/coffitoo"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <CoffitooCaseStudy />
+            </Suspense>
+          }
+        />
       </Routes>
     </div>
   );
