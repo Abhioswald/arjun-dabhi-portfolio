@@ -69,6 +69,7 @@ export const projectsData = [
       'A bright cake and dessert shopping interface focused on product discovery, visual hierarchy and an inviting e-commerce experience.',
     objectPosition: 'center top',
     tech: [],
+    caseStudyUrl: '/projects/cakee',
     liveUrl: '',
     githubUrl: '',
   },

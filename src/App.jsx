@@ -7,6 +7,7 @@ import BooCaseStudy from './pages/BooCaseStudy';
 import GajanandCaseStudy from './pages/GajanandCaseStudy';
 import AzuraCaseStudy from './pages/AzuraCaseStudy';
 import TheWeekndCaseStudy from './pages/TheWeekndCaseStudy';
+import CakeeCaseStudy from './pages/CakeeCaseStudy';
 import './App.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,6 +68,7 @@ function GlobalLayout() {
         <Route path="/projects/gajanand" element={<GajanandCaseStudy />} />
         <Route path="/projects/azura" element={<AzuraCaseStudy />} />
         <Route path="/projects/the-weeknd" element={<TheWeekndCaseStudy />} />
+        <Route path="/projects/cakee" element={<CakeeCaseStudy />} />
       </Routes>
     </div>
   );

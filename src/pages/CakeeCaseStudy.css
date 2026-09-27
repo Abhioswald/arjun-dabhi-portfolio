@@ -1,0 +1,1527 @@
+/* ==========================================================================
+   CAKEE CASE STUDY STYLESHEET
+   Light, warm, confectionary bakery aesthetic.
+   Scoped exclusively to .cakee-case-study.
+   ========================================================================== */
+
+.cakee-case-study {
+  --cakee-bg: #fff8fa;
+  --cakee-bg-alt: #fff3f6;
+  --cakee-surface: #ffffff;
+  --cakee-surface-soft: #fdf0f4;
+  --cakee-surface-card: #ffffff;
+  
+  --cakee-pink-soft: #f8cbd9;
+  --cakee-pink-blush: #fce7ee;
+  --cakee-pink-primary: #ee4b7a;
+  --cakee-pink-vibrant: #f15a86;
+  --cakee-rose-deep: #c92f63;
+  --cakee-burgundy: #7b1734;
+  --cakee-raspberry: #8f1d40;
+  
+  --cakee-ink: #381722;
+  --cakee-ink-soft: #4b2631;
+  --cakee-text-muted: rgba(75, 38, 49, 0.72);
+  --cakee-text-dim: rgba(75, 38, 49, 0.52);
+  
+  --cakee-border: rgba(238, 75, 122, 0.16);
+  --cakee-border-soft: rgba(238, 75, 122, 0.10);
+  --cakee-border-active: rgba(238, 75, 122, 0.40);
+  
+  --cakee-shadow-sm: 0 8px 24px rgba(123, 23, 52, 0.06);
+  --cakee-shadow-md: 0 16px 38px rgba(123, 23, 52, 0.09);
+  --cakee-shadow-lg: 0 28px 70px rgba(123, 23, 52, 0.12);
+
+  --cakee-font-serif: Georgia, 'Times New Roman', serif;
+  --cakee-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  background-color: var(--cakee-bg);
+  color: var(--cakee-ink);
+  font-family: var(--cakee-font-sans);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Base Container */
+.cakee-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  .cakee-container {
+    padding: 0 1.25rem;
+  }
+}
+
+/* ==========================================================================
+   SCOPED NAVBAR CUSTOMIZATIONS
+   ========================================================================== */
+.cakee-case-study .cs-navbar {
+  background: rgba(255, 248, 250, 0.92);
+  border-bottom: 1px solid var(--cakee-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.cakee-case-study .cs-back-link {
+  color: var(--cakee-burgundy);
+  font-family: var(--cakee-font-sans);
+  font-weight: 600;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.cakee-case-study .cs-back-link:hover {
+  color: var(--cakee-pink-primary);
+  transform: translateX(-2px);
+}
+
+.cakee-case-study .cs-nav-section-link {
+  color: var(--cakee-ink-soft);
+  font-family: var(--cakee-font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.cakee-case-study .cs-nav-section-link:hover {
+  color: var(--cakee-pink-primary);
+}
+
+/* ==========================================================================
+   SCOPED SECTION MARKER
+   ========================================================================== */
+.cakee-custom-marker .cs-marker-label {
+  color: var(--cakee-raspberry) !important;
+  font-family: var(--cakee-font-sans) !important;
+  font-weight: 700 !important;
+  font-size: 0.76rem !important;
+  letter-spacing: 0.12em !important;
+}
+
+.cakee-custom-marker .cs-marker-line {
+  background: linear-gradient(90deg, var(--cakee-border-active), rgba(238, 75, 122, 0.05)) !important;
+}
+
+/* Common Typography & Headings */
+.cakee-highlight-raspberry {
+  color: var(--cakee-raspberry);
+  font-style: italic;
+}
+
+.cakee-section-heading {
+  font-family: var(--cakee-font-serif);
+  font-size: clamp(2.2rem, 4.2vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--cakee-ink);
+  margin: 0.6rem 0 1rem;
+}
+
+.cakee-section-header {
+  margin-bottom: 2.8rem;
+  max-width: 820px;
+}
+
+.cakee-section-intro p,
+.cakee-section-desc {
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  line-height: 1.7;
+  color: var(--cakee-text-muted);
+  margin-top: 0.6rem;
+}
+
+/* Generic Section Wrapper */
+.cakee-section {
+  padding: clamp(70px, 5.5vw, 100px) 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .cakee-section {
+    padding: clamp(48px, 6vw, 64px) 0;
+  }
+  .cakee-section-header {
+    margin-bottom: 1.8rem;
+  }
+}
+
+/* ==========================================================================
+   01 — HERO SECTION
+   ========================================================================== */
+.cakee-hero-section {
+  padding-top: 7.5rem;
+  padding-bottom: 4.5rem;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(circle at 85% 20%, rgba(248, 203, 217, 0.45) 0%, rgba(255, 248, 250, 0) 65%),
+              radial-gradient(circle at 10% 80%, rgba(252, 231, 238, 0.5) 0%, rgba(255, 248, 250, 0) 50%);
+}
+
+.cakee-hero-grid {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  gap: clamp(2.4rem, 3.5vw, 3.5rem);
+  align-items: center;
+}
+
+.cakee-hero-tagline {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--cakee-raspberry);
+  margin-bottom: 0.6rem;
+}
+
+.cakee-hero-title {
+  font-family: var(--cakee-font-serif);
+  font-size: clamp(3.2rem, 5.8vw, 5.2rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  color: var(--cakee-burgundy);
+  margin: 0;
+}
+
+.cakee-hero-subtitle {
+  font-family: var(--cakee-font-serif);
+  font-size: clamp(1.4rem, 2.2vw, 2rem);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--cakee-ink);
+  margin: 0.8rem 0 1.2rem;
+}
+
+.cakee-hero-desc {
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  line-height: 1.68;
+  color: var(--cakee-text-muted);
+  max-width: 520px;
+  margin-bottom: 2rem;
+}
+
+/* Hero Facts */
+.cakee-hero-facts {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 18px;
+  box-shadow: var(--cakee-shadow-sm);
+  max-width: 520px;
+}
+
+.cakee-fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.cakee-fact-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--cakee-raspberry);
+}
+
+.cakee-fact-value {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--cakee-ink);
+}
+
+/* Hero Visual Card */
+.cakee-hero-visual-card {
+  position: relative;
+  border-radius: 24px;
+  background: var(--cakee-surface);
+  padding: 0.85rem;
+  border: 1px solid var(--cakee-border);
+  box-shadow: var(--cakee-shadow-lg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  max-width: 680px;
+  margin-left: auto;
+}
+
+.cakee-hero-visual-frame {
+  border-radius: 18px;
+  overflow: hidden;
+  position: relative;
+  background: var(--cakee-bg-alt);
+}
+
+.cakee-hero-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-hero-visual-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 80px rgba(123, 23, 52, 0.16);
+  }
+  .cakee-hero-visual-card:hover .cakee-hero-img {
+    transform: scale(1.015);
+  }
+}
+
+/* Visual Badge */
+.cakee-visual-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  background: rgba(253, 240, 244, 0.8);
+  border: 1px solid var(--cakee-border-soft);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cakee-raspberry);
+}
+
+.cakee-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cakee-pink-primary);
+  box-shadow: 0 0 8px rgba(238, 75, 122, 0.6);
+}
+
+@media (max-width: 992px) {
+  .cakee-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.8rem;
+  }
+  .cakee-hero-desc {
+    max-width: 100%;
+  }
+  .cakee-hero-facts {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   02 — OVERVIEW
+   ========================================================================== */
+.cakee-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.cakee-overview-card {
+  background: var(--cakee-surface);
+  border: 1px solid rgba(238, 75, 122, 0.2);
+  border-radius: 20px;
+  padding: 2.2rem 1.8rem;
+  box-shadow: 0 6px 20px rgba(123, 23, 52, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.cakee-card-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--cakee-surface-soft);
+  color: var(--cakee-pink-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.4rem;
+  border: 1px solid rgba(238, 75, 122, 0.18);
+  font-size: 1.25rem;
+}
+
+.cakee-card-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.65rem;
+}
+
+.cakee-card-desc {
+  font-size: 0.94rem;
+  line-height: 1.62;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-overview-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--cakee-shadow-md);
+    border-color: var(--cakee-border-active);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cakee-overview-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cakee-overview-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   03 — THE FULL EXPERIENCE
+   ========================================================================== */
+.cakee-experience-section {
+  padding: clamp(55px, 4.5vw, 85px) 0;
+}
+
+.cakee-full-showcase-wrap {
+  max-width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cakee-full-frame {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  box-shadow: var(--cakee-shadow-lg);
+  padding: 0.75rem;
+  margin-bottom: 1.2rem;
+}
+
+.cakee-full-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+}
+
+.cakee-moments-chips-wrap {
+  margin-top: 1.6rem;
+  text-align: left;
+}
+
+.cakee-chips-label {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cakee-raspberry);
+  margin-bottom: 0.9rem;
+}
+
+.cakee-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.cakee-moment-chip {
+  padding: 0.45rem 1rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cakee-ink);
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-moment-chip:hover {
+    transform: translateY(-2px);
+    border-color: var(--cakee-pink-primary);
+  }
+}
+
+@media (max-width: 900px) {
+  .cakee-full-showcase-wrap {
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   DOMINANT REAL MEDIA FRAMES (Reusable)
+   ========================================================================== */
+.cakee-media-frame {
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  box-shadow: var(--cakee-shadow-md);
+  padding: 0.65rem;
+  margin-bottom: 1.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cakee-section-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-media-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--cakee-shadow-lg);
+  }
+  .cakee-media-frame:hover .cakee-section-img {
+    transform: scale(1.012);
+  }
+}
+
+/* ==========================================================================
+   04 — PRODUCT DISCOVERY (Catalog Split Layout)
+   ========================================================================== */
+.cakee-discovery-split {
+  display: grid;
+  grid-template-columns: 62% 38%;
+  gap: clamp(2.4rem, 3.5vw, 3.8rem);
+  align-items: center;
+}
+
+.cakee-discovery-visual .cakee-media-frame {
+  margin-bottom: 0;
+}
+
+.cakee-discovery-content .cakee-section-header {
+  margin-bottom: 1.8rem;
+}
+
+.cakee-discovery-points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cakee-discovery-point {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.15rem 1.35rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 16px;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-discovery-point:hover {
+    transform: translateX(4px);
+    border-color: var(--cakee-border-active);
+  }
+}
+
+.cakee-point-num {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--cakee-pink-primary);
+  line-height: 1;
+  flex-shrink: 0;
+  padding-top: 0.15rem;
+}
+
+.cakee-point-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.06rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.3rem;
+}
+
+.cakee-point-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   05 — BESTSELLERS (Dominant Product Showcase + Max 3 Concise Cards)
+   ========================================================================== */
+.cakee-bestsellers-concise-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+}
+
+.cakee-bestseller-concise-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-bestseller-concise-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--cakee-pink-primary);
+  }
+}
+
+.cakee-concise-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cakee-pink-primary);
+  margin-bottom: 0.45rem;
+}
+
+.cakee-concise-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.4rem;
+}
+
+.cakee-concise-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   06 — CUSTOM CAKES (Editorial Split: Steps Left, Visual Right)
+   ========================================================================== */
+.cakee-custom-split {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  gap: clamp(2.4rem, 3.5vw, 3.8rem);
+  align-items: center;
+}
+
+.cakee-custom-copy .cakee-section-header {
+  margin-bottom: 1.6rem;
+}
+
+.cakee-custom-steps-v {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cakee-custom-step-row {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.2rem 1.4rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 16px;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-custom-step-row:hover {
+    transform: translateX(4px);
+    border-color: var(--cakee-border-active);
+  }
+}
+
+.cakee-step-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--cakee-surface-soft);
+  border: 1px solid var(--cakee-border-soft);
+  font-family: var(--cakee-font-serif);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--cakee-pink-primary);
+  flex-shrink: 0;
+}
+
+.cakee-step-body {
+  flex: 1;
+}
+
+.cakee-step-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.3rem;
+}
+
+.cakee-step-detail {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+.cakee-custom-visual .cakee-media-frame {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   07 — GIFTING (Wide Screenshot + Minimal Callouts)
+   ========================================================================== */
+.cakee-gifting-callouts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+}
+
+.cakee-gifting-callout {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1.4rem 1.6rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 18px;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-gifting-callout:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.cakee-callout-icon {
+  color: var(--cakee-pink-primary);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.cakee-callout-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.3rem;
+}
+
+.cakee-callout-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   08 — TESTIMONIALS (Social-Proof UI Architecture)
+   ========================================================================== */
+.cakee-proof-points {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+}
+
+.cakee-proof-point {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 18px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-proof-point:hover {
+    transform: translateY(-3px);
+  }
+}
+
+.cakee-proof-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cakee-pink-primary);
+  display: block;
+  margin-bottom: 0.45rem;
+}
+
+.cakee-proof-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.35rem;
+}
+
+.cakee-proof-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   09 — STORE / EXPERIENCE DESIGN (Editorial Split)
+   ========================================================================== */
+.cakee-store-split {
+  display: grid;
+  grid-template-columns: 56% 44%;
+  gap: clamp(2.4rem, 3.5vw, 3.8rem);
+  align-items: center;
+}
+
+.cakee-store-visual .cakee-media-frame {
+  margin-bottom: 0;
+}
+
+.cakee-store-copy .cakee-section-header {
+  margin-bottom: 1.6rem;
+}
+
+.cakee-store-highlights-v {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.cakee-store-highlight-row {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  padding: 1.2rem 1.4rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 16px;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-store-highlight-row:hover {
+    transform: translateX(4px);
+  }
+}
+
+.cakee-highlight-icon-small {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--cakee-surface-soft);
+  color: var(--cakee-pink-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--cakee-border-soft);
+}
+
+.cakee-highlight-text {
+  flex: 1;
+}
+
+.cakee-highlight-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.3rem;
+}
+
+.cakee-highlight-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+/* ==========================================================================
+   10 — BRAND STORY
+   ========================================================================== */
+.cakee-promise-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.4rem 1.8rem;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 18px;
+  box-shadow: var(--cakee-shadow-sm);
+  max-width: 680px;
+  margin-top: 1.6rem;
+}
+
+.cakee-promise-heart {
+  color: var(--cakee-pink-primary);
+  flex-shrink: 0;
+}
+
+.cakee-promise-text {
+  font-size: 1.02rem;
+  color: var(--cakee-burgundy);
+  margin: 0;
+}
+
+/* ==========================================================================
+   11 — BLOG / CONTENT (Asymmetrical 3-Card Layout)
+   ========================================================================== */
+.cakee-blog-asymmetric {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+}
+
+.cakee-blog-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 20px;
+  padding: 1.6rem;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease;
+}
+
+.cakee-blog-card-featured {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.2rem 2rem;
+  background: linear-gradient(145deg, #ffffff 0%, #fff7fa 100%);
+  border: 1px solid rgba(238, 75, 122, 0.25);
+  box-shadow: var(--cakee-shadow-md);
+}
+
+.cakee-blog-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9rem;
+}
+
+.cakee-blog-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cakee-pink-primary);
+}
+
+.cakee-blog-time {
+  font-size: 0.76rem;
+  color: var(--cakee-text-dim);
+}
+
+.cakee-blog-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--cakee-burgundy);
+  margin: 0;
+}
+
+.cakee-blog-card-featured .cakee-blog-title {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.cakee-blog-excerpt {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-blog-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* ==========================================================================
+   12 — FAQ (Wide & Simple)
+   ========================================================================== */
+.cakee-faq-section .cakee-media-frame {
+  margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+  .cakee-discovery-split,
+  .cakee-custom-split,
+  .cakee-store-split {
+    grid-template-columns: 1fr;
+    gap: 2.4rem;
+  }
+
+  .cakee-blog-asymmetric {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .cakee-blog-card-featured {
+    grid-row: span 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .cakee-bestsellers-concise-grid,
+  .cakee-gifting-callouts,
+  .cakee-proof-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   13 — VISUAL LANGUAGE
+   ========================================================================== */
+.cakee-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.8rem;
+}
+
+.cakee-visual-block-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: var(--cakee-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.cakee-block-media-frame {
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background: var(--cakee-surface-soft);
+}
+
+.cakee-block-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cakee-block-body {
+  padding: 1.4rem 1.6rem;
+  flex-grow: 1;
+}
+
+.cakee-block-num {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--cakee-text-dim);
+  letter-spacing: 0.12em;
+}
+
+.cakee-block-name {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin: 0.25rem 0 0.45rem;
+}
+
+.cakee-block-desc {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-visual-block-card:hover {
+    transform: translateY(-4px);
+  }
+  .cakee-visual-block-card:hover .cakee-block-img {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 900px) {
+  .cakee-visual-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   14 — WEBSITE MOMENTS (Editorial Mosaic)
+   ========================================================================== */
+.cakee-mosaic-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.8rem;
+}
+
+.cakee-mosaic-item {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--cakee-shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.cakee-mosaic-large {
+  grid-column: span 6;
+}
+
+.cakee-mosaic-medium {
+  grid-column: span 4;
+}
+
+.cakee-mosaic-wide {
+  grid-column: span 12;
+}
+
+.cakee-mosaic-frame {
+  overflow: hidden;
+  background: var(--cakee-surface-soft);
+  max-height: 340px;
+}
+
+.cakee-mosaic-large .cakee-mosaic-frame {
+  max-height: 340px;
+}
+
+.cakee-mosaic-medium .cakee-mosaic-frame {
+  max-height: 250px;
+}
+
+.cakee-mosaic-wide .cakee-mosaic-frame {
+  max-height: 380px;
+}
+
+.cakee-mosaic-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.cakee-mosaic-info {
+  padding: 1.4rem 1.6rem;
+}
+
+.cakee-mosaic-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--cakee-pink-primary);
+}
+
+.cakee-mosaic-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0.3rem 0 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-mosaic-item:hover {
+    transform: translateY(-4px);
+  }
+  .cakee-mosaic-item:hover .cakee-mosaic-img {
+    transform: scale(1.02);
+  }
+}
+
+@media (max-width: 900px) {
+  .cakee-mosaic-large,
+  .cakee-mosaic-medium,
+  .cakee-mosaic-wide {
+    grid-column: span 12;
+  }
+}
+
+/* ==========================================================================
+   15 — PROCESS
+   ========================================================================== */
+.cakee-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.cakee-process-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: var(--cakee-shadow-sm);
+  transition: transform 0.25s ease;
+}
+
+.cakee-phase-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cakee-pink-primary);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.cakee-phase-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.6rem;
+}
+
+.cakee-phase-detail {
+  font-size: 0.92rem;
+  line-height: 1.62;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-process-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .cakee-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cakee-process-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   16 — CHALLENGES
+   ========================================================================== */
+.cakee-challenges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cakee-challenge-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 24px;
+  padding: 2.2rem;
+  box-shadow: var(--cakee-shadow-sm);
+}
+
+.cakee-challenge-header {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid var(--cakee-border-soft);
+}
+
+.cakee-challenge-tag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--cakee-pink-primary);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.cakee-challenge-title {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0;
+}
+
+.cakee-challenge-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.cakee-col-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.65rem;
+}
+
+.cakee-label-problem {
+  color: #c92f63;
+}
+
+.cakee-label-solution {
+  color: #ee4b7a;
+}
+
+.cakee-label-result {
+  color: #2e7d32;
+}
+
+.cakee-col-text {
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .cakee-challenge-grid {
+    grid-template-columns: 1fr;
+    gap: 1.4rem;
+  }
+}
+
+/* ==========================================================================
+   17 — LEARNINGS
+   ========================================================================== */
+.cakee-learnings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.6rem;
+}
+
+.cakee-learning-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 20px;
+  padding: 2rem 2.2rem;
+  box-shadow: var(--cakee-shadow-sm);
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  transition: transform 0.25s ease;
+}
+
+.cakee-learning-num {
+  font-family: var(--cakee-font-serif);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--cakee-pink-soft);
+  line-height: 1;
+}
+
+.cakee-learning-text {
+  font-size: 0.98rem;
+  line-height: 1.68;
+  color: var(--cakee-ink-soft);
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-learning-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 768px) {
+  .cakee-learnings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   18 — TECH STACK
+   ========================================================================== */
+.cakee-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.cakee-stack-card {
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  border-radius: 18px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: var(--cakee-shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+.cakee-stack-icon-wrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: var(--cakee-surface-soft);
+  color: var(--cakee-pink-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--cakee-border-soft);
+}
+
+.cakee-stack-name {
+  font-family: var(--cakee-font-serif);
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--cakee-burgundy);
+  margin: 0 0 0.2rem;
+}
+
+.cakee-stack-role {
+  font-size: 0.82rem;
+  color: var(--cakee-text-muted);
+  margin: 0;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cakee-stack-card:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@media (max-width: 900px) {
+  .cakee-stack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cakee-stack-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   19 — FINALE / EDITORIAL ENDING
+   ========================================================================== */
+.cakee-ending-section {
+  padding-bottom: 7rem;
+}
+
+.cakee-ending-visual-frame {
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--cakee-surface);
+  border: 1px solid var(--cakee-border);
+  box-shadow: var(--cakee-shadow-lg);
+  padding: 0.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.cakee-ending-frame {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.cakee-ending-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cakee-ending-signoff {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.cakee-ending-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--cakee-raspberry);
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.cakee-ending-title {
+  font-family: var(--cakee-font-serif);
+  font-size: clamp(2.4rem, 4.4vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--cakee-burgundy);
+  margin: 0 0 1.2rem;
+}
+
+.cakee-ending-desc {
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
+  line-height: 1.68;
+  color: var(--cakee-text-muted);
+  margin: 0 auto 2.2rem;
+}
+
+.cakee-ending-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.cakee-ending-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 2rem;
+  background: var(--cakee-pink-primary);
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  box-shadow: 0 12px 28px rgba(238, 75, 122, 0.28);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.cakee-ending-back-btn:hover {
+  background: var(--cakee-rose-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(238, 75, 122, 0.35);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   20 — SCOPED NEXT PROJECT CARD
+   ========================================================================== */
+.cakee-case-study .cs-next-section {
+  background: #050507; /* Next project is BOO which is dark! */
+  border-top: 1px solid var(--cakee-border);
+}
+
+/* ==========================================================================
+   REDUCED MOTION SAFEGUARDS
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .cakee-case-study *,
+  .cakee-case-study *::before,
+  .cakee-case-study *::after {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

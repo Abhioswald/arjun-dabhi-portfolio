@@ -1375,6 +1375,412 @@ export const theWeekndCaseStudyData = {
 
   nextProject: {
     marker: 'NEXT PROJECT',
+    title: 'Cakee',
+    description:
+      'A bright cake and dessert shopping interface focused on product discovery, visual hierarchy and an inviting e-commerce experience.',
+    image: '/assets/projects/optimized/cakee.webp',
+    targetUrl: '/projects/cakee',
+  },
+};
+
+export const cakeeCaseStudyData = {
+  slug: 'cakee',
+  number: '05',
+  title: 'Cakee',
+  tagline: 'MADE WITH LOVE, JUST FOR YOU.',
+  eyebrow: '05 / PROJECT',
+  description:
+    'A bright bakery and dessert shopping experience built around playful product discovery, soft visual storytelling and celebration-focused design.',
+  liveUrl: '',
+  githubUrl: '',
+  caseStudyUrl: '/projects/cakee',
+  mainImage: '/assets/projects/optimized/cakee.webp',
+  heroImage: '/assets/case-studies/cakee/cakee-hero.webp',
+
+  facts: [
+    { label: 'TYPE', value: 'Bakery / E-commerce Experience' },
+    { label: 'ROLE', value: 'Design & Development' },
+    { label: 'STACK', value: 'HTML5 · CSS3 · Vanilla JavaScript' },
+    { label: 'YEAR', value: '2026' },
+  ],
+
+  overview: {
+    marker: '02 / OVERVIEW',
+    heading: 'Designed for Sweet Moments.',
+    paragraphs: [
+      'Cakee uses soft pink tones, dessert photography, rounded components, product cards and celebration-focused content to create a friendly shopping experience.',
+      'Structured as a comprehensive 12-page storefront, the platform pairs intuitive product exploration with browser-local cart persistence, custom cake builders and celebration gifting workflows.',
+    ],
+    featureCards: [
+      {
+        title: 'PRODUCT DISCOVERY',
+        description: 'Cake cards and categories help users explore the catalog with clear pricing, ratings and dietary tags.',
+      },
+      {
+        title: 'CELEBRATION FOCUS',
+        description: 'Content is organized around cakes, gifting and occasions to simplify celebratory ordering.',
+      },
+      {
+        title: 'SOFT VISUAL SYSTEM',
+        description: 'Pink surfaces, rounded cards and dessert photography create a warm, friendly bakery mood.',
+      },
+      {
+        title: 'RESPONSIVE EXPERIENCE',
+        description: 'The layout adapts smoothly across screen sizes from desktop displays down to 390px mobile viewports.',
+      },
+    ],
+  },
+
+  experience: {
+    marker: '03 / EXPERIENCE',
+    heading: 'The Full\nExperience.',
+    description:
+      'The complete Cakee website continuous showcase—progressing smoothly from the celebratory hero cupcake to product categories, bestsellers, custom creations, thoughtful gifting, café atmosphere, brand values, customer reviews and interactive FAQ.',
+    fullImage: '/assets/case-studies/cakee/cakee-full.webp',
+    keyMoments: [
+      'Made with Love, Just for You!',
+      'Something Sweet for Every Moment',
+      'Most Loved, Best Selling Cakes',
+      'Dream It, We Bake It',
+      'Wrap Their Day in Something Sweet',
+      'Smiles That Make Our Day',
+      'Step Into a World of Sweetness',
+      'Baked from the Heart',
+      'Sweet Reads & Baking Inspiration',
+      'Frequently Asked Questions',
+    ],
+  },
+
+  products: {
+    marker: '04 / PRODUCTS',
+    heading: 'Something Sweet\nfor Every Moment.',
+    description:
+      'An inviting category navigation system grouping artisanal baked goods into clear dessert collections—cupcakes, chocolate cakes, fruit cakes, cheesecakes, custom cakes, and macarons.',
+    image: '/assets/case-studies/cakee/cakee-moments.webp',
+    categories: [
+      { name: 'Cupcakes', note: 'Delicate & delicious' },
+      { name: 'Chocolate Cakes', note: 'Rich & indulgent' },
+      { name: 'Fruit Cakes', note: 'Fresh & flavourful' },
+      { name: 'Cheesecakes', note: 'Smooth & creamy' },
+      { name: 'Custom Cakes', note: 'Your idea, our creation' },
+      { name: 'Macarons', note: 'Light & delicate' },
+    ],
+  },
+
+  bestsellers: {
+    marker: '05 / BESTSELLERS',
+    heading: 'Most Loved.\nBest Selling Cakes.',
+    description:
+      'A focused product grid highlighting customer favourites with crisp photography, INR pricing, star ratings, review counts, 100% eggless assurance, and one-click add-to-cart actions.',
+    image: '/assets/case-studies/cakee/cakee-bestsellers.webp',
+    items: [
+      { name: 'Red Velvet Royale Cake', price: '₹699', rating: '4.8★', reviews: '128 reviews' },
+      { name: 'Dark Chocolate Fudge Cake', price: '₹749', rating: '4.9★', reviews: '94 reviews' },
+      { name: 'Strawberry Delight Cake', price: '₹699', rating: '4.8★', reviews: '156 reviews' },
+      { name: 'Mango Sunshine Cake', price: '₹649', rating: '4.7★', reviews: '112 reviews' },
+      { name: 'Blueberry Cheesecake', price: '₹699', rating: '4.9★', reviews: '89 reviews' },
+      { name: 'Oreo Crunch Cake', price: '₹699', rating: '4.8★', reviews: '101 reviews' },
+    ],
+  },
+
+  customCakes: {
+    marker: '06 / CUSTOM CAKES',
+    heading: 'Dream It.\nWe Bake It.',
+    description:
+      'A 3-step interactive customization flow allowing customers to select cake designs, specify custom flavours, layers and messages, and request personalized event bakes with consultation support.',
+    image: '/assets/case-studies/cakee/cakee-custom.webp',
+    steps: [
+      { number: '01', title: 'Choose Design', detail: 'Pick a theme or share your inspiration.' },
+      { number: '02', title: 'Customize', detail: 'Select flavour, size, icing and add-ons.' },
+      { number: '03', title: 'We Bake & Deliver', detail: 'Freshly baked and delivered with love.' },
+    ],
+    pillars: [
+      { title: 'Endless Designs', detail: 'From minimal to extravagant, we create a design that feels entirely yours.' },
+      { title: 'Premium Ingredients', detail: 'Fresh cream, real fruit and carefully selected ingredients in every layer.' },
+      { title: 'Perfect for Every Occasion', detail: 'Birthdays, anniversaries, weddings or any moment worth making sweeter.' },
+    ],
+  },
+
+  gifting: {
+    marker: '07 / GIFTING',
+    heading: 'Wrap Their Day\nin Something Sweet.',
+    description:
+      'Thoughtful gifting presentation engineered with celebratory packaging options, custom handwritten notes, and carefully coordinated delivery scheduling.',
+    image: '/assets/case-studies/cakee/cakee-gifting.webp',
+    features: [
+      { title: 'Beautiful Packaging', detail: 'Elegant, safe and ready to delight.' },
+      { title: 'Personalized Notes', detail: 'Add your own heartfelt message.' },
+      { title: 'Careful Delivery', detail: 'Handled with care from us to them.' },
+    ],
+  },
+
+  socialProof: {
+    marker: '08 / SOCIAL PROOF',
+    heading: 'Smiles That\nMake Our Day.',
+    description:
+      'UI card design structuring customer reviews with five-star ratings, buyer initials, city locations and quote bubbles to foster social proof and purchase confidence.',
+    image: '/assets/case-studies/cakee/cakee-testimonials.webp',
+    reviews: [
+      { name: 'Priya Sharma', city: 'Ahmedabad', quote: 'The Red Velvet Royale was beautifully soft, fresh and balanced—not overly sweet. It disappeared from the table in minutes.' },
+      { name: 'Neha Patel', city: 'Vadodara', quote: 'I ordered a custom birthday cake for my daughter and it looked even better than the reference. Everyone loved the flavour.' },
+      { name: 'Rohan Mehta', city: 'Surat', quote: 'Fresh ingredients, neat packaging and on-time delivery. Cakee has become our first choice for family celebrations.' },
+      { name: 'Anjali Desai', city: 'Rajkot', quote: 'The fruit cake was light, fresh and genuinely packed with fruit. The presentation made it feel extra special.' },
+    ],
+  },
+
+  storeExperience: {
+    marker: '09 / EXPERIENCE DESIGN',
+    heading: 'Step Into a\nWorld of Sweetness.',
+    description:
+      'Atmospheric visual storytelling presenting the warm bakery ambience—inviting customers to experience the cosy café, dessert counters, and celebration spaces.',
+    image: '/assets/case-studies/cakee/cakee-store.webp',
+    highlights: [
+      { title: 'Freshly Baked, Every Day', detail: 'From familiar favourites to new creations, everything is prepared fresh each day.' },
+      { title: 'Cosy, Aesthetic Ambience', detail: 'A relaxed place to meet, celebrate, work quietly or simply enjoy something sweet.' },
+      { title: 'Events & Celebrations', detail: 'Birthday gatherings, anniversaries and private moments made more memorable.' },
+    ],
+  },
+
+  story: {
+    marker: '10 / STORY',
+    heading: 'Baked from\nthe Heart.',
+    description:
+      'Brand narrative highlighting small-batch craftsmanship, uncompromised ingredients, and the bakery mission to turn simple pantry elements into celebratory memories.',
+    image: '/assets/case-studies/cakee/cakee-heart.webp',
+    promise: 'Freshly made, thoughtfully finished.',
+  },
+
+  blog: {
+    marker: '11 / CONTENT',
+    heading: 'Sweet Reads &\nBaking Inspiration.',
+    description:
+      'Editorial article cards providing recipes, seasonal decorating tips and ingredient guides that drive organic engagement and baking inspiration.',
+    image: '/assets/case-studies/cakee/cakee-blog.webp',
+    articles: [
+      { title: '5 Tips for the Perfect Chocolate Cake', tag: 'Recipes', readTime: '5 min read' },
+      { title: 'Easy Cake Decorating Ideas for Beginners', tag: 'Decoration', readTime: '4 min read' },
+      { title: 'Top Cake Trends to Try This Year', tag: 'Trends', readTime: '3 min read' },
+      { title: 'Choosing Better Ingredients for Your Cakes', tag: 'Ingredients', readTime: '4 min read' },
+    ],
+  },
+
+  faq: {
+    marker: '12 / FAQ',
+    heading: 'Questions,\nMade Simple.',
+    description:
+      'Accessible, two-column interactive accordion addressing dietary questions (eggless options), ordering lead times, delivery coverage, and payment methods.',
+    image: '/assets/case-studies/cakee/cakee-faq.webp',
+    questions: [
+      'Do you offer eggless cakes?',
+      'How early should I place a custom cake order?',
+      'Is same-day delivery available?',
+      'Can I choose the cake size and flavour?',
+      'Are delivery charges separate?',
+      'Can I cancel or change my order?',
+    ],
+  },
+
+  visualLanguage: {
+    marker: '13 / VISUAL LANGUAGE',
+    heading: 'Soft. Playful.\nDelicious.',
+    description:
+      'A harmonious design system tailored to evoke sweetness, warmth, and culinary craftsmanship.',
+    blocks: [
+      {
+        number: '01',
+        name: 'COLOR',
+        description: 'Soft pink (#f8cbd9), cream (#fffaf8) and deep raspberry (#7b1734) create a welcoming confectionary palette.',
+        accent: '#ee4b7a',
+        image: '/assets/case-studies/cakee/cakee-hero.webp',
+        alt: 'Cakee color palette showing soft blush surfaces and raspberry accents',
+      },
+      {
+        number: '02',
+        name: 'PRODUCT',
+        description: 'Dessert photography remains central, framed by rounded surfaces and gentle drop shadows.',
+        accent: '#c92f63',
+        image: '/assets/case-studies/cakee/cakee-bestsellers.webp',
+        alt: 'Cakee product photography with strawberry and chocolate cakes',
+      },
+      {
+        number: '03',
+        name: 'UI',
+        description: 'Rounded cards (16px to 24px), pill buttons and generous whitespace create a friendly shopping flow.',
+        accent: '#7b1734',
+        image: '/assets/case-studies/cakee/cakee-custom.webp',
+        alt: 'Cakee rounded card UI and interactive customization steps',
+      },
+    ],
+  },
+
+  moments: {
+    marker: '14 / WEBSITE MOMENTS',
+    heading: 'A Celebration\nin Every Section.',
+    description:
+      'An editorial mosaic celebrating the key visual highlights across the Cakee web experience—from hero confectionary to curated gifts and community stories.',
+    items: [
+      {
+        label: 'HERO SHOWCASE',
+        title: 'Made with Love, Just for You',
+        image: '/assets/case-studies/cakee/cakee-hero.webp',
+        size: 'large',
+        alt: 'Cakee hero section featuring the signature strawberry cupcake',
+      },
+      {
+        label: 'BESTSELLERS',
+        title: 'Most Loved Cakes',
+        image: '/assets/case-studies/cakee/cakee-bestsellers.webp',
+        size: 'large',
+        alt: 'Cakee bestsellers showcase with eggless cakes and ratings',
+      },
+      {
+        label: 'CUSTOM CREATIONS',
+        title: 'Dream It, We Bake It',
+        image: '/assets/case-studies/cakee/cakee-custom.webp',
+        size: 'medium',
+        alt: 'Cakee custom cake builder section',
+      },
+      {
+        label: 'CELEBRATION GIFTING',
+        title: 'Wrap Their Day in Something Sweet',
+        image: '/assets/case-studies/cakee/cakee-gifting.webp',
+        size: 'medium',
+        alt: 'Cakee gifting banner with gift box illustration and packaging details',
+      },
+      {
+        label: 'EDITORIAL BAKING',
+        title: 'Sweet Reads & Inspiration',
+        image: '/assets/case-studies/cakee/cakee-blog.webp',
+        size: 'medium',
+        alt: 'Cakee recipe blog and baking tips article cards',
+      },
+      {
+        label: 'CAFÉ AMBIENCE',
+        title: 'Step Into a World of Sweetness',
+        image: '/assets/case-studies/cakee/cakee-store.webp',
+        size: 'wide',
+        alt: 'Cakee cafe interior with pink aesthetic and bakery display counters',
+      },
+      {
+        label: 'CUSTOMER ASSURANCE',
+        title: 'Questions, Made Simple',
+        image: '/assets/case-studies/cakee/cakee-faq.webp',
+        size: 'wide',
+        alt: 'Cakee interactive FAQ accordions and cupcake graphic',
+      },
+    ],
+  },
+
+  process: {
+    marker: '15 / PROCESS',
+    heading: 'From Idea\nto Celebration.',
+    phases: [
+      {
+        phase: 'PHASE 01',
+        title: 'Direction',
+        detail:
+          'Defining a warm bakery identity using blush pinks, cream backgrounds, and raspberry accents to create an inviting dessert mood.',
+      },
+      {
+        phase: 'PHASE 02',
+        title: 'Structure',
+        detail:
+          'Structuring product discovery into clear categories, occasion-based navigation, and a 3-step bespoke cake request flow.',
+      },
+      {
+        phase: 'PHASE 03',
+        title: 'Development',
+        detail:
+          'Crafting a robust vanilla HTML5, CSS3, and JavaScript frontend with localStorage state persistence, cart drawers, and accessible accordions.',
+      },
+      {
+        phase: 'PHASE 04',
+        title: 'Polish',
+        detail:
+          'Calibrating text contrast against WCAG AA standards, optimizing WebP asset weights, and ensuring responsive fluidity down to 390px viewports.',
+      },
+    ],
+  },
+
+  challenges: {
+    marker: '16 / CHALLENGES',
+    heading: 'Keeping It\nSweet & Usable.',
+    items: [
+      {
+        challenge: 'Light Theme Contrast & Legibility Over Pastel Surfaces',
+        whatHappened:
+          'Soft blush pinks and pale pastel tones risked washing out body text and navigational elements, making reading strenuous.',
+        solution:
+          'Established a strict typography color tier using deep burgundy (#381722, #4b2631) for body text and bold raspberry (#7b1734) for headings, reserving pale pinks strictly for card backgrounds and decorative borders.',
+        result:
+          '100% readable, high-contrast typography meeting WCAG AA standards while preserving the tender confectionary warmth.',
+      },
+      {
+        challenge: 'Browser-Local State Synchronization Across 12 Pages',
+        whatHappened:
+          'Without a server-side backend or database, cart additions, wishlist updates, and custom cake builder choices needed persistent synchronization across twelve distinct HTML pages.',
+        solution:
+          'Engineered a centralized localStorage v2 state manager with unified schema parsing, defensive JSON validation, and storage event listeners that update cart badges and totals across pages in real time.',
+        result:
+          'A dependable, zero-latency shopping demo where cart contents, coupons, and orders remain synchronized across sessions.',
+      },
+      {
+        challenge: 'Balancing Rich Product Card Density with 60FPS Scroll Performance',
+        whatHappened:
+          'Dense product grids, high-resolution dessert photography, and continuous scroll animations caused compositor strain and frame jitter on mobile browsers.',
+        solution:
+          'Excluded product-card media from continuous parallax, converted all images into optimized WebP formats, and implemented native IntersectionObserver reveals with automatic mobile motion reduction.',
+        result:
+          'Buttery-smooth 60FPS native scrolling across mobile and desktop devices without importing monolithic animation libraries.',
+      },
+      {
+        challenge: 'Multi-Step Custom Cake Builder Usability on Small Screens',
+        whatHappened:
+          'Gathering multi-tier options (cake themes, sponge flavours, fillings, tier counts, custom message, and delivery date) overwhelmed users within a single long form.',
+        solution:
+          'Partitioned the builder into a 3-step progressive disclosure interface with visual selection cards, live order summaries, and explicit step validation.',
+        result:
+          'An intuitive, playful customization workflow that simplifies custom celebration cake ordering on both mobile and desktop screens.',
+      },
+    ],
+  },
+
+  learnings: {
+    marker: '17 / LEARNINGS',
+    heading: 'What This Project\nTaught Me.',
+    items: [
+      'Light and pastel aesthetics demand rigorous contrast discipline—anchoring soft blush tones with rich burgundy and raspberry creates visual clarity without losing warmth.',
+      'Component-level hierarchy is paramount in e-commerce: consistent badge positioning, clear currency pricing, and prominent CTA buttons guide user trust and conversion.',
+      'Native web standards (HTML5 semantic landmarks, CSS Grid/Flexbox, IntersectionObserver, and localStorage) can deliver complete, responsive e-commerce experiences without external framework dependencies.',
+      'Playful design and functional clarity can coexist seamlessly when rounded geometry and friendly typography are backed by structured information architecture.',
+    ],
+  },
+
+  techStack: {
+    marker: '18 / STACK',
+    heading: 'Built With.',
+    items: [
+      { name: 'HTML5', role: 'Semantic Multi-Page Architecture & Accessibility' },
+      { name: 'CSS3', role: 'Confectionary Design System, Flexbox & CSS Grid' },
+      { name: 'Vanilla JavaScript', role: 'Cart State, LocalStorage v2 & Dynamic Modals' },
+      { name: 'Native Motion Layer', role: 'IntersectionObserver & RAF Scroll Reveals' },
+      { name: 'WebP Media Pipeline', role: 'High-Fidelity Dessert Photography' },
+      { name: 'Georgia Serif', role: 'Warm Editorial Bakery Headings' },
+      { name: 'Responsive Layouts', role: 'Adaptive Mobile Viewports Down to 390px' },
+    ],
+  },
+
+  cta: {
+    headline: 'Made with Love.\nBuilt with Care.',
+    description:
+      'A playful exploration of bakery e-commerce, product storytelling and responsive interface design.',
+    backText: 'Explore More Work',
+    backUrl: '/#projects',
+    image: '/assets/case-studies/cakee/cakee-hero.webp',
+  },
+
+  nextProject: {
+    marker: 'NEXT PROJECT',
     title: 'BOO! Ice Cream',
     description:
       'A dark product experience built around bold visual storytelling, immersive scrolling and a distinctive blackcurrant identity.',
@@ -1382,6 +1788,7 @@ export const theWeekndCaseStudyData = {
     targetUrl: '/projects/boo',
   },
 };
+
 
 
 
