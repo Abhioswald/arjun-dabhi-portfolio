@@ -6,6 +6,8 @@ import About from '../components/About/About';
 import Projects from '../components/Projects/Projects';
 import Skills from '../components/Skills/Skills';
 import Contact from '../components/Contact/Contact';
+import SEO from '../components/SEO/SEO';
+import { HOMEPAGE_JSON_LD } from '../components/SEO/seoData';
 
 export default function HomePage() {
   const heroRef = useRef(null);
@@ -27,6 +29,8 @@ export default function HomePage() {
 
   return (
     <div className="portfolio-homepage">
+      <SEO jsonLd={HOMEPAGE_JSON_LD} />
+
       {/* Global Navigation Bar */}
       <Navbar navRef={navRef} />
 

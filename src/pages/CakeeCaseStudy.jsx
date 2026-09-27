@@ -22,6 +22,7 @@ import CaseStudyHeader from '../components/CaseStudy/CaseStudyHeader';
 import CaseStudySectionMarker from '../components/CaseStudy/CaseStudySectionMarker';
 import CaseStudyNextProject from '../components/CaseStudy/CaseStudyNextProject';
 import { cakeeCaseStudyData } from '../data/caseStudies';
+import SEO from '../components/SEO/SEO';
 import '../components/CaseStudy/caseStudy.css';
 import './CakeeCaseStudy.css';
 
@@ -45,49 +46,8 @@ export default function CakeeCaseStudy() {
   const fullScreenshotRef = useRef(null);
   const navigate = useNavigate();
 
-  // 1. Dynamic SEO Management
   useEffect(() => {
-    const prevTitle = document.title;
-    const descEl = document.querySelector('meta[name="description"]');
-    const prevDesc = descEl?.getAttribute('content') || '';
-    const canonicalEl = document.querySelector('link[rel="canonical"]');
-    const prevCanonical = canonicalEl?.getAttribute('href') || '';
-    const ogTitleEl = document.querySelector('meta[property="og:title"]');
-    const prevOgTitle = ogTitleEl?.getAttribute('content') || '';
-    const ogDescEl = document.querySelector('meta[property="og:description"]');
-    const prevOgDesc = ogDescEl?.getAttribute('content') || '';
-    const ogUrlEl = document.querySelector('meta[property="og:url"]');
-    const prevOgUrl = ogUrlEl?.getAttribute('content') || '';
-    const ogImageEl = document.querySelector('meta[property="og:image"]');
-    const prevOgImage = ogImageEl?.getAttribute('content') || '';
-
-    const newTitle = 'Cakee — Case Study | Arjun Dabhi';
-    const newDesc =
-      'A case study of Cakee, a bright bakery and dessert shopping website focused on product discovery, celebration-driven design, responsive layouts and playful e-commerce UI.';
-    const newCanonical = 'https://arjun-dabhi-portfolio.vercel.app/projects/cakee';
-    const newOgImage =
-      'https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/cakee/cakee-hero.webp';
-
-    document.title = newTitle;
-    if (descEl) descEl.setAttribute('content', newDesc);
-    if (canonicalEl) canonicalEl.setAttribute('href', newCanonical);
-    if (ogTitleEl) ogTitleEl.setAttribute('content', newTitle);
-    if (ogDescEl) ogDescEl.setAttribute('content', newDesc);
-    if (ogUrlEl) ogUrlEl.setAttribute('content', newCanonical);
-    if (ogImageEl) ogImageEl.setAttribute('content', newOgImage);
-
-    // Scroll window to top on mount
     window.scrollTo(0, 0);
-
-    return () => {
-      document.title = prevTitle;
-      if (descEl) descEl.setAttribute('content', prevDesc);
-      if (canonicalEl) canonicalEl.setAttribute('href', prevCanonical);
-      if (ogTitleEl) ogTitleEl.setAttribute('content', prevOgTitle);
-      if (ogDescEl) ogDescEl.setAttribute('content', prevOgDesc);
-      if (ogUrlEl) ogUrlEl.setAttribute('content', prevOgUrl);
-      if (ogImageEl) ogImageEl.setAttribute('content', prevOgImage);
-    };
   }, []);
 
   // 2. GSAP Animations & Gentle Soft Scroll Reveals
@@ -246,6 +206,14 @@ export default function CakeeCaseStudy() {
 
   return (
     <div className="cakee-case-study" ref={rootRef}>
+      <SEO
+        title="Cakee — Case Study | Arjun Dabhi"
+        description="Pastel bakery e-commerce concept featuring product discovery, custom cakes, gifting, testimonials, and responsive editorial layouts."
+        canonical="https://arjun-dabhi-portfolio.vercel.app/projects/cakee"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/cakee/cakee-hero.webp"
+        ogImageAlt="Cakee bakery project case study preview"
+      />
+
       {/* ============================================================
           01 — HEADER
           ============================================================ */}

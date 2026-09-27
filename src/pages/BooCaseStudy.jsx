@@ -6,6 +6,7 @@ import CaseStudyHeader from '../components/CaseStudy/CaseStudyHeader';
 import CaseStudySectionMarker from '../components/CaseStudy/CaseStudySectionMarker';
 import CaseStudyNextProject from '../components/CaseStudy/CaseStudyNextProject';
 import { booCaseStudyData } from '../data/caseStudies';
+import SEO from '../components/SEO/SEO';
 import '../components/CaseStudy/caseStudy.css';
 import './BooCaseStudy.css';
 
@@ -37,48 +38,8 @@ export default function BooCaseStudy() {
   const heroVisualRef = useRef(null);
   const fullScreenshotRef = useRef(null);
 
-  // 1. Dynamic SEO Management
   useEffect(() => {
-    const prevTitle = document.title;
-    const descEl = document.querySelector('meta[name="description"]');
-    const prevDesc = descEl?.getAttribute('content') || '';
-    const canonicalEl = document.querySelector('link[rel="canonical"]');
-    const prevCanonical = canonicalEl?.getAttribute('href') || '';
-    const ogTitleEl = document.querySelector('meta[property="og:title"]');
-    const prevOgTitle = ogTitleEl?.getAttribute('content') || '';
-    const ogDescEl = document.querySelector('meta[property="og:description"]');
-    const prevOgDesc = ogDescEl?.getAttribute('content') || '';
-    const ogUrlEl = document.querySelector('meta[property="og:url"]');
-    const prevOgUrl = ogUrlEl?.getAttribute('content') || '';
-    const ogImageEl = document.querySelector('meta[property="og:image"]');
-    const prevOgImage = ogImageEl?.getAttribute('content') || '';
-
-    const newTitle = 'BOO! Ice Cream — Case Study | Arjun Dabhi';
-    const newDesc =
-      'A case study of BOO! Ice Cream, a dark cinematic product website focused on bold visual storytelling, scroll interaction and responsive frontend development.';
-    const newCanonical = 'https://arjun-dabhi-portfolio.vercel.app/projects/boo';
-    const newOgImage = 'https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/boo/boo-hero.webp';
-
-    document.title = newTitle;
-    if (descEl) descEl.setAttribute('content', newDesc);
-    if (canonicalEl) canonicalEl.setAttribute('href', newCanonical);
-    if (ogTitleEl) ogTitleEl.setAttribute('content', newTitle);
-    if (ogDescEl) ogDescEl.setAttribute('content', newDesc);
-    if (ogUrlEl) ogUrlEl.setAttribute('content', newCanonical);
-    if (ogImageEl) ogImageEl.setAttribute('content', newOgImage);
-
-    // Scroll window to top on mount
     window.scrollTo(0, 0);
-
-    return () => {
-      document.title = prevTitle;
-      if (descEl) descEl.setAttribute('content', prevDesc);
-      if (canonicalEl) canonicalEl.setAttribute('href', prevCanonical);
-      if (ogTitleEl) ogTitleEl.setAttribute('content', prevOgTitle);
-      if (ogDescEl) ogDescEl.setAttribute('content', prevOgDesc);
-      if (ogUrlEl) ogUrlEl.setAttribute('content', prevOgUrl);
-      if (ogImageEl) ogImageEl.setAttribute('content', prevOgImage);
-    };
   }, []);
 
   // 2. GSAP Animations and Parallax
@@ -203,6 +164,14 @@ export default function BooCaseStudy() {
 
   return (
     <div className="boo-case-study" ref={rootRef}>
+      <SEO
+        title="BOO! Ice Cream — Case Study | Arjun Dabhi"
+        description="Interactive ice-cream landing experience built with React, Vite, Tailwind CSS, GSAP, and scroll-scrubbed video interactions."
+        canonical="https://arjun-dabhi-portfolio.vercel.app/projects/boo"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/boo/boo-hero.webp"
+        ogImageAlt="BOO Ice Cream project case study preview"
+      />
+
       {/* Ambient Project Atmosphere */}
       <div className="boo-ambient-bg" aria-hidden="true">
         <div className="boo-glow-orb-1" />

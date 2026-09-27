@@ -16,6 +16,7 @@ import CaseStudyHeader from '../components/CaseStudy/CaseStudyHeader';
 import CaseStudySectionMarker from '../components/CaseStudy/CaseStudySectionMarker';
 import CaseStudyNextProject from '../components/CaseStudy/CaseStudyNextProject';
 import { gajanandCaseStudyData } from '../data/caseStudies';
+import SEO from '../components/SEO/SEO';
 import '../components/CaseStudy/caseStudy.css';
 import './GajanandCaseStudy.css';
 
@@ -57,48 +58,8 @@ export default function GajanandCaseStudy() {
   const heroVisualRef = useRef(null);
   const fullScreenshotRef = useRef(null);
 
-  // 1. Dynamic SEO Management
   useEffect(() => {
-    const prevTitle = document.title;
-    const descEl = document.querySelector('meta[name="description"]');
-    const prevDesc = descEl?.getAttribute('content') || '';
-    const canonicalEl = document.querySelector('link[rel="canonical"]');
-    const prevCanonical = canonicalEl?.getAttribute('href') || '';
-    const ogTitleEl = document.querySelector('meta[property="og:title"]');
-    const prevOgTitle = ogTitleEl?.getAttribute('content') || '';
-    const ogDescEl = document.querySelector('meta[property="og:description"]');
-    const prevOgDesc = ogDescEl?.getAttribute('content') || '';
-    const ogUrlEl = document.querySelector('meta[property="og:url"]');
-    const prevOgUrl = ogUrlEl?.getAttribute('content') || '';
-    const ogImageEl = document.querySelector('meta[property="og:image"]');
-    const prevOgImage = ogImageEl?.getAttribute('content') || '';
-
-    const newTitle = 'Gajanand Vada Pav — Case Study | Arjun Dabhi';
-    const newDesc =
-      'A case study of Gajanand Vada Pav, a Gujarati-inspired restaurant website combining local identity, bold food visuals, responsive design and cinematic frontend interactions.';
-    const newCanonical = 'https://arjun-dabhi-portfolio.vercel.app/projects/gajanand';
-    const newOgImage = 'https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/gajanand/gajanand-hero.webp';
-
-    document.title = newTitle;
-    if (descEl) descEl.setAttribute('content', newDesc);
-    if (canonicalEl) canonicalEl.setAttribute('href', newCanonical);
-    if (ogTitleEl) ogTitleEl.setAttribute('content', newTitle);
-    if (ogDescEl) ogDescEl.setAttribute('content', newDesc);
-    if (ogUrlEl) ogUrlEl.setAttribute('content', newCanonical);
-    if (ogImageEl) ogImageEl.setAttribute('content', newOgImage);
-
-    // Scroll window to top on mount
     window.scrollTo(0, 0);
-
-    return () => {
-      document.title = prevTitle;
-      if (descEl) descEl.setAttribute('content', prevDesc);
-      if (canonicalEl) canonicalEl.setAttribute('href', prevCanonical);
-      if (ogTitleEl) ogTitleEl.setAttribute('content', prevOgTitle);
-      if (ogDescEl) ogDescEl.setAttribute('content', prevOgDesc);
-      if (ogUrlEl) ogUrlEl.setAttribute('content', prevOgUrl);
-      if (ogImageEl) ogImageEl.setAttribute('content', prevOgImage);
-    };
   }, []);
 
   // 2. GSAP Animations and Parallax (Scoped, native scroll only)
@@ -223,6 +184,14 @@ export default function GajanandCaseStudy() {
 
   return (
     <div className="gajanand-case-study" ref={rootRef}>
+      <SEO
+        title="Gajanand Vada Pav — Case Study | Arjun Dabhi"
+        description="Gujarati-inspired Vada Pav web experience built with React, Vite, Tailwind CSS, GSAP, and responsive cinematic interactions."
+        canonical="https://arjun-dabhi-portfolio.vercel.app/projects/gajanand"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/gajanand/gajanand-hero.webp"
+        ogImageAlt="Gajanand Vada Pav project case study preview"
+      />
+
       {/* Ambient Warm Gujarati Saffron/Clay Background Atmosphere */}
       <div className="gajanand-ambient-bg" aria-hidden="true">
         <div className="gajanand-glow-orb-saffron" />

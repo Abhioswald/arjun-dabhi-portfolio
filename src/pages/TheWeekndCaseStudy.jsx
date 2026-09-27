@@ -19,6 +19,7 @@ import CaseStudyHeader from '../components/CaseStudy/CaseStudyHeader';
 import CaseStudySectionMarker from '../components/CaseStudy/CaseStudySectionMarker';
 import CaseStudyNextProject from '../components/CaseStudy/CaseStudyNextProject';
 import { theWeekndCaseStudyData } from '../data/caseStudies';
+import SEO from '../components/SEO/SEO';
 import '../components/CaseStudy/caseStudy.css';
 import './TheWeekndCaseStudy.css';
 
@@ -41,49 +42,8 @@ export default function TheWeekndCaseStudy() {
   const fullScreenshotRef = useRef(null);
   const navigate = useNavigate();
 
-  // 1. Dynamic SEO Management
   useEffect(() => {
-    const prevTitle = document.title;
-    const descEl = document.querySelector('meta[name="description"]');
-    const prevDesc = descEl?.getAttribute('content') || '';
-    const canonicalEl = document.querySelector('link[rel="canonical"]');
-    const prevCanonical = canonicalEl?.getAttribute('href') || '';
-    const ogTitleEl = document.querySelector('meta[property="og:title"]');
-    const prevOgTitle = ogTitleEl?.getAttribute('content') || '';
-    const ogDescEl = document.querySelector('meta[property="og:description"]');
-    const prevOgDesc = ogDescEl?.getAttribute('content') || '';
-    const ogUrlEl = document.querySelector('meta[property="og:url"]');
-    const prevOgUrl = ogUrlEl?.getAttribute('content') || '';
-    const ogImageEl = document.querySelector('meta[property="og:image"]');
-    const prevOgImage = ogImageEl?.getAttribute('content') || '';
-
-    const newTitle = 'The Weeknd — Case Study | Arjun Dabhi';
-    const newDesc =
-      'A case study of a dark cinematic music website exploring dramatic typography, crimson visual language, immersive imagery and responsive frontend design.';
-    const newCanonical = 'https://arjun-dabhi-portfolio.vercel.app/projects/the-weeknd';
-    const newOgImage =
-      'https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/the-weeknd/weeknd-hero.webp';
-
-    document.title = newTitle;
-    if (descEl) descEl.setAttribute('content', newDesc);
-    if (canonicalEl) canonicalEl.setAttribute('href', newCanonical);
-    if (ogTitleEl) ogTitleEl.setAttribute('content', newTitle);
-    if (ogDescEl) ogDescEl.setAttribute('content', newDesc);
-    if (ogUrlEl) ogUrlEl.setAttribute('content', newCanonical);
-    if (ogImageEl) ogImageEl.setAttribute('content', newOgImage);
-
-    // Scroll window to top on mount
     window.scrollTo(0, 0);
-
-    return () => {
-      document.title = prevTitle;
-      if (descEl) descEl.setAttribute('content', prevDesc);
-      if (canonicalEl) canonicalEl.setAttribute('href', prevCanonical);
-      if (ogTitleEl) ogTitleEl.setAttribute('content', prevOgTitle);
-      if (ogDescEl) ogDescEl.setAttribute('content', prevOgDesc);
-      if (ogUrlEl) ogUrlEl.setAttribute('content', prevOgUrl);
-      if (ogImageEl) ogImageEl.setAttribute('content', prevOgImage);
-    };
   }, []);
 
   // 2. GSAP Animations & Controlled Parallax Lifecycles
@@ -251,6 +211,14 @@ export default function TheWeekndCaseStudy() {
 
   return (
     <div className="weeknd-case-study" ref={rootRef}>
+      <SEO
+        title="The Weeknd — Case Study | Arjun Dabhi"
+        description="Cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters."
+        canonical="https://arjun-dabhi-portfolio.vercel.app/projects/the-weeknd"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/the-weeknd/weeknd-hero.webp"
+        ogImageAlt="The Weeknd cinematic project case study preview"
+      />
+
       {/* Ambient Crimson / Blood Red Atmospheric Void */}
       <div className="weeknd-ambient-bg" aria-hidden="true">
         <div className="weeknd-glow-orb-crimson" />

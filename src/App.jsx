@@ -15,6 +15,7 @@ const AzuraCaseStudy = lazy(() => import('./pages/AzuraCaseStudy'));
 const TheWeekndCaseStudy = lazy(() => import('./pages/TheWeekndCaseStudy'));
 const CakeeCaseStudy = lazy(() => import('./pages/CakeeCaseStudy'));
 const CoffitooCaseStudy = lazy(() => import('./pages/CoffitooCaseStudy'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Global route change scroll handler
 function ScrollHandler() {
@@ -113,6 +114,14 @@ function GlobalLayout() {
           element={
             <Suspense fallback={<RouteLoader />}>
               <CoffitooCaseStudy />
+            </Suspense>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <Suspense fallback={<RouteLoader />}>
+              <NotFoundPage />
             </Suspense>
           }
         />
