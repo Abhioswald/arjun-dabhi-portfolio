@@ -22,7 +22,7 @@ export default function HeroMedia({
             className={`hero-video-poster ${
               videoVisible ? 'is-hidden' : ''
             }`}
-            src="/assets/hero-portrait.png"
+            src="/assets/hero-portrait.webp"
             alt=""
             aria-hidden="true"
           />

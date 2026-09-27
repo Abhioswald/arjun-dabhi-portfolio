@@ -492,14 +492,14 @@ export default function Hero({ heroRef, navRef }) {
             <MaskedHeading
               ref={titleArjunRef}
               text="ARJUN"
-              src="/assets/hero-portrait.png"
+              src="/assets/hero-portrait.webp"
               className="hero-title-arjun"
             />
 
             <MaskedHeading
               ref={titleDabhiRef}
               text="DABHI"
-              src="/assets/hero-portrait.png"
+              src="/assets/hero-portrait.webp"
               className="hero-title-dabhi"
             />
           </div>
@@ -609,7 +609,7 @@ export default function Hero({ heroRef, navRef }) {
               <video
                 ref={modalVideoRef}
                 src="/assets/showreel.mp4"
-                poster="/assets/hero-portrait.png"
+                poster="/assets/hero-portrait.webp"
                 autoPlay
                 controls
                 playsInline

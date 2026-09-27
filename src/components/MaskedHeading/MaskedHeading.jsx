@@ -13,7 +13,7 @@ const MaskedHeading = forwardRef(function MaskedHeading(
   {
     text = 'ARJUN',
     tag: Tag = 'h1',
-    src = '/assets/hero-portrait.png',
+    src = '/assets/hero-portrait.webp',
     mediaType,
     reveal,
     trigger,

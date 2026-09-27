@@ -54,7 +54,7 @@ export const booCaseStudyData = {
     heading: 'The Full Experience',
     description:
       'The complete landing experience is structured as a continuous vertical showcase—progressing seamlessly from the cinematic opening to origin stories, berry splash dynamics, tactile waffle cone details, and the final conversion drop.',
-    fullImage: '/assets/projects/optimized/boo.webp',
+    fullImage: '/assets/case-studies/boo/boo-full.webp',
     fullImageOriginal: '/assets/projects/boo.png',
     keyMoments: [
       'NOT YOUR ORDINARY ICE CREAM',

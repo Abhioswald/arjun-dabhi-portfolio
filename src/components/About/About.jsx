@@ -334,7 +334,7 @@ export default function About() {
 
             <div className="about-portrait-wrapper" ref={portraitWrapRef}>
               <img
-                src="/assets/about-portrait.png"
+                src="/assets/about-portrait.webp"
                 alt="Portrait of Arjun Dabhi"
                 className="about-portrait-img"
                 loading="lazy"
