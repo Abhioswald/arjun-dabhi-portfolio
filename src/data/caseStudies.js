@@ -1781,6 +1781,492 @@ export const cakeeCaseStudyData = {
 
   nextProject: {
     marker: 'NEXT PROJECT',
+    title: 'Coffitoo Coffee',
+    description:
+      'A warm, atmospheric café product experience celebrating artisanal brewing, rich espresso aesthetics, and modern web motion.',
+    image: '/assets/projects/optimized/coffitoo.webp',
+    targetUrl: '/projects/coffitoo',
+  },
+};
+
+export const coffitooCaseStudyData = {
+  slug: 'coffitoo',
+  number: '06',
+  title: 'Coffitoo Coffee',
+  tagline: 'EXPERIENCE COFFEE LIKE NEVER BEFORE.',
+  eyebrow: '01 / PROJECT',
+  description:
+    'A warm, atmospheric café product experience celebrating artisanal brewing, rich espresso aesthetics, and modern web motion.',
+  liveUrl: '',
+  githubUrl: '',
+  mainImage: '/assets/projects/optimized/coffitoo.webp',
+  heroImage: '/assets/case-studies/coffitoo/coffitoo-hero.webp',
+
+  facts: [
+    { label: 'TYPE', value: 'Café Brand & Product Showcase' },
+    { label: 'ROLE', value: 'Design & Frontend Engineering' },
+    { label: 'STACK', value: 'React · Vite · Framer Motion · GSAP · Lenis' },
+  ],
+
+  overview: {
+    marker: '02 / OVERVIEW',
+    heading: 'Crafted for\nCoffee Lovers.',
+    paragraphs: [
+      'Coffitoo explores an atmospheric, sensory-rich web experience tailored for an artisanal coffee roastery.',
+      'Its visual world is constructed with deep espresso surfaces, warm roasted brown card containers, radiant caramel accents, and high-contrast cream typography.',
+      'The interface presents signature coffee varieties, ethical farm-to-cup origin stories, barista craftsmanship, and community moments designed to evoke the tactile comfort of a modern café.',
+    ],
+    demoStats: [
+      {
+        value: '20+',
+        label: 'Coffee Origins',
+        note: 'Presented in demo UI',
+      },
+      {
+        value: '50K+',
+        label: 'Happy Customers',
+        note: 'Featured in demo UI',
+      },
+      {
+        value: '15+',
+        label: 'Years Experience',
+        note: 'Showcased in demo UI',
+      },
+    ],
+    featureCards: [
+      {
+        title: 'ARTISANAL ROASTING',
+        description: 'The interface presents small-batch roasting profiles calibrated for aroma and depth.',
+      },
+      {
+        title: 'FARM-TO-CUP JOURNEY',
+        description: 'The project includes a 5-step visual roadmap from ethical harvest to espresso extraction.',
+      },
+      {
+        title: 'BARISTA CRAFTSMANSHIP',
+        description: 'The UI showcases craftspeople behind the bar with specialized roles and brewing mastery.',
+      },
+      {
+        title: 'RESPONSIVE CAFÉ UI',
+        description: 'Smooth, fluid layout engineering adapts seamlessly across mobile, tablet, and desktop viewports.',
+      },
+    ],
+  },
+
+  experience: {
+    marker: '03 / FULL EXPERIENCE',
+    heading: 'The Continuous\nJourney.',
+    description:
+      'The complete Coffitoo digital experience is designed as an unbroken vertical showcase—guiding the visitor from the cinematic espresso hero down through signature roasts, brand ethos, bean origins, promotional incentives, team portraits, customer testimonials, and an ambience gallery.',
+    fullImage: '/assets/case-studies/coffitoo/coffitoo-full.webp',
+    fullImageOriginal: '/assets/projects/coffitoo.png',
+    keyMoments: [
+      'EXPERIENCE COFFEE LIKE NEVER BEFORE',
+      'OUR FEATURED COFFEE',
+      'CRAFTED FOR COFFEE LOVERS',
+      'MORE THAN JUST COFFEE',
+      'FROM FARM TO CUP',
+      'BUY 2 COFFEES GET 1 FREE',
+      'EXPERT BARISTAS',
+      'WHAT COFFEE LOVERS SAY',
+      'INSIDE COFFITOO',
+    ],
+  },
+
+  featuredCoffee: {
+    marker: '04 / FEATURED COFFEE',
+    heading: 'Our Featured\nCoffee.',
+    description:
+      'The interface presents a curated menu card grid featuring signature handcrafted coffees with pricing, taste attributes, and order prompts.',
+    image: '/assets/case-studies/coffitoo/coffitoo-featured.webp',
+    items: [
+      {
+        name: 'Signature Espresso',
+        price: '$4.50',
+        notes: 'Rich, concentrated shot with thick golden crema and dark chocolate undertones.',
+      },
+      {
+        name: 'Caramel Macchiato',
+        price: '$5.50',
+        notes: 'Velvety steamed milk with double espresso mark and house-made caramel drizzle.',
+      },
+      {
+        name: 'Artisan Cappuccino',
+        price: '$5.00',
+        notes: 'Equal thirds of robust espresso, steamed milk, and dense micro-foam.',
+      },
+      {
+        name: 'Classic Americano',
+        price: '$4.00',
+        notes: 'Pure hot filtered water drawn over full-bodied double-shot espresso.',
+      },
+      {
+        name: 'Cold Brew Reserve',
+        price: '$6.00',
+        notes: 'Slow cold-steeped for 18 hours yielding low-acidity smoothness.',
+      },
+      {
+        name: 'Iced Latte',
+        price: '$5.25',
+        notes: 'Chilled espresso poured over ice with fresh organic milk.',
+      },
+    ],
+  },
+
+  brandStory: {
+    marker: '05 / BRAND EXPERIENCE',
+    heading: 'More Than\nJust Coffee.',
+    description:
+      'The UI showcases the Coffitoo philosophy—blending artisan café culture, cozy community gathering spaces, and sustainably sourced beans.',
+    image: '/assets/case-studies/coffitoo/coffitoo-about.webp',
+    badgeText: '15+ Years Experience (Featured in Demo UI)',
+    highlights: [
+      {
+        title: 'Sustainably Sourced Beans',
+        detail: 'The interface highlights direct-trade partnerships with independent family farms across high-altitude coffee belts.',
+      },
+      {
+        title: 'Community Gathering Space',
+        detail: 'Designed around warmth, ambient lighting, and quiet corners for conversation, creative work, or mindful pauses.',
+      },
+      {
+        title: 'Artisan Bakery Pairings',
+        detail: 'The project presents fresh daily bakes and confectionery crafted to complement distinct espresso roast profiles.',
+      },
+    ],
+  },
+
+  processJourney: {
+    marker: '06 / PROCESS',
+    heading: 'From Farm\nto Cup.',
+    description:
+      'The interface illustrates the bean lifecycle through a structured 5-step visual roadmap explaining bean selection, roasting, grinding, brewing, and final cup presentation.',
+    image: '/assets/case-studies/coffitoo/coffitoo-journey.webp',
+    steps: [
+      {
+        step: '01',
+        title: 'Harvest & Selection',
+        detail: 'Hand-picked ripe coffee cherries sourced from shade-grown, high-elevation single-origin estates.',
+      },
+      {
+        step: '02',
+        title: 'Precision Roasting',
+        detail: 'Small-batch roasting calibrated with temperature-curve sensors to accentuate natural fruit and floral sweetness.',
+      },
+      {
+        step: '03',
+        title: 'Uniform Burr Grinding',
+        detail: 'Micron-calibrated flat burr grinding immediately before extraction to preserve delicate aromatic volatiles.',
+      },
+      {
+        step: '04',
+        title: 'Pressure Extraction',
+        detail: 'Nine bars of calibrated steam pressure extracting pure origin character and balanced crema density.',
+      },
+      {
+        step: '05',
+        title: 'The Perfect Pour',
+        detail: 'Finished with velvety micro-foam and delicate latte art, served fresh to every patron.',
+      },
+    ],
+  },
+
+  offerDesign: {
+    marker: '07 / OFFER DESIGN',
+    heading: 'Crafting the\nConversion Moment.',
+    description:
+      'The project includes a dedicated promotional banner highlighting a "Buy 2 Coffees Get 1 Free" seasonal incentive paired with a 15% first-order discount code.',
+    image: '/assets/case-studies/coffitoo/coffitoo-offer.webp',
+    bannerCopy: 'Buy 2 Coffees, Get 1 Free',
+    discountNote: 'Demo UI showcases 15% first-order discount code integration.',
+    features: [
+      {
+        title: 'Warm Amber Gradient',
+        detail: 'A glowing focal container anchors visual attention without disrupting the moody dark-roast theme.',
+      },
+      {
+        title: 'Clear Benefit Messaging',
+        detail: 'Prominent headline typography delivers instant incentive comprehension within one second of scroll.',
+      },
+      {
+        title: 'Action-Driven Hierarchy',
+        detail: 'High-contrast caramel pill buttons ensure an effortless pathway toward exploring seasonal drink packages.',
+      },
+    ],
+  },
+
+  people: {
+    marker: '08 / PEOPLE',
+    heading: 'Expert\nBaristas.',
+    description:
+      'The interface presents the craftspeople behind the coffee counter through editorial portrait cards detailing barista specializations and latte art expertise.',
+    image: '/assets/case-studies/coffitoo/coffitoo-baristas.webp',
+    team: [
+      {
+        role: 'Head Roaster & Cupping Specialist',
+        specialty: 'Single-origin roast profiling and cupping evaluation.',
+      },
+      {
+        role: 'Master Barista & Latte Artist',
+        specialty: 'Signature pour techniques, foam density, and presentation.',
+      },
+      {
+        role: 'Cold Brew & Extraction Specialist',
+        specialty: 'Slow-steep extraction metrics and cold filtration.',
+      },
+      {
+        role: 'Sensory Trainer & Hospitality Lead',
+        specialty: 'Flavor identification, guest experience, and palate calibration.',
+      },
+    ],
+  },
+
+  socialProof: {
+    marker: '09 / SOCIAL PROOF',
+    heading: 'What Coffee\nLovers Say.',
+    description:
+      'The project UI showcases customer reviews with 5-star rating stars, customer quotes, and verified patron tags.',
+    image: '/assets/case-studies/coffitoo/coffitoo-testimonials.webp',
+    reviews: [
+      {
+        highlight: 'Rich Caramel Finish',
+        quote:
+          'The interface showcases customer praise for the balanced double-shot espresso, noting the smooth crema and subtle cocoa finish.',
+        tag: 'Featured Review in Demo UI',
+      },
+      {
+        highlight: 'Exceptional Cold Brew',
+        quote:
+          'The UI highlights feedback celebrating the 18-hour cold brew reserve for its low acidity and crisp, refreshing taste.',
+        tag: 'Featured Review in Demo UI',
+      },
+      {
+        highlight: 'Welcoming Atmosphere',
+        quote:
+          'The review cards emphasize the calm café ambience, skilled baristas, and comfortable seating that encourage relaxed visits.',
+        tag: 'Featured Review in Demo UI',
+      },
+    ],
+  },
+
+  visualStory: {
+    marker: '10 / VISUAL STORY',
+    heading: 'Inside\nCoffitoo.',
+    description:
+      'The interface includes a 6-photo masonry gallery capturing the café ambience—steaming cups, pour-over drips, espresso machines, and cozy seating.',
+    image: '/assets/case-studies/coffitoo/coffitoo-gallery.webp',
+    moments: [
+      'Gleaming chrome espresso portafilters',
+      'Artisanal ceramic cups on dark wood surfaces',
+      'Warm amber café counter lighting',
+      'Delicate latte art rosettas and tulips',
+      'Pour-over glass kettles in slow extraction',
+      'Freshly roasted whole beans in burlap sacks',
+    ],
+  },
+
+  visualLanguage: {
+    marker: '11 / VISUAL LANGUAGE',
+    heading: 'Dark Roast &\nWarm Caramel.',
+    description:
+      'The design system is drawn directly from the sensory world of coffee: near-black espresso grounds, rich roasted cacao surfaces, warm caramel accents, and velvety cream typography.',
+    blocks: [
+      {
+        number: '01',
+        name: 'ESPRESSO BLACK',
+        description: 'Deep #070707 background sets a moody, intimate café atmosphere.',
+        accent: '#c89a6b',
+        image: '/assets/case-studies/coffitoo/coffitoo-hero.webp',
+        alt: 'Coffitoo hero section showing dark espresso surfaces and glowing coffee cup',
+      },
+      {
+        number: '02',
+        name: 'CARAMEL ACCENTS',
+        description: 'Warm #c89a6b caramel tones illuminate buttons, badges, and pricing.',
+        accent: '#8b5a35',
+        image: '/assets/case-studies/coffitoo/coffitoo-featured.webp',
+        alt: 'Coffitoo featured menu showing caramel buttons and coffee drink cards',
+      },
+      {
+        number: '03',
+        name: 'EDITORIAL WARMTH',
+        description: 'Warm cream typography (#ffffff / #bdbdbd) ensures effortless WCAG AA contrast.',
+        accent: '#e6c299',
+        image: '/assets/case-studies/coffitoo/coffitoo-about.webp',
+        alt: 'Coffitoo brand story showing 15+ years experience badge and warm editorial copy',
+      },
+    ],
+  },
+
+  moments: {
+    marker: '12 / WEBSITE MOMENTS',
+    heading: 'Crafted in\nEvery Section.',
+    description:
+      'An editorial mosaic celebrating the key visual highlights across the Coffitoo web experience—from hero opening to artisanal roasts, barista craft, and community gallery.',
+    items: [
+      {
+        label: 'HERO EXPERIENCE',
+        title: 'Experience Coffee Like Never Before',
+        image: '/assets/case-studies/coffitoo/coffitoo-hero.webp',
+        size: 'large',
+        alt: 'Coffitoo hero section with signature coffee cup and glowing ambiance',
+      },
+      {
+        label: 'FEATURED MENU',
+        title: 'Handcrafted Espresso & Brews',
+        image: '/assets/case-studies/coffitoo/coffitoo-featured.webp',
+        size: 'large',
+        alt: 'Coffitoo featured coffee menu grid with prices and add-to-cart buttons',
+      },
+      {
+        label: 'BRAND HERITAGE',
+        title: 'More Than Just Coffee',
+        image: '/assets/case-studies/coffitoo/coffitoo-about.webp',
+        size: 'medium',
+        alt: 'Coffitoo brand story card with 15+ years badge',
+      },
+      {
+        label: 'BEAN JOURNEY',
+        title: 'From Farm to Cup',
+        image: '/assets/case-studies/coffitoo/coffitoo-journey.webp',
+        size: 'medium',
+        alt: 'Coffitoo 5-step bean journey diagram and roasting narrative',
+      },
+      {
+        label: 'PROMOTIONAL OFFER',
+        title: 'Buy 2 Coffees Get 1 Free',
+        image: '/assets/case-studies/coffitoo/coffitoo-offer.webp',
+        size: 'medium',
+        alt: 'Coffitoo promotional discount card with warm amber background',
+      },
+      {
+        label: 'BARISTA ROSTER',
+        title: 'The Artisans Behind the Counter',
+        image: '/assets/case-studies/coffitoo/coffitoo-baristas.webp',
+        size: 'wide',
+        alt: 'Coffitoo expert barista team member cards',
+      },
+      {
+        label: 'CAFÉ AMBIENCE',
+        title: 'Inside Coffitoo Atmosphere',
+        image: '/assets/case-studies/coffitoo/coffitoo-gallery.webp',
+        size: 'wide',
+        alt: 'Coffitoo 6-photo masonry gallery showing cafe interior and latte art',
+      },
+    ],
+  },
+
+  process: {
+    marker: '13 / PROCESS',
+    heading: 'From Concept\nto Cup.',
+    phases: [
+      {
+        phase: 'PHASE 01',
+        title: 'Atmospheric Direction',
+        detail:
+          'Defining a warm café visual mood anchored in near-black espresso tones (#070707), roasted cacao surfaces (#15110e), and glowing caramel accents (#c89a6b).',
+      },
+      {
+        phase: 'PHASE 02',
+        title: 'Sensory Storytelling',
+        detail:
+          'Structuring the layout to lead visitors logically from aromatic hero opening down to product selection, roast education, and community social proof.',
+      },
+      {
+        phase: 'PHASE 03',
+        title: 'Motion Architecture',
+        detail:
+          'Integrating Lenis smooth scroll for momentum-driven scrolling, GSAP ScrollTrigger for pinned editorial sequences, and Framer Motion for local component micro-interactions.',
+      },
+      {
+        phase: 'PHASE 04',
+        title: 'Responsive Discipline',
+        detail:
+          'Calibrating typography clamps, ensuring zero horizontal overflow on small viewports (390px), and optimizing high-density coffee media into modern WebP formats.',
+      },
+    ],
+  },
+
+  challenges: {
+    marker: '14 / MOTION ARCHITECTURE',
+    heading: 'Motion Architecture &\nImplementation Focus.',
+    items: [
+      {
+        challenge: 'Multi-Library Motion Architecture (Framer Motion + GSAP + Lenis)',
+        whatHappened:
+          'The frontend integrates three complementary motion libraries: Lenis for global inertial scrolling, GSAP ScrollTrigger for scroll-linked animations, and Framer Motion for declarative component transitions.',
+        solution:
+          'Established clear architectural responsibilities: Lenis governs the root window scroll physics, GSAP ScrollTrigger subscribes to the Lenis scroll ticker for synchronized scroll-based reveals, and Framer Motion handles isolated button hover states and card entrance gestures.',
+        result:
+          'A cohesive, high-performance motion experience where smooth scroll physics and component transitions operate in harmony without layout thrashing.',
+      },
+      {
+        challenge: 'Dark Roast Color System & Text Contrast Hierarchy',
+        whatHappened:
+          'Deep espresso brown and black surfaces risk visual muddiness or low contrast if text and card borders lack deliberate luminance separation.',
+        solution:
+          'Formulated a strict semantic palette: `#070707` for canvas background, `#15110e` for card surfaces, subtle `rgba(200, 154, 107, 0.16)` caramel borders, and pure white (`#ffffff`) or high-contrast silver (`#bdbdbd`) for typography.',
+        result:
+          'Warm, inviting dark-mode aesthetics that satisfy WCAG AA contrast criteria across all body and caption text.',
+      },
+      {
+        challenge: 'Responsive Menu Card Density Across Mobile Viewports',
+        whatHappened:
+          'A 6-item featured coffee menu and 4-member barista showcase require careful spatial adaptation to avoid squishing imagery or ballooning vertical height on narrow screens.',
+        solution:
+          'Implemented auto-fit CSS Grid layouts that transition smoothly from 3 columns at desktop (1440px) to 2 columns on tablet (768px) and a comfortable single-column card stack on mobile (390px).',
+        result:
+          'Effortless navigation and zero horizontal overflow across all mobile, tablet, and desktop breakpoints.',
+      },
+      {
+        challenge: 'High-Fidelity Coffee Photography Asset Optimization',
+        whatHappened:
+          'Rich, high-resolution coffee and barista imagery can quickly cause network bloat and sluggish load times if uncompressed.',
+        solution:
+          'Processed all continuous captures and photography slices into modern WebP formats with optimized 88% quality compression, keeping section assets between 20KB and 135KB.',
+        result:
+          'Instantaneous asset delivery and crisp visual presentation without degrading tactile café photography.',
+      },
+    ],
+  },
+
+  learnings: {
+    marker: '15 / LEARNINGS',
+    heading: 'What This Project\nTaught Me.',
+    items: [
+      'Dark modes become significantly more immersive when anchored in organic undertones: using dark roast brown (#15110e) instead of neutral gray creates authentic warmth.',
+      'Complex animation stacks require clear boundary delineation: delegating window physics to Lenis, scroll triggers to GSAP, and local gestures to Framer Motion prevents execution conflicts.',
+      'Menu design succeeds through cognitive simplicity: clear price tags, succinct flavor notes, and prominent action buttons minimize friction for patrons.',
+      'Fluid responsiveness built with CSS clamp() delivers superior cross-device elegance compared to disjointed media query overrides.',
+    ],
+  },
+
+  techStack: {
+    marker: '16 / STACK',
+    heading: 'Built With.',
+    items: [
+      { name: 'React 19', role: 'Component-Driven UI Architecture' },
+      { name: 'Vite', role: 'Modern Build Pipeline & Ultra-Fast HMR' },
+      { name: 'Framer Motion', role: 'Fluid Component Gestures & Micro-Interactions' },
+      { name: 'GSAP', role: 'ScrollTriggered Timelines & Coordinated Reveals' },
+      { name: 'Lenis', role: 'Momentum-Based Inertial Smooth Scrolling' },
+      { name: 'React Icons', role: 'Clean, Accessible Iconography' },
+      { name: 'WebP Media Pipeline', role: 'Optimized Coffee & Barista Photography' },
+      { name: 'Responsive Layouts', role: 'Fluid Mobile Scaling Down to 390px' },
+    ],
+  },
+
+  cta: {
+    headline: 'Brew Something\nMemorable.',
+    description:
+      'A warm café digital showcase celebrating craftsmanship, modern web motion, and atmospheric dark-mode design.',
+    backText: 'Explore More Work',
+    backUrl: '/#projects',
+    image: '/assets/case-studies/coffitoo/coffitoo-hero.webp',
+  },
+
+  nextProject: {
+    marker: 'NEXT PROJECT',
     title: 'BOO! Ice Cream',
     description:
       'A dark product experience built around bold visual storytelling, immersive scrolling and a distinctive blackcurrant identity.',
@@ -1788,7 +2274,3 @@ export const cakeeCaseStudyData = {
     targetUrl: '/projects/boo',
   },
 };
-
-
-
-

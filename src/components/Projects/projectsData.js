@@ -83,6 +83,7 @@ export const projectsData = [
       'A premium coffee website presenting products, brand storytelling, menu content and a warm modern café aesthetic.',
     objectPosition: 'center top',
     tech: [],
+    caseStudyUrl: '/projects/coffitoo',
     liveUrl: '',
     githubUrl: '',
   },
