@@ -55,7 +55,6 @@ export const booCaseStudyData = {
     description:
       'The complete landing experience is structured as a continuous vertical showcase—progressing seamlessly from the cinematic opening to origin stories, berry splash dynamics, tactile waffle cone details, and the final conversion drop.',
     fullImage: '/assets/case-studies/boo/boo-full.webp',
-    fullImageOriginal: '/assets/projects/boo.png',
     keyMoments: [
       'NOT YOUR ORDINARY ICE CREAM',
       'BLACK BY NATURE',
@@ -672,7 +671,6 @@ export const azuraCaseStudyData = {
     description:
       'The complete digital experience is presented as a measured, atmospheric vertical showcase—flowing from the untamed hero reveal to philosophy, signature ingredient notes, collection catalog, French craftsmanship atelier, and private client reflections.',
     fullImage: '/assets/case-studies/azura/azura-full.webp',
-    fullImageOriginal: '/assets/projects/azura.png',
     keyMoments: [
       '01 THE UNTAMED COLLECTION — WILD ESSENCE',
       '02 THE PHILOSOPHY — INSTINCT & DISCIPLINE',
@@ -1859,7 +1857,6 @@ export const coffitooCaseStudyData = {
     description:
       'The complete Coffitoo digital experience is designed as an unbroken vertical showcase—guiding the visitor from the cinematic espresso hero down through signature roasts, brand ethos, bean origins, promotional incentives, team portraits, customer testimonials, and an ambience gallery.',
     fullImage: '/assets/case-studies/coffitoo/coffitoo-full.webp',
-    fullImageOriginal: '/assets/projects/coffitoo.png',
     keyMoments: [
       'EXPERIENCE COFFEE LIKE NEVER BEFORE',
       'OUR FEATURED COFFEE',

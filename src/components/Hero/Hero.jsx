@@ -541,7 +541,6 @@ export default function Hero({ heroRef, navRef }) {
               ref={titleArjunRef}
               tag="span"
               text="ARJUN"
-              src="/assets/hero-portrait.webp"
               className="hero-title-arjun"
               aria-hidden="true"
             />
@@ -550,7 +549,6 @@ export default function Hero({ heroRef, navRef }) {
               ref={titleDabhiRef}
               tag="span"
               text="DABHI"
-              src="/assets/hero-portrait.webp"
               className="hero-title-dabhi"
               aria-hidden="true"
             />
