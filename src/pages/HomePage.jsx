@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+import { preload } from 'react-dom';
 import { useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
@@ -13,6 +14,13 @@ export default function HomePage() {
   const heroRef = useRef(null);
   const navRef = useRef(null);
   const location = useLocation();
+
+  // Preload Hero portrait texture for instant MaskedHeading readiness on homepage only
+  preload('/assets/hero-portrait.webp', {
+    as: 'image',
+    type: 'image/webp',
+    fetchPriority: 'high',
+  });
 
   useEffect(() => {
     // If navigating with a hash (e.g. /#contact, /#projects) or with scrollTo state
