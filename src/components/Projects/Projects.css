@@ -710,6 +710,19 @@
   .project-screenshot-wrap {
     aspect-ratio: 16 / 10;
   }
+
+  .project-github-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .project-view-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
 }
 
 /* Small mobile (<= 420px) */

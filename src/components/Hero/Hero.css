@@ -801,14 +801,51 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  min-height: 40px;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
   color: var(--color-text-dim);
   transition: all 0.2s ease;
+}
+
+@media (max-width: 600px) {
+  .showreel-modal-backdrop {
+    padding: clamp(0.75rem, 3vw, 1.25rem);
+    padding-top: max(clamp(0.75rem, 3vw, 1.25rem), env(safe-area-inset-top));
+    padding-bottom: max(clamp(0.75rem, 3vw, 1.25rem), env(safe-area-inset-bottom));
+    padding-left: max(clamp(0.75rem, 3vw, 1.25rem), env(safe-area-inset-left));
+    padding-right: max(clamp(0.75rem, 3vw, 1.25rem), env(safe-area-inset-right));
+  }
+
+  .modal-header {
+    padding: 0.85rem 1rem;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .showreel-modal-backdrop {
+    padding: 0.5rem;
+    padding-left: max(0.5rem, env(safe-area-inset-left));
+    padding-right: max(0.5rem, env(safe-area-inset-right));
+  }
+
+  .showreel-modal-card {
+    max-width: min(92vw, 560px);
+    max-height: 96vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    padding: 0.45rem 1rem;
+  }
+
+  .modal-video-container {
+    max-height: calc(96vh - 50px);
+  }
 }
 
 .modal-mute-btn:hover,

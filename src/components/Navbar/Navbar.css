@@ -254,7 +254,7 @@
   .mobile-links {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.65rem;
   }
 
   .mobile-link {
@@ -262,6 +262,10 @@
     font-weight: 500;
     color: var(--color-text-dim);
     text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0.35rem 0.25rem;
     transition: color 0.2s ease;
   }
 

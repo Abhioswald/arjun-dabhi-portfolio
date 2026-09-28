@@ -851,6 +851,13 @@
     justify-content: center;
     gap: 1rem;
   }
+
+  .about-social-icon-btn {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    min-height: 44px;
+  }
 }
 
 /* Small mobile (<= 420px) */

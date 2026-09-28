@@ -321,7 +321,7 @@
   .cs-back-link {
     font-size: 0.78rem;
     padding: 0.45rem 0.85rem;
-    min-height: 40px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
@@ -329,7 +329,7 @@
   .cs-nav-visit-btn {
     font-size: 0.76rem;
     padding: 0.45rem 0.95rem;
-    min-height: 40px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
