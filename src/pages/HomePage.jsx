@@ -22,6 +22,9 @@ export default function HomePage() {
         const el = document.getElementById(targetId);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
+          if (location.state?.scrollTo) {
+            el.focus({ preventScroll: true });
+          }
         }
       }, 120);
       return () => clearTimeout(timer);
@@ -35,8 +38,8 @@ export default function HomePage() {
       {/* Global Navigation Bar */}
       <Navbar navRef={navRef} />
 
-      {/* Main Sections */}
-      <main>
+      {/* Main Sections Landmark */}
+      <main id="main-content" tabIndex="-1">
         <Hero heroRef={heroRef} navRef={navRef} />
         <About />
         <Projects />

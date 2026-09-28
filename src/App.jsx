@@ -17,7 +17,7 @@ const CakeeCaseStudy = lazy(() => import('./pages/CakeeCaseStudy'));
 const CoffitooCaseStudy = lazy(() => import('./pages/CoffitooCaseStudy'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
-// Global route change scroll handler
+// Global route change scroll and accessible focus handler
 function ScrollHandler() {
   const location = useLocation();
 
@@ -25,6 +25,15 @@ function ScrollHandler() {
     // When navigating to a new page without a specific hash or scrollTo state, scroll to top
     if (!location.hash && !location.state?.scrollTo) {
       window.scrollTo(0, 0);
+
+      // Manage focus for keyboard and screen reader users
+      const timer = setTimeout(() => {
+        const mainEl = document.getElementById('main-content');
+        if (mainEl) {
+          mainEl.focus({ preventScroll: true });
+        }
+      }, 80);
+      return () => clearTimeout(timer);
     }
   }, [location.pathname, location.hash, location.state]);
 
@@ -58,6 +67,11 @@ function GlobalLayout() {
 
   return (
     <div className="portfolio-app-root">
+      {/* Accessible Skip Link for Keyboard Users */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
+
       {/* Subtle Top Ambient Scroll Progress Bar */}
       <div
         className="global-scroll-progress-bar"

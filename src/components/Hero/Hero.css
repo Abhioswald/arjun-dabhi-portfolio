@@ -263,7 +263,10 @@
 .hero-heading-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.95rem;
+  margin: 0 0 0.95rem 0;
+  padding: 0;
+  font-size: inherit;
+  font-weight: inherit;
   will-change: transform, opacity;
 }
 
@@ -783,6 +786,8 @@
   letter-spacing: 0.08em;
   color: var(--color-white);
   font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
 
 .modal-controls {
@@ -796,8 +801,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.06);
   color: var(--color-text-dim);

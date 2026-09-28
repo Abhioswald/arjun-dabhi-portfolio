@@ -371,7 +371,7 @@ export default function CakeeCaseStudy() {
               >
                 <img
                   src={d.experience.fullImage}
-                  alt="Full Cakee e-commerce website continuous page capture from hero to footer"
+                  alt="Full Cakee bakery website experience"
                   className="cakee-full-img"
                   loading="lazy"
                   decoding="async"

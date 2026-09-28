@@ -203,7 +203,7 @@ export default function GajanandCaseStudy() {
       {/* Case Study Navbar */}
       <CaseStudyHeader liveUrl={d.liveUrl} projectName={d.title} />
 
-      <main>
+      <main id="main-content" tabIndex="-1">
         {/* ============================================================
             01 — HERO SECTION
             ============================================================ */}
@@ -350,7 +350,7 @@ export default function GajanandCaseStudy() {
                 <div className="gajanand-full-screenshot-container" ref={fullScreenshotRef}>
                   <img
                     src={d.experience.fullImage}
-                    alt="Full-page vertical preview of Gajanand Vada Pav website showcasing hero, Petlad heritage story, exploded ingredient anatomy, order CTA and Gujarat locations"
+                    alt="Full Gajanand Vada Pav website experience"
                     className="gajanand-full-screenshot-img"
                     loading="lazy"
                     decoding="async"

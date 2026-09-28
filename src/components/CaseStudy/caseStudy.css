@@ -290,6 +290,14 @@
   pointer-events: none;
 }
 
+.cs-back-link:focus-visible,
+.cs-nav-section-link:focus-visible,
+.cs-nav-visit-btn:focus-visible,
+.cs-next-card:focus-visible {
+  outline: 2px solid var(--cs-purple-bright, #a742ff);
+  outline-offset: 3px;
+}
+
 /* ==========================================================================
    RESPONSIVE
    ========================================================================== */
@@ -312,11 +320,17 @@
 
   .cs-back-link {
     font-size: 0.78rem;
-    padding: 0.35rem 0.65rem;
+    padding: 0.45rem 0.85rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
   }
 
   .cs-nav-visit-btn {
     font-size: 0.76rem;
-    padding: 0.4rem 0.85rem;
+    padding: 0.45rem 0.95rem;
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
   }
 }

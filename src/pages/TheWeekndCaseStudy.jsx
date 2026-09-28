@@ -234,7 +234,7 @@ export default function TheWeekndCaseStudy() {
         sectionLinks={sectionLinks}
       />
 
-      <main id="main-content">
+      <main id="main-content" tabIndex="-1">
         {/* ============================================================
             01 — HERO SECTION
             ============================================================ */}
@@ -392,7 +392,7 @@ export default function TheWeekndCaseStudy() {
                 <div className="weeknd-full-img-frame">
                   <img
                     src={d.experience.fullImage}
-                    alt="The Weeknd complete vertical website showcase from opening hero to concert finale"
+                    alt="Full The Weeknd website experience"
                     className="weeknd-full-img"
                     loading="lazy"
                     decoding="async"

@@ -235,7 +235,7 @@ export default function AzuraCaseStudy() {
         sectionLinks={sectionLinks}
       />
 
-      <main id="main-content">
+      <main id="main-content" tabIndex="-1">
         {/* ============================================================
             01 — HERO SECTION
             ============================================================ */}
@@ -398,7 +398,7 @@ export default function AzuraCaseStudy() {
                 <div className="azura-full-img-frame">
                   <img
                     src={d.experience.fullImage}
-                    alt="Azura luxury fragrance complete vertical webpage showcase from hero to footer"
+                    alt="Full Azura luxury fragrance website experience"
                     className="azura-full-img"
                     loading="lazy"
                     decoding="async"

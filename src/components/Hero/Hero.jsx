@@ -32,6 +32,9 @@ export default function Hero({ heroRef, navRef }) {
   const scrollIndicatorRef = useRef(null);
   const bgGlowRef = useRef(null);
   const modalVideoRef = useRef(null);
+  const showreelTriggerRef = useRef(null);
+  const showreelModalRef = useRef(null);
+  const showreelCloseBtnRef = useRef(null);
 
   const [videoVisible, setVideoVisible] = useState(false);
   const videoVisibleRef = useRef(false);
@@ -445,13 +448,58 @@ export default function Hero({ heroRef, navRef }) {
     };
   }, [heroRef, navRef, handleVideoReady]);
 
-  // Pause Hero background video when showreel modal is active
+  // Manage modal accessibility: focus trap, escape key, focus restoration, pause background video
   useEffect(() => {
     if (showreelOpen) {
       const vid = videoRef.current;
       if (vid && !vid.paused) {
         vid.pause();
       }
+
+      // Initial focus moves to close button inside modal
+      const timer = setTimeout(() => {
+        showreelCloseBtnRef.current?.focus();
+      }, 50);
+
+      const handleKeyDown = (e) => {
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          setShowreelOpen(false);
+          return;
+        }
+
+        if (e.key === 'Tab' && showreelModalRef.current) {
+          const focusable = showreelModalRef.current.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), video[controls]'
+          );
+          if (!focusable || focusable.length === 0) return;
+
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+
+          if (e.shiftKey) {
+            if (document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            }
+          } else {
+            if (document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        }
+      };
+
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        clearTimeout(timer);
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    } else {
+      // Return focus to Watch Showreel trigger button when closing
+      showreelTriggerRef.current?.focus();
     }
   }, [showreelOpen]);
 
@@ -459,7 +507,7 @@ export default function Hero({ heroRef, navRef }) {
     <>
       <section className="hero-section" ref={heroRef} id="home">
         {/* Background Atmospheric Lighting */}
-        <div className="hero-ambient-background" ref={bgGlowRef}>
+        <div className="hero-ambient-background" ref={bgGlowRef} aria-hidden="true">
           <div className="ambient-blob-purple" />
           <div className="ambient-blob-magenta" />
           <div className="ambient-blob-blue" />
@@ -484,28 +532,32 @@ export default function Hero({ heroRef, navRef }) {
           {/* Small Intro Badge */}
           <div className="hero-intro-row" ref={introRef}>
             <span className="intro-text">HELLO, I'M</span>
-            <span className="intro-dash">─────</span>
+            <span className="intro-dash" aria-hidden="true">─────</span>
           </div>
 
-          {/* Oversized Bold Editorial Masked Typography */}
-          <div className="hero-heading-group">
+          {/* Oversized Bold Editorial Masked Typography (Single Semantic H1) */}
+          <h1 className="hero-heading-group" aria-label="Arjun Dabhi">
             <MaskedHeading
               ref={titleArjunRef}
+              tag="span"
               text="ARJUN"
               src="/assets/hero-portrait.webp"
               className="hero-title-arjun"
+              aria-hidden="true"
             />
 
             <MaskedHeading
               ref={titleDabhiRef}
+              tag="span"
               text="DABHI"
               src="/assets/hero-portrait.webp"
               className="hero-title-dabhi"
+              aria-hidden="true"
             />
-          </div>
+          </h1>
 
           {/* Subtitle / Role */}
-          <div className="hero-subtitle" ref={subtitleRef}>
+          <div className="hero-subtitle" ref={subtitleRef} aria-label="Computer Engineer">
             <span>C</span>
             <span>O</span>
             <span>M</span>
@@ -535,15 +587,18 @@ export default function Hero({ heroRef, navRef }) {
           <div className="hero-cta-row" ref={ctaGroupRef}>
             <a href="#projects" className="hero-primary-btn">
               <span>Explore My Work</span>
-              <ArrowRight size={18} className="btn-arrow" />
+              <ArrowRight size={18} className="btn-arrow" aria-hidden="true" />
             </a>
 
             <button
+              ref={showreelTriggerRef}
               className="hero-secondary-btn"
               onClick={() => setShowreelOpen(true)}
               aria-label="Watch Showreel"
+              aria-haspopup="dialog"
+              aria-expanded={showreelOpen}
             >
-              <div className="play-icon-circle">
+              <div className="play-icon-circle" aria-hidden="true">
                 <Play size={14} fill="currentColor" />
               </div>
               <span>Watch Showreel</span>
@@ -558,7 +613,7 @@ export default function Hero({ heroRef, navRef }) {
         <div className="hero-bottom-bar">
           <SocialLinks socialRef={socialRef} />
 
-          <div className="scroll-indicator" ref={scrollIndicatorRef}>
+          <div className="scroll-indicator" ref={scrollIndicatorRef} aria-hidden="true">
             <div className="mouse-icon">
               <div className="mouse-wheel" />
             </div>
@@ -570,18 +625,25 @@ export default function Hero({ heroRef, navRef }) {
         </div>
       </section>
 
-      {/* Showreel Video Modal */}
+      {/* Showreel Video Modal Dialog */}
       {showreelOpen && (
         <div
           className="showreel-modal-backdrop"
           onClick={() => setShowreelOpen(false)}
+          role="presentation"
         >
           <div
+            ref={showreelModalRef}
             className="showreel-modal-card"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="showreel-modal-title"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="modal-header">
-              <span className="modal-title">Arjun Dabhi — Showreel 2026</span>
+              <h2 id="showreel-modal-title" className="modal-title">
+                Arjun Dabhi — Showreel 2026
+              </h2>
               <div className="modal-controls">
                 <button
                   className="modal-mute-btn"
@@ -593,14 +655,15 @@ export default function Hero({ heroRef, navRef }) {
                   }}
                   aria-label={isMuted ? 'Unmute Audio' : 'Mute Audio'}
                 >
-                  {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
+                  {isMuted ? <VolumeX size={18} aria-hidden="true" /> : <Volume2 size={18} aria-hidden="true" />}
                 </button>
                 <button
+                  ref={showreelCloseBtnRef}
                   className="modal-close-btn"
                   onClick={() => setShowreelOpen(false)}
                   aria-label="Close Showreel Modal"
                 >
-                  <X size={20} />
+                  <X size={20} aria-hidden="true" />
                 </button>
               </div>
             </div>
@@ -614,6 +677,7 @@ export default function Hero({ heroRef, navRef }) {
                 controls
                 playsInline
                 className="modal-video-player"
+                aria-label="Arjun Dabhi showreel video player"
               />
             </div>
           </div>

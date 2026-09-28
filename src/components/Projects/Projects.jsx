@@ -344,7 +344,7 @@ export default function Projects() {
                   className="project-screenshot-gradient"
                   aria-hidden="true"
                 />
-                <span className="project-num-badge">{project.number}</span>
+                <span className="project-num-badge" aria-hidden="true">{project.number}</span>
               </div>
 
               {/* Card Body */}
@@ -380,7 +380,7 @@ export default function Projects() {
                       <Link
                         to={project.caseStudyUrl}
                         className="project-view-link"
-                        aria-label={`Read ${project.title} case study`}
+                        aria-label={`View ${project.title} case study`}
                       >
                         <span>Case Study</span>
                         <ArrowUpRight size={14} aria-hidden="true" />
@@ -391,7 +391,7 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="project-view-link"
-                        aria-label={`View ${project.title} live project`}
+                        aria-label={`Open ${project.title} live site (opens in a new tab)`}
                       >
                         <span>View Project</span>
                         <ArrowUpRight size={14} aria-hidden="true" />
@@ -405,10 +405,10 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="project-github-btn"
-                          aria-label={`View ${project.title} live site`}
+                          aria-label={`Open ${project.title} live site (opens in a new tab)`}
                           title="Live Site"
                         >
-                          <ArrowUpRight size={16} />
+                          <ArrowUpRight size={16} aria-hidden="true" />
                         </a>
                       ) : null}
                       {project.githubUrl ? (
@@ -417,7 +417,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="project-github-btn"
-                          aria-label={`View ${project.title} on GitHub`}
+                          aria-label={`View ${project.title} source on GitHub (opens in a new tab)`}
                           title="Source Code"
                         >
                           <GithubIcon size={16} />

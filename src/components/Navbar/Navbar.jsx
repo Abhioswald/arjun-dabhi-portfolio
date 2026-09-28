@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 export default function Navbar({ navRef }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const mobileToggleRef = useRef(null);
+  const mobileDrawerRef = useRef(null);
 
   const navLinks = [
     { name: 'Home', href: '#home', id: 'home' },
@@ -42,6 +44,22 @@ export default function Navbar({ navRef }) {
     return () => observer.disconnect();
   }, []);
 
+  // Keyboard navigation for mobile drawer: close on Escape, return focus to toggle
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        setMobileMenuOpen(false);
+        mobileToggleRef.current?.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileMenuOpen]);
+
   return (
     <header className="navbar-container" ref={navRef}>
       <div className="navbar-inner">
@@ -51,12 +69,13 @@ export default function Navbar({ navRef }) {
         </a>
 
         {/* Desktop Navigation Links */}
-        <nav className="navbar-links" aria-label="Main Navigation">
+        <nav className="navbar-links" aria-label="Primary">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               className={`nav-link ${activeSection === link.id ? 'active' : ''}`}
+              aria-current={activeSection === link.id ? 'true' : undefined}
               onClick={() => setActiveSection(link.id)}
             >
               {link.name}
@@ -69,32 +88,42 @@ export default function Navbar({ navRef }) {
         <div className="navbar-action">
           <a href="#contact" className="nav-cta-btn">
             <span>Let's Talk</span>
-            <ArrowUpRight size={16} className="cta-icon" />
+            <ArrowUpRight size={16} className="cta-icon" aria-hidden="true" />
           </a>
 
           {/* Mobile Menu Toggle */}
           <button
+            ref={mobileToggleRef}
             className="mobile-toggle-btn"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle Navigation Menu"
+            aria-label={mobileMenuOpen ? 'Close navigation' : 'Open navigation'}
             aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-navigation-drawer"
           >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+            {mobileMenuOpen ? <X size={22} aria-hidden="true" /> : <Menu size={22} aria-hidden="true" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
-      <div className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}>
-        <nav className="mobile-links">
+      <div
+        id="mobile-navigation-drawer"
+        ref={mobileDrawerRef}
+        className={`mobile-drawer ${mobileMenuOpen ? 'open' : ''}`}
+        aria-hidden={!mobileMenuOpen}
+        inert={!mobileMenuOpen ? true : undefined}
+      >
+        <nav className="mobile-links" aria-label="Mobile Navigation">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               className={`mobile-link ${activeSection === link.id ? 'active' : ''}`}
+              aria-current={activeSection === link.id ? 'true' : undefined}
               onClick={() => {
                 setActiveSection(link.id);
                 setMobileMenuOpen(false);
+                mobileToggleRef.current?.focus();
               }}
             >
               {link.name}
@@ -103,10 +132,13 @@ export default function Navbar({ navRef }) {
           <a
             href="#contact"
             className="mobile-cta-btn"
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+              mobileToggleRef.current?.focus();
+            }}
           >
             <span>Let's Talk</span>
-            <ArrowUpRight size={18} />
+            <ArrowUpRight size={18} aria-hidden="true" />
           </a>
         </nav>
       </div>

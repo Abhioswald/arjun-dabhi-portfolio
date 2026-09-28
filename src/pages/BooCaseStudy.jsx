@@ -183,7 +183,7 @@ export default function BooCaseStudy() {
       {/* Minimal Case Study Navbar */}
       <CaseStudyHeader liveUrl={d.liveUrl} projectName={d.title} />
 
-      <main>
+      <main id="main-content" tabIndex="-1">
         {/* ============================================================
             01 — HERO SECTION
             ============================================================ */}
@@ -321,7 +321,7 @@ export default function BooCaseStudy() {
                 <div className="boo-full-screenshot-container" ref={fullScreenshotRef}>
                   <img
                     src={d.experience.fullImage}
-                    alt="Full-page vertical preview of BOO! Ice Cream website showcasing all sections from hero to final order"
+                    alt="Full BOO Ice Cream website experience"
                     className="boo-full-screenshot-img"
                     loading="lazy"
                     decoding="async"

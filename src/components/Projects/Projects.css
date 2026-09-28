@@ -351,6 +351,11 @@
   background: rgba(255, 255, 255, 0.055);
 }
 
+.filter-pill:focus-visible {
+  outline: 2px solid #f3b76e;
+  outline-offset: 2px;
+}
+
 .filter-pill.active {
   color: #08090b;
   background: #f3b76e;

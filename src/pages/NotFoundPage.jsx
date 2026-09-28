@@ -5,7 +5,9 @@ import SEO from '../components/SEO/SEO';
 
 export default function NotFoundPage() {
   return (
-    <div
+    <main
+      id="main-content"
+      tabIndex="-1"
       style={{
         minHeight: '100vh',
         display: 'flex',
@@ -90,7 +92,7 @@ export default function NotFoundPage() {
             transition: 'opacity 0.2s',
           }}
         >
-          <ArrowLeft size={16} />
+          <ArrowLeft size={16} aria-hidden="true" />
           <span>Return Home</span>
         </Link>
 
@@ -111,10 +113,10 @@ export default function NotFoundPage() {
             transition: 'background-color 0.2s',
           }}
         >
-          <FolderGit2 size={16} />
+          <FolderGit2 size={16} aria-hidden="true" />
           <span>View Projects</span>
         </Link>
       </div>
-    </div>
+    </main>
   );
 }

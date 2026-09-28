@@ -93,6 +93,49 @@ button {
   color: #ffffff;
 }
 
+/* Skip Link for Keyboard Accessibility */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 1.5rem;
+  z-index: 10000;
+  padding: 0.75rem 1.35rem;
+  background: #0d0c14;
+  color: #ffffff;
+  border: 2px solid var(--color-magenta, #ff1a9b);
+  border-radius: 9999px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 26, 155, 0.4);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 1.25rem;
+  opacity: 1;
+  pointer-events: auto;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Global Keyboard Visible Focus */
+:focus-visible {
+  outline: 2px solid var(--color-purple, #8a42ff);
+  outline-offset: 3px;
+}
+
+/* Programmatic focus targets (e.g. main-content container) should not show outline */
+#main-content:focus,
+#main-content:focus-visible {
+  outline: none;
+}
+
 /* Motion accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -104,3 +147,4 @@ button {
     scroll-behavior: auto !important;
   }
 }
+

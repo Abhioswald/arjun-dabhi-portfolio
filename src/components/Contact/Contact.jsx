@@ -683,6 +683,7 @@ export default function Contact() {
                   disabled={!isEmailConfigured}
                   aria-disabled={!isEmailConfigured}
                   aria-label={!isEmailConfigured ? 'Direct messaging coming soon' : 'Send Message'}
+                  aria-describedby={!isEmailConfigured ? 'contact-unavailable-msg' : undefined}
                 >
                   <span>{!isEmailConfigured ? 'Direct Messaging Coming Soon' : 'Send Message'}</span>
                   <ArrowUpRight size={17} className="btn-arrow-icon" aria-hidden="true" />
@@ -690,7 +691,7 @@ export default function Contact() {
 
                 {/* Truthful note when email is not yet configured */}
                 {!isEmailConfigured && (
-                  <div className="contact-unavailable-note" role="status">
+                  <div id="contact-unavailable-msg" className="contact-unavailable-note" role="status">
                     <span className="contact-unavailable-dot" aria-hidden="true" />
                     <span>Direct email integration will be connected soon. In the meantime, connect via GitHub.</span>
                   </div>

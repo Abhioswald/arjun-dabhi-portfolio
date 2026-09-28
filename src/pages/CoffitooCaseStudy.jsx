@@ -162,8 +162,9 @@ export default function CoffitooCaseStudy() {
         sectionLinks={headerLinks}
       />
 
-      {/* SECTION 01: HERO */}
-      <section
+      <main id="main-content" tabIndex="-1">
+        {/* SECTION 01: HERO */}
+        <section
         id="hero"
         className="coffitoo-hero"
         ref={heroRef}
@@ -302,7 +303,7 @@ export default function CoffitooCaseStudy() {
               <div className="coffitoo-device-scroll-container">
                 <img
                   src={data.experience.fullImage}
-                  alt="Complete vertical landing page showcase of Coffitoo from hero to footer"
+                  alt="Full Coffitoo Coffee website experience"
                   className="coffitoo-full-screenshot"
                   loading="lazy"
                   decoding="async"
@@ -913,6 +914,7 @@ export default function CoffitooCaseStudy() {
           </div>
         </div>
       </section>
+      </main>
 
       {/* SECTION 18: NEXT PROJECT (Circular Loop back to BOO! Ice Cream) */}
       <CaseStudyNextProject nextData={data.nextProject} />
