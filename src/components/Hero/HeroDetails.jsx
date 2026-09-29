@@ -10,9 +10,9 @@ export default function HeroDetails({ detailsRef, outlineRef }) {
         <div className="pillar-glow-line" />
         <div className="pillar-keywords">
           <span>DEVELOPER</span>
-          <span>DESIGNER</span>
+          <span>CREATIVE BUILDER</span>
           <span>PROBLEM SOLVER</span>
-          <span>LIFELONG LEARNER</span>
+          <span>CONTINUOUS LEARNER</span>
         </div>
       </div>
 

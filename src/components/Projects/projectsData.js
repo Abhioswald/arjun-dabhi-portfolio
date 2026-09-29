@@ -52,7 +52,7 @@ export const projectsData = [
     image: '/assets/projects/optimized/the-weeknd.webp',
     categories: ['Music / Artist', 'Landing Page'],
     description:
-      'A dark cinematic music-inspired web experience exploring dramatic typography, visual storytelling and immersive presentation.',
+      'A dark cinematic concept website exploring dramatic typography, visual storytelling, and atmospheric music presentation.',
     objectPosition: 'center top',
     tech: [],
     caseStudyUrl: '/projects/the-weeknd',

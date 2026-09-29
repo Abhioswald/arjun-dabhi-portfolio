@@ -87,7 +87,7 @@ export default function Navbar({ navRef }) {
         {/* Far-Right CTA */}
         <div className="navbar-action">
           <a href="#contact" className="nav-cta-btn">
-            <span>Let's Talk</span>
+            <span>Let's Connect</span>
             <ArrowUpRight size={16} className="cta-icon" aria-hidden="true" />
           </a>
 
@@ -137,7 +137,7 @@ export default function Navbar({ navRef }) {
               mobileToggleRef.current?.focus();
             }}
           >
-            <span>Let's Talk</span>
+            <span>Let's Connect</span>
             <ArrowUpRight size={18} aria-hidden="true" />
           </a>
         </nav>

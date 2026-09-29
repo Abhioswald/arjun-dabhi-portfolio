@@ -100,20 +100,20 @@ export const ROUTES_SEO = {
   '/projects/the-weeknd': {
     title: 'The Weeknd — Case Study | Arjun Dabhi',
     description:
-      'Cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters.',
+      'Unofficial cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters.',
     canonical: 'https://arjun-dabhi-portfolio.vercel.app/projects/the-weeknd',
     ogType: 'website',
     ogSiteName: 'Arjun Dabhi Portfolio',
     ogTitle: 'The Weeknd — Case Study | Arjun Dabhi',
     ogDescription:
-      'Cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters.',
+      'Unofficial cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters.',
     ogUrl: 'https://arjun-dabhi-portfolio.vercel.app/projects/the-weeknd',
     ogImage: 'https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/the-weeknd/weeknd-hero.webp',
     ogImageAlt: 'The Weeknd cinematic project case study preview',
     twitterCard: 'summary_large_image',
     twitterTitle: 'The Weeknd — Case Study | Arjun Dabhi',
     twitterDescription:
-      'Cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters.',
+      'Unofficial cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters.',
     twitterImage: 'https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/the-weeknd/weeknd-hero.webp',
     robots: 'index, follow',
     jsonLd: null,

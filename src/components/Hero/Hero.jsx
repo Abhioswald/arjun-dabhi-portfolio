@@ -577,8 +577,8 @@ export default function Hero({ heroRef, navRef }) {
 
           {/* Editorial Description */}
           <p className="hero-description" ref={descRef}>
-            I design and build digital experiences that blend creativity,
-            technology and real-world impact.
+            I design and build interactive web experiences that combine
+            creativity, frontend development, and thoughtful motion.
           </p>
 
           {/* Action CTAs */}
@@ -640,7 +640,7 @@ export default function Hero({ heroRef, navRef }) {
           >
             <div className="modal-header">
               <h2 id="showreel-modal-title" className="modal-title">
-                Arjun Dabhi — Showreel 2026
+                Arjun Dabhi — Portfolio Showreel
               </h2>
               <div className="modal-controls">
                 <button

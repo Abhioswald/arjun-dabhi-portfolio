@@ -53,7 +53,7 @@ export const booCaseStudyData = {
     marker: '03 / EXPERIENCE',
     heading: 'The Full Experience',
     description:
-      'The complete landing experience is structured as a continuous vertical showcase—progressing seamlessly from the cinematic opening to origin stories, berry splash dynamics, tactile waffle cone details, and the final conversion drop.',
+      'The complete landing experience is structured as a continuous vertical showcase—progressing seamlessly from the cinematic opening to origin stories, berry splash dynamics, tactile waffle cone details, and the closing call to action.',
     fullImage: '/assets/case-studies/boo/boo-full.webp',
     keyMoments: [
       'NOT YOUR ORDINARY ICE CREAM',
@@ -643,7 +643,7 @@ export const azuraCaseStudyData = {
     highlight: 'a Fragrance.',
     paragraphs: [
       'Azura combines premium fragrance presentation with nature-inspired storytelling, deep teal surfaces, elegant typography and a distinctive tiger identity.',
-      'The experience guides visitors through olfactory notes, material craftsmanship, an 8-fragrance collection wardrobe, and private client reflections.',
+      'The experience guides visitors through olfactory notes, material craftsmanship, an 8-fragrance collection wardrobe, and editorial review cards.',
     ],
     featureCards: [
       {
@@ -669,7 +669,7 @@ export const azuraCaseStudyData = {
     marker: '03 / EXPERIENCE',
     heading: 'The Full Experience.',
     description:
-      'The complete digital experience is presented as a measured, atmospheric vertical showcase—flowing from the untamed hero reveal to philosophy, signature ingredient notes, collection catalog, French craftsmanship atelier, and private client reflections.',
+      'The complete digital experience is presented as a measured, atmospheric vertical showcase—flowing from the untamed hero reveal to philosophy, signature ingredient notes, collection catalog, French craftsmanship atelier, and editorial impressions.',
     fullImage: '/assets/case-studies/azura/azura-full.webp',
     keyMoments: [
       '01 THE UNTAMED COLLECTION — WILD ESSENCE',
@@ -678,7 +678,7 @@ export const azuraCaseStudyData = {
       '04 INGREDIENT STORY — THREE MATERIALS',
       '05 THE AZURA COLLECTION — WARDROBE OF MOODS',
       '06 CRAFTED WITH INTENTION — FROM RAW TO SIGNATURE',
-      '07 WORN, REMEMBERED — PRIVATE TESTIMONIALS',
+      '07 WORN, REMEMBERED — EDITORIAL IMPRESSIONS',
       '08 THE PRIVATE LIST — ATELIER INVITATIONS',
     ],
   },
@@ -767,16 +767,16 @@ export const azuraCaseStudyData = {
       {
         key: 'G',
         title: 'Worn, Remembered',
-        category: 'CLIENT IMPRESSIONS',
+        category: 'EDITORIAL IMPRESSIONS',
         image: '/assets/case-studies/azura/azura-testimonial.webp',
-        caption: 'Understated frosted-glass testimonials celebrating personal olfactory memory.',
+        caption: 'Understated frosted-glass review cards celebrating personal olfactory memory.',
       },
       {
         key: 'H',
         title: 'The Private List',
         category: 'ENGAGEMENT & FOOTER',
         image: '/assets/case-studies/azura/azura-final.webp',
-        caption: 'Considered private list access accompanied by the iconic tiger artwork and client care navigation.',
+        caption: 'Considered private list access accompanied by the iconic tiger artwork and customer care navigation.',
       },
     ],
   },
@@ -990,7 +990,7 @@ export const azuraCaseStudyData = {
     heading: 'What This Project\nTaught Me.',
     items: [
       'Luxury web design is defined by what you omit—restraint in typography, pacing, and color creates far more authority than visual excess.',
-      'Pure vanilla web technologies (HTML, CSS, modern ES6+) can deliver world-class interactive experiences without the overhead of heavy JavaScript frameworks.',
+      'Pure vanilla web technologies (HTML, CSS, modern ES6+) can deliver rich, responsive interactive experiences without the overhead of heavy JavaScript frameworks.',
       'Sensory storytelling in digital interfaces succeeds when visual structure mirrors the real-world product journey (top, heart, and base notes).',
       'True responsiveness in editorial layouts means redesigning spatial relationships for vertical mobile screens rather than simply shrinking desktop grids.',
     ],
@@ -1042,7 +1042,7 @@ export const theWeekndCaseStudyData = {
   heroImage: '/assets/case-studies/the-weeknd/weeknd-hero.webp',
 
   facts: [
-    { label: 'TYPE', value: 'Music / Artist Experience' },
+    { label: 'TYPE', value: 'Concept Experience · Fan Tribute' },
     { label: 'ROLE', value: 'Design & Development' },
     { label: 'STACK', value: 'HTML5 · CSS3 · Vanilla JS' },
     { label: 'YEAR', value: '2026' },
@@ -1052,8 +1052,8 @@ export const theWeekndCaseStudyData = {
     marker: '02 / OVERVIEW',
     heading: 'Music Beyond\nthe Screen.',
     paragraphs: [
-      'The project explores a cinematic visual direction for a music-focused website, combining dark imagery, dramatic red lighting, oversized typography and immersive section transitions.',
-      'Inspired by the dark, theatrical universe of The Weeknd’s Hurry Up Tomorrow era, the interface treats each webpage section as an independent visual chapter—balancing monumental scale with intimate detail.',
+      'An unofficial, self-directed conceptual tribute exploring a cinematic visual direction for music-focused web experiences.',
+      'Inspired by the theatrical atmosphere of The Weeknd’s Hurry Up Tomorrow era, the interface treats each section as an independent visual chapter—balancing bold typography, red lighting, and atmospheric staging.',
     ],
     featureCards: [
       {
@@ -1552,7 +1552,7 @@ export const cakeeCaseStudyData = {
     marker: '11 / CONTENT',
     heading: 'Sweet Reads &\nBaking Inspiration.',
     description:
-      'Editorial article cards providing recipes, seasonal decorating tips and ingredient guides that drive organic engagement and baking inspiration.',
+      'Editorial article cards providing recipes, seasonal decorating tips, and baking inspiration.',
     image: '/assets/case-studies/cakee/cakee-blog.webp',
     articles: [
       { title: '5 Tips for the Perfect Chocolate Cake', tag: 'Recipes', readTime: '5 min read' },
@@ -1748,7 +1748,7 @@ export const cakeeCaseStudyData = {
     heading: 'What This Project\nTaught Me.',
     items: [
       'Light and pastel aesthetics demand rigorous contrast discipline—anchoring soft blush tones with rich burgundy and raspberry creates visual clarity without losing warmth.',
-      'Component-level hierarchy is paramount in e-commerce: consistent badge positioning, clear currency pricing, and prominent CTA buttons guide user trust and conversion.',
+      'Component-level hierarchy is paramount in e-commerce: consistent badge positioning, clear currency pricing, and prominent CTA buttons guide user exploration and clear ordering workflows.',
       'Native web standards (HTML5 semantic landmarks, CSS Grid/Flexbox, IntersectionObserver, and localStorage) can deliver complete, responsive e-commerce experiences without external framework dependencies.',
       'Playful design and functional clarity can coexist seamlessly when rounded geometry and friendly typography are backed by structured information architecture.',
     ],
@@ -1818,17 +1818,17 @@ export const coffitooCaseStudyData = {
       {
         value: '20+',
         label: 'Coffee Origins',
-        note: 'Presented in demo UI',
+        note: 'Concept demo UI copy',
       },
       {
         value: '50K+',
         label: 'Happy Customers',
-        note: 'Featured in demo UI',
+        note: 'Concept demo UI copy',
       },
       {
         value: '15+',
         label: 'Years Experience',
-        note: 'Showcased in demo UI',
+        note: 'Concept demo UI copy',
       },
     ],
     featureCards: [

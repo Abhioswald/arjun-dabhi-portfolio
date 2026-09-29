@@ -3,9 +3,9 @@ import './Hero.css';
 
 export default function HeroStats({ statsRef }) {
   const stats = [
-    { value: '10+', label: 'PROJECTS' },
-    { value: '2+', label: 'YEARS LEARNING' },
-    { value: '100%', label: 'PASSION' },
+    { value: '06', label: 'FEATURED PROJECTS' },
+    { value: 'FOCUS', label: 'FRONTEND & MOTION' },
+    { value: 'MINDSET', label: 'ALWAYS LEARNING' },
   ];
 
   return (

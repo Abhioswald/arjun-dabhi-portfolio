@@ -1,9 +1,9 @@
 import { contactInfo } from '../Contact/contactData';
 
 export const statsData = [
-  { number: '10+', label: 'Projects' },
-  { number: '2+', label: 'Years Learning' },
-  { number: '100%', label: 'Dedication' },
+  { number: '06', label: 'Featured Builds' },
+  { number: 'Focus', label: 'Frontend & Motion' },
+  { number: 'Mindset', label: 'Always Learning' },
 ];
 
 export const cardsData = [
@@ -28,12 +28,12 @@ export const cardsData = [
 ];
 
 export const skillsData = [
-  { name: 'HTML & CSS', level: 'Strong', strength: 0.88, iconName: 'FileCode' },
-  { name: 'JavaScript', level: 'Intermediate', strength: 0.76, iconName: 'Cpu' },
-  { name: 'React', level: 'Intermediate', strength: 0.74, iconName: 'Layers' },
-  { name: 'Tailwind CSS', level: 'Intermediate', strength: 0.70, iconName: 'Palette' },
-  { name: 'GSAP', level: 'Learning', strength: 0.58, iconName: 'Sparkles' },
-  { name: 'Git & GitHub', level: 'Intermediate', strength: 0.72, iconName: 'GitBranch' },
+  { name: 'HTML & CSS', level: 'Core', strength: 0.88, iconName: 'FileCode' },
+  { name: 'JavaScript', level: 'Core', strength: 0.76, iconName: 'Cpu' },
+  { name: 'React', level: 'Working With', strength: 0.74, iconName: 'Layers' },
+  { name: 'Tailwind CSS', level: 'Working With', strength: 0.70, iconName: 'Palette' },
+  { name: 'GSAP', level: 'Exploring', strength: 0.58, iconName: 'Sparkles' },
+  { name: 'Git & GitHub', level: 'Working With', strength: 0.72, iconName: 'GitBranch' },
   { name: 'Python', level: 'Learning', strength: 0.52, iconName: 'Terminal' },
 ];
 

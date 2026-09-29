@@ -213,7 +213,7 @@ export default function TheWeekndCaseStudy() {
     <div className="weeknd-case-study" ref={rootRef}>
       <SEO
         title="The Weeknd — Case Study | Arjun Dabhi"
-        description="Cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters."
+        description="Unofficial cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/the-weeknd"
         ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/the-weeknd/weeknd-hero.webp"
         ogImageAlt="The Weeknd cinematic project case study preview"
