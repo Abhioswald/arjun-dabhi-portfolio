@@ -50,9 +50,13 @@ function generateSeoTags(data) {
     `    <meta property="og:image" content="${escapeHtml(data.ogImage)}" />`,
   ];
 
-  if (data.canonical === 'https://arjun-dabhi-portfolio.vercel.app/') {
-    lines.push(`    <meta property="og:image:width" content="1200" />`);
-    lines.push(`    <meta property="og:image:height" content="630" />`);
+  if (data.ogImageWidth || data.canonical) {
+    lines.push(`    <meta property="og:image:width" content="${escapeHtml(data.ogImageWidth || '1200')}" />`);
+    lines.push(`    <meta property="og:image:height" content="${escapeHtml(data.ogImageHeight || '630')}" />`);
+  }
+
+  if (data.ogImageType) {
+    lines.push(`    <meta property="og:image:type" content="${escapeHtml(data.ogImageType)}" />`);
   }
 
   if (data.ogImageAlt) {

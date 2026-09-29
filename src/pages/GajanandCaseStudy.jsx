@@ -188,8 +188,8 @@ export default function GajanandCaseStudy() {
         title="Gajanand Vada Pav — Case Study | Arjun Dabhi"
         description="Gujarati-inspired Vada Pav web experience built with React, Vite, Tailwind CSS, GSAP, and responsive cinematic interactions."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/gajanand"
-        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/gajanand/gajanand-hero.webp"
-        ogImageAlt="Gajanand Vada Pav project case study preview"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/social/gajanand-og.png"
+        ogImageAlt="Gajanand Vada Pav case study by Arjun Dabhi"
       />
 
       {/* Ambient Warm Gujarati Saffron/Clay Background Atmosphere */}

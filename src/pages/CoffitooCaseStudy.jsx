@@ -151,8 +151,8 @@ export default function CoffitooCaseStudy() {
         title="Coffitoo Coffee — Case Study | Arjun Dabhi"
         description="Premium coffee experience built with React and Vite, featuring GSAP, Framer Motion, Lenis, product storytelling, and café-focused design."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/coffitoo"
-        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/coffitoo/coffitoo-hero.webp"
-        ogImageAlt="Coffitoo Coffee project case study preview"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/social/coffitoo-og.png"
+        ogImageAlt="Coffitoo Coffee case study by Arjun Dabhi"
       />
 
       {/* GLOBAL CASE STUDY HEADER */}

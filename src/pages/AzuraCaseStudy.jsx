@@ -216,8 +216,8 @@ export default function AzuraCaseStudy() {
         title="Azura Perfume — Case Study | Arjun Dabhi"
         description="Luxury perfume web experience created with HTML, CSS, and JavaScript, featuring editorial layouts and interactive fragrance presentation."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/azura"
-        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/azura/azura-hero.webp"
-        ogImageAlt="Azura Perfume project case study preview"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/social/azura-og.png"
+        ogImageAlt="Azura Perfume case study by Arjun Dabhi"
       />
 
       {/* Ambient Deep Teal / Gold Luxury Atmospheric Background */}

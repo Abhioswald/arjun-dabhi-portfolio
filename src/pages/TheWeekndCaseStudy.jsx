@@ -215,8 +215,8 @@ export default function TheWeekndCaseStudy() {
         title="The Weeknd — Case Study | Arjun Dabhi"
         description="Unofficial cinematic concept web experience built with HTML, CSS, and JavaScript, structured as a sequence of visual chapters."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/the-weeknd"
-        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/the-weeknd/weeknd-hero.webp"
-        ogImageAlt="The Weeknd cinematic project case study preview"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/social/the-weeknd-og.png"
+        ogImageAlt="The Weeknd unofficial concept case study by Arjun Dabhi"
       />
 
       {/* Ambient Crimson / Blood Red Atmospheric Void */}

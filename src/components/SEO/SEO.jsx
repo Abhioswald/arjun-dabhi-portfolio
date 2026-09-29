@@ -12,6 +12,9 @@ export default function SEO({
   ogImage = 'https://arjun-dabhi-portfolio.vercel.app/og-image.png',
   ogImageAlt = 'Arjun Dabhi — Portfolio Social Preview',
   ogType = 'website',
+  ogImageWidth = '1200',
+  ogImageHeight = '630',
+  ogImageType = 'image/png',
   noindex = false,
   jsonLd = null,
 }) {
@@ -53,6 +56,15 @@ export default function SEO({
     setMeta('property', 'og:description', description);
     setMeta('property', 'og:url', canonical);
     setMeta('property', 'og:image', ogImage);
+    if (ogImageWidth) {
+      setMeta('property', 'og:image:width', ogImageWidth);
+    }
+    if (ogImageHeight) {
+      setMeta('property', 'og:image:height', ogImageHeight);
+    }
+    if (ogImageType) {
+      setMeta('property', 'og:image:type', ogImageType);
+    }
     if (ogImageAlt) {
       setMeta('property', 'og:image:alt', ogImageAlt);
     }
@@ -76,7 +88,7 @@ export default function SEO({
     } else if (scriptEl) {
       scriptEl.remove();
     }
-  }, [title, description, canonical, ogImage, ogImageAlt, ogType, noindex, jsonLd]);
+  }, [title, description, canonical, ogImage, ogImageAlt, ogType, ogImageWidth, ogImageHeight, ogImageType, noindex, jsonLd]);
 
   return null;
 }

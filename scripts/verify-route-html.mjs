@@ -47,6 +47,9 @@ for (const [routePath, expected] of Object.entries(ROUTES_SEO)) {
   const twTitle = unescapeHtml(getTagMatch(/<meta name="twitter:title" content="(.*?)" \/>/));
   const twDesc = unescapeHtml(getTagMatch(/<meta name="twitter:description" content="(.*?)" \/>/));
   const twImage = getTagMatch(/<meta name="twitter:image" content="(.*?)" \/>/);
+  const ogWidth = getTagMatch(/<meta property="og:image:width" content="(.*?)" \/>/);
+  const ogHeight = getTagMatch(/<meta property="og:image:height" content="(.*?)" \/>/);
+  const ogImageType = getTagMatch(/<meta property="og:image:type" content="(.*?)" \/>/);
   const hasJsonLd = html.includes('id="person-schema"');
   const emptyRoot = /<div id="root">\s*<\/div>/.test(html);
 
@@ -88,6 +91,9 @@ for (const [routePath, expected] of Object.entries(ROUTES_SEO)) {
     { name: 'og:url', pass: ogUrl === expected.canonical, actual: ogUrl, expected: expected.canonical },
     { name: 'og:image match', pass: ogImage === expected.ogImage, actual: ogImage, expected: expected.ogImage },
     { name: 'og:image dist file exists', pass: ogFileExists, actual: ogFileExists ? `Found (${ogDiskPath})` : `MISSING (${ogDiskPath})`, expected: 'File exists on disk' },
+    { name: 'og:image:width', pass: ogWidth === (expected.ogImageWidth || '1200'), actual: ogWidth, expected: expected.ogImageWidth || '1200' },
+    { name: 'og:image:height', pass: ogHeight === (expected.ogImageHeight || '630'), actual: ogHeight, expected: expected.ogImageHeight || '630' },
+    { name: 'og:image:type', pass: ogImageType === (expected.ogImageType || 'image/png'), actual: ogImageType, expected: expected.ogImageType || 'image/png' },
     { name: 'og:image:alt', pass: ogImageAlt === (expected.ogImageAlt || null), actual: ogImageAlt, expected: expected.ogImageAlt || null },
     { name: 'twitter:card', pass: twCard === 'summary_large_image', actual: twCard, expected: 'summary_large_image' },
     { name: 'twitter:title', pass: twTitle === expected.title, actual: twTitle, expected: expected.title },

@@ -210,8 +210,8 @@ export default function CakeeCaseStudy() {
         title="Cakee — Case Study | Arjun Dabhi"
         description="Pastel bakery e-commerce concept featuring product discovery, custom cakes, gifting, testimonials, and responsive editorial layouts."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/cakee"
-        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/cakee/cakee-hero.webp"
-        ogImageAlt="Cakee bakery project case study preview"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/social/cakee-og.png"
+        ogImageAlt="Cakee case study by Arjun Dabhi"
       />
 
       {/* ============================================================

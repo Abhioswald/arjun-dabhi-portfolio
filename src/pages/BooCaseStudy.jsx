@@ -168,8 +168,8 @@ export default function BooCaseStudy() {
         title="BOO! Ice Cream — Case Study | Arjun Dabhi"
         description="Interactive ice-cream landing experience built with React, Vite, Tailwind CSS, GSAP, and scroll-scrubbed video interactions."
         canonical="https://arjun-dabhi-portfolio.vercel.app/projects/boo"
-        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/case-studies/boo/boo-hero.webp"
-        ogImageAlt="BOO Ice Cream project case study preview"
+        ogImage="https://arjun-dabhi-portfolio.vercel.app/assets/social/boo-og.png"
+        ogImageAlt="BOO! Ice Cream case study by Arjun Dabhi"
       />
 
       {/* Ambient Project Atmosphere */}
